@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Koze Design &amp; Build</title>
+  <meta name="description" content="Privacy Policy for Koze Design &amp; Build. Learn how we collect and use your information." />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --navy: #002D40;
+      --green: #3E5B58;
+      --gold: #9C7942;
+      --gold-hover: #8a6a37;
+      --light-bg: #f7f6f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --border: #e5e2dc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 48px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--white); box-shadow: 0 1px 0 var(--border);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: none; }
+    #header .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header nav a {
+      font-size: 14px; font-weight: 500; color: var(--navy);
+      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+    }
+    #header nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    /* ─── LEGAL HERO ─── */
+    .legal-hero { background: var(--navy); padding: 140px 48px 60px; }
+    .legal-hero h1 { font-size: clamp(32px, 4vw, 52px); color: var(--white); }
+    .legal-hero p { font-size: 16px; color: rgba(255,255,255,0.6); margin-top: 12px; }
+
+    /* ─── LEGAL CONTENT ─── */
+    .legal-section { padding: 80px 48px 100px; }
+    .legal-content { max-width: 800px; margin: 0 auto; }
+    .legal-content h2 { font-size: clamp(22px, 3vw, 36px); color: var(--navy); margin-bottom: 16px; }
+    .legal-content h3 { font-size: 18px; color: var(--navy); margin-bottom: 10px; margin-top: 40px; }
+    .legal-content p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 16px; }
+    .legal-content ul { margin: 0 0 16px 24px; }
+    .legal-content ul li { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 8px; }
+    .legal-content a { color: var(--gold); text-decoration: none; }
+    .legal-content a:hover { text-decoration: underline; }
+    .legal-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 72px 48px 32px; }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 20px; display: block; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .social-links a:hover { background: var(--gold); }
+    .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .fc-item { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .fc-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .fc-item span { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
+        gap: 24px; z-index: 999;
+      }
+      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      .legal-hero { padding: 120px 24px 48px; }
+      .legal-section { padding: 56px 24px 80px; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-grid .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid .footer-brand { grid-column: span 1; }
+    }
+  </style>
+  <style>
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: #ffffff; min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-top: 2px solid #9C7942;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-size: 13px; font-weight: 500; color: #002D40 !important;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid #e5e2dc;
+      transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    @media (max-width: 900px) {
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu {
+        position: static; opacity: 1; pointer-events: auto;
+        transform: none; box-shadow: none; border-top: none;
+        background: transparent; min-width: unset; width: 100%;
+        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
+        margin-top: 6px; margin-bottom: 4px;
+      }
+      #header nav.open .nav-drop-menu a {
+        color: rgba(255,255,255,0.75) !important; background: transparent;
+        border-bottom: none; font-size: 17px; padding: 7px 0;
+      }
+      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="header" class="solid">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ LEGAL HERO ═══ -->
+<div class="legal-hero">
+  <h1>Privacy Policy</h1>
+  <p>Last updated: June 2025</p>
+</div>
+
+<!-- ═══ LEGAL CONTENT ═══ -->
+<section class="legal-section">
+  <div class="legal-content">
+
+    <h2>Privacy Policy</h2>
+    <p>Koze Design and Build Inc. (&ldquo;Koze,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting the personal information of our website visitors and clients. This Privacy Policy describes how we collect, use, disclose, and safeguard personal information in accordance with the <em>Personal Information Protection Act</em> (BC PIPA), <em>PIPEDA</em> (where applicable), and Canada&rsquo;s Anti-Spam Legislation (CASL).</p>
+    <p>By using our website at <strong>kozedesignbuild.ca</strong> (the &ldquo;Site&rdquo;), you consent to the practices described in this Privacy Policy.</p>
+
+    <hr class="legal-divider" />
+
+    <h3>1. What Information We Collect</h3>
+    <p>We collect personal information that you voluntarily provide to us when you interact with the Site. This may include:</p>
+    <ul>
+      <li><strong>Contact information:</strong> Your name, email address, and phone number submitted through our contact or project inquiry forms;</li>
+      <li><strong>Project information:</strong> Details about your property, project goals, budget range, and construction or renovation plans submitted as part of our qualification questionnaire or project inquiry process;</li>
+      <li><strong>Communication records:</strong> Correspondence you send us via email, phone, or online forms;</li>
+      <li><strong>Usage data:</strong> Non-personally identifiable information about how you interact with the Site, collected through cookies and analytics tools (see Section 6).</li>
+    </ul>
+    <p>We do not collect sensitive personal information (such as financial account details or government identification numbers) through this Site. Any financial information required for project contracts is handled separately and securely outside of this website.</p>
+
+    <h3>2. How We Use Your Information</h3>
+    <p>We use the personal information we collect for the following purposes:</p>
+    <ul>
+      <li><strong>Responding to inquiries:</strong> To review your project inquiry, assess project fit, and respond to your questions in a timely and helpful way;</li>
+      <li><strong>Project intake and qualification:</strong> To evaluate whether your project goals and budget align with our services before scheduling consultations;</li>
+      <li><strong>Project management and communication:</strong> If you proceed with Koze as a client, we use your information to manage the project relationship, coordinate design and construction milestones, and maintain clear communication;</li>
+      <li><strong>Improving our services:</strong> To understand how prospective clients find us and what information is most useful, helping us improve our website and intake process;</li>
+      <li><strong>Legal and contractual obligations:</strong> Where required to fulfil our legal, regulatory, or contractual responsibilities.</li>
+    </ul>
+    <p>We will only use your personal information for the purpose for which it was collected, or for a directly related purpose. We will not use it in a way that you would not reasonably expect.</p>
+
+    <h3>3. Disclosure of Your Information</h3>
+    <p>We do not sell, rent, or trade your personal information to third parties. We do not share your information with third parties for marketing purposes.</p>
+    <p>We may share your information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service providers:</strong> We may engage trusted third-party service providers (such as email hosting, website analytics, or project management software) who process information on our behalf under confidentiality obligations and only as necessary to provide those services;</li>
+      <li><strong>Professional partners:</strong> If your project proceeds, relevant project details (not general personal information) may be shared with architectural, engineering, or design partners under non-disclosure agreements as part of coordinating your project;</li>
+      <li><strong>Legal requirements:</strong> We may disclose information if required to do so by law or in response to a valid legal process, or if we believe in good faith that such disclosure is necessary to protect our rights or the safety of others.</li>
+    </ul>
+
+    <h3>4. Email Communications and CASL Compliance</h3>
+    <p>Koze Design and Build Inc. complies with Canada&rsquo;s Anti-Spam Legislation (CASL). We will only send you commercial electronic messages (such as project updates, newsletters, or promotional communications) if you have provided express or implied consent under CASL.</p>
+    <p>When you submit an inquiry or contact form on this Site, you are providing implied consent to receive communications directly related to your inquiry. If you wish to receive ongoing email communications of a promotional nature, we will ask for your express consent separately.</p>
+    <p>You may withdraw your consent to receive email communications at any time by:</p>
+    <ul>
+      <li>Clicking the &ldquo;Unsubscribe&rdquo; link in any email we send you; or</li>
+      <li>Contacting us directly at <a href="mailto:info@kozedesignbuild.ca">info@kozedesignbuild.ca</a>.</li>
+    </ul>
+    <p>Please allow up to 10 business days for your withdrawal of consent to be processed. Withdrawal of consent does not affect the lawfulness of communications sent before the withdrawal.</p>
+
+    <h3>5. How Long We Retain Your Information</h3>
+    <p>We retain personal information for as long as necessary to fulfil the purposes for which it was collected, or as required by applicable law. Inquiry information from prospective clients who do not proceed to project engagement is generally retained for up to two years. Client project records are retained for a minimum of seven years in accordance with applicable BC business and tax requirements.</p>
+    <p>When personal information is no longer needed, we securely delete or anonymize it.</p>
+
+    <h3>6. Cookies and Analytics</h3>
+    <p>Our Site uses cookies and similar technologies to collect non-personally identifiable information about how visitors use the Site. This may include pages visited, time spent on the Site, and referral sources. This data helps us understand how our Site is performing and where we can improve the visitor experience.</p>
+    <p>We may use third-party analytics tools such as Google Analytics. These tools use their own cookies and are subject to the respective providers&rsquo; privacy policies. We do not use this data to personally identify individual visitors.</p>
+    <p>You may disable cookies through your browser settings. Disabling cookies will not significantly impair your ability to use this Site, though some features may be affected.</p>
+
+    <h3>7. Security of Your Information</h3>
+    <p>We take reasonable administrative, technical, and physical precautions to protect the personal information you provide from unauthorized access, use, or disclosure. Our website uses HTTPS encryption for data transmission. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security.</p>
+    <p>We encourage you to avoid submitting highly sensitive information through web forms and to contact us directly by phone if your inquiry involves confidential details.</p>
+
+    <h3>8. Your Rights Under BC PIPA</h3>
+    <p>Under the <em>Personal Information Protection Act</em> of British Columbia, you have the right to:</p>
+    <ul>
+      <li>Request access to the personal information we hold about you;</li>
+      <li>Request correction of any inaccurate or incomplete personal information we hold about you;</li>
+      <li>Withdraw consent to the collection, use, or disclosure of your personal information (subject to legal and contractual restrictions);</li>
+      <li>Make a complaint about our privacy practices.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us in writing at the address below. We will respond to access and correction requests within 30 days, or notify you if an extension is required.</p>
+
+    <h3>9. Children&rsquo;s Privacy</h3>
+    <p>This Site is not directed to children under the age of 16. We do not knowingly collect personal information from children under 16. If you believe a child has submitted personal information to us, please contact us and we will take steps to remove it promptly.</p>
+
+    <h3>10. Third-Party Links</h3>
+    <p>Our Site may contain links to third-party websites (including social media platforms such as Facebook and Instagram). This Privacy Policy does not apply to those sites. We encourage you to review the privacy policies of any third-party site before providing personal information.</p>
+
+    <h3>11. Changes to This Privacy Policy</h3>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. The &ldquo;Last updated&rdquo; date at the top of this page indicates when the Policy was most recently revised. We encourage you to review this Policy periodically. Continued use of the Site following any changes constitutes your acceptance of the revised Policy.</p>
+
+    <h3>12. Contact Us &mdash; Privacy Inquiries</h3>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or our handling of your personal information, please contact our Privacy Officer:</p>
+    <p>
+      <strong>Privacy Officer<br />
+      Koze Design and Build Inc.</strong><br />
+      19554 Hammond Road<br />
+      Pitt Meadows, BC V3Y 1L5<br />
+      <a href="mailto:info@kozedesignbuild.ca">info@kozedesignbuild.ca</a><br />
+      <a href="tel:+16043157095">(604) 315-7095</a>
+    </p>
+    <p>If you are not satisfied with our response to a privacy complaint, you have the right to contact the <a href="https://www.oipc.bc.ca" target="_blank" rel="noopener">Office of the Information and Privacy Commissioner for British Columbia</a> at <strong>oipc.bc.ca</strong>.</p>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="custom-homes.html">Custom Homes</a></li>
+      <li><a href="renovations.html">Major Renovations</a></li>
+      <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+      <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+      <li><a href="design-build.html">Design-Build</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="process.html">Our Process</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contact</h5>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon &ndash; Fri, 8:00am &ndash; 5:00pm</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+</script>
+</body>
+</html>

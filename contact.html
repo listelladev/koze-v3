@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Koze Design &amp; Build</title>
+  <meta name="description" content="Get in touch with Koze Design &amp; Build. Start your custom home or renovation project in the Lower Mainland, BC. Schedule a consultation with Jason Craig." />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --navy: #002D40;
+      --green: #3E5B58;
+      --gold: #9C7942;
+      --gold-hover: #8a6a37;
+      --light-bg: #f7f6f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --border: #e5e2dc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 48px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--white); box-shadow: 0 1px 0 var(--border);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: none; }
+    #header .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header nav a {
+      font-size: 14px; font-weight: 500; color: var(--navy);
+      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+    }
+    #header nav a:hover { color: var(--gold); }
+    #header nav a.active { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: background 0.3s; }
+
+    /* ─── BUTTONS ─── */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-navy {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; transition: background 0.3s, transform 0.2s;
+    }
+    .btn-navy:hover { background: #003d56; transform: translateY(-1px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-size: 15px; font-weight: 500; padding: 15px 32px;
+      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    /* ─── SECTION BASICS ─── */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      display: block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px;
+    }
+    .eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .divider { width: 40px; height: 3px; background: var(--gold); margin: 28px 0; }
+    .light-bg { background: var(--light-bg); }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header { background: var(--navy); padding: 140px 48px 60px; }
+    .page-header .section-label { color: rgba(255,255,255,0.45); }
+    .page-header h1 { font-size: clamp(30px, 4.5vw, 58px); font-weight: 500; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; max-width: 640px; }
+    .page-header p { font-size: 18px; color: rgba(255,255,255,0.68); line-height: 1.75; max-width: 600px; }
+
+    /* ─── CONTACT FORM LAYOUT ─── */
+    .contact-main-grid {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 60px;
+      align-items: start; max-width: 1200px; margin: 0 auto;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px 16px; border: 1px solid var(--border); background: var(--white);
+      font-family: "loos-normal", sans-serif; font-size: 15px; font-weight: 200; color: var(--text-dark);
+      outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23002D40' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-color: var(--white);
+    }
+    .form-submit { margin-top: 8px; }
+    .form-submit .btn-gold { width: 100%; justify-content: center; font-size: 16px; padding: 18px 34px; }
+    .form-note { font-size: 13px; color: var(--text-mid); margin-top: 12px; line-height: 1.6; }
+
+    /* ─── CONTACT INFO BOX ─── */
+    .contact-info-box { background: var(--navy); padding: 48px 40px; height: fit-content; }
+    .contact-info-box h3 { font-size: 20px; color: var(--white); margin-bottom: 32px; font-weight: 500; }
+    .cib-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px; }
+    .cib-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
+    .cib-item span { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .cib-item strong { color: var(--white); display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+    .cib-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 28px 0; }
+    .cib-note { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 28px; }
+    .cib-social { display: flex; gap: 10px; }
+    .cib-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .cib-social a:hover { background: var(--gold); }
+    .cib-social a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
+
+    /* ─── FAQ ─── */
+    .faq-inner { max-width: 800px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header .eyebrow { color: var(--green); }
+    .faq-header h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 500; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      font-family: "loos-wide", sans-serif; font-size: 16px; font-weight: 500; color: var(--navy); line-height: 1.4;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-icon {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: rgba(0,45,64,0.08); display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .faq-icon svg { width: 12px; height: 12px; stroke: var(--navy); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .faq-item.open .faq-icon { background: var(--gold); transform: rotate(45deg); }
+    .faq-item.open .faq-icon svg { stroke: white; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { font-size: 15px; color: var(--text-mid); line-height: 1.8; padding-bottom: 24px; }
+
+    /* ─── SERVICE AREAS ─── */
+    .areas-navy { background: var(--navy); padding: 100px 48px; }
+    .areas-navy-inner { max-width: 1200px; margin: 0 auto; }
+    .areas-navy-header { text-align: center; margin-bottom: 48px; }
+    .areas-navy-header .section-label { color: rgba(255,255,255,0.45); }
+    .areas-navy-header h2 { font-size: clamp(26px, 3.5vw, 44px); font-weight: 500; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; }
+    .contact-areas {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 40px;
+    }
+    .contact-area-item {
+      padding: 20px 16px; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08); text-align: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .contact-area-item:hover { background: rgba(255,255,255,0.10); border-color: rgba(156,121,66,0.35); }
+    .contact-area-name { font-size: 14px; font-weight: 500; color: var(--white); display: block; margin-bottom: 4px; }
+    .contact-area-badge { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+
+    /* ─── MAP ─── */
+    #map { height: 480px; }
+    #map iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(15%) contrast(0.95); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 72px 48px 32px; }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 20px; display: block; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .social-links a:hover { background: var(--gold); }
+    .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .fc-item { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .fc-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .fc-item span { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0.1s !important; }
+    .d2 { transition-delay: 0.2s !important; }
+    .d3 { transition-delay: 0.3s !important; }
+    .d4 { transition-delay: 0.4s !important; }
+    .d5 { transition-delay: 0.5s !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
+        gap: 24px; z-index: 999;
+      }
+      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      section { padding: 72px 24px; }
+      .page-header { padding: 120px 24px 52px; }
+      .contact-main-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-areas { grid-template-columns: repeat(2, 1fr); }
+      .areas-navy { padding: 72px 24px; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-grid .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .contact-areas { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid .footer-brand { grid-column: span 1; }
+    }
+  </style>
+  <style>
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: #ffffff; min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-top: 2px solid #9C7942;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-size: 13px; font-weight: 500; color: #002D40 !important;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid #e5e2dc;
+      transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    @media (max-width: 900px) {
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu {
+        position: static; opacity: 1; pointer-events: auto;
+        transform: none; box-shadow: none; border-top: none;
+        background: transparent; min-width: unset; width: 100%;
+        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
+        margin-top: 6px; margin-bottom: 4px;
+      }
+      #header nav.open .nav-drop-menu a {
+        color: rgba(255,255,255,0.75) !important; background: transparent;
+        border-bottom: none; font-size: 17px; padding: 7px 0;
+      }
+      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="header" class="solid">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ PAGE HEADER ═══ -->
+<div class="page-header">
+  <div class="section-inner">
+    <span class="section-label reveal">Let's Build Something Together</span>
+    <h1 class="reveal d1">Start Your Project</h1>
+    <p class="reveal d2">Tell us about your vision. We'll review your goals, discuss what's realistic for your budget, and let you know if we're the right fit — no pressure, no obligation.</p>
+  </div>
+</div>
+
+<!-- ═══ CONTACT FORM + INFO ═══ -->
+<section class="light-bg">
+  <div class="contact-main-grid">
+
+    <!-- LEFT: FORM -->
+    <div class="reveal-left">
+      <form class="contact-form" action="#" method="POST" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Jane" autocomplete="given-name" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Smith" autocomplete="family-name" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(604) 555-0100" autocomplete="tel" />
+        </div>
+
+        <div class="form-group">
+          <label for="project-type">Project Type</label>
+          <select id="project-type" name="project_type" required>
+            <option value="" disabled selected>Select a project type…</option>
+            <option value="custom-home">Custom Home</option>
+            <option value="remodel">Major Renovation</option>
+            <option value="adu">ADU or Coach Home</option>
+            <option value="ssmuh">Small-Scale Multi-Unit</option>
+            <option value="design-build">Design-Build</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Estimated Budget</label>
+          <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select a budget range…</option>
+            <option value="under-500k">Under $500K</option>
+            <option value="500k-750k">$500K – $750K</option>
+            <option value="750k-1m">$750K – $1M</option>
+            <option value="1m-1.5m">$1M – $1.5M</option>
+            <option value="1.5m-plus">$1.5M+</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Project Location / City</label>
+          <input type="text" id="location" name="location" placeholder="e.g. Pitt Meadows, Maple Ridge, Coquitlam…" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell Us About Your Project</label>
+          <textarea id="message" name="message" placeholder="Describe your vision, goals, property details, and any questions you have. The more context you share, the better we can prepare for our first conversation."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-gold">Send Your Inquiry &rarr;</button>
+        </div>
+
+        <p class="form-note">By submitting this form you agree that Koze Design &amp; Build may contact you about your project. We don't share your information with third parties.</p>
+
+      </form>
+    </div>
+
+    <!-- RIGHT: INFO BOX -->
+    <div class="reveal-right">
+      <div class="contact-info-box">
+        <h3>Get in Touch</h3>
+
+        <div class="cib-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>
+            <strong>Office Address</strong>
+            19554 Hammond Rd.<br />
+            Pitt Meadows, BC V3Y 1L5
+          </span>
+        </div>
+
+        <div class="cib-item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>
+            <strong>Phone</strong>
+            <a href="tel:+16043157095" style="color: rgba(255,255,255,0.65); text-decoration: none;">(604) 315-7095</a>
+          </span>
+        </div>
+
+        <div class="cib-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>
+            <strong>Email</strong>
+            <a href="mailto:info@kozedesignbuild.ca" style="color: rgba(255,255,255,0.65); text-decoration: none;">info@kozedesignbuild.ca</a>
+          </span>
+        </div>
+
+        <div class="cib-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>
+            <strong>Office Hours</strong>
+            Monday – Friday<br />
+            8:00am – 5:00pm
+          </span>
+        </div>
+
+        <hr class="cib-divider" />
+
+        <p class="cib-note">We typically respond within 1 business day. After receiving your inquiry, we'll reach out to schedule a complimentary discovery call.</p>
+
+        <div class="cib-social">
+          <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section>
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="eyebrow reveal">Common Questions</span>
+      <h2 class="reveal d1">Before We Connect</h2>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is there a cost for the initial consultation?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>No — the initial discovery call is complimentary. We want to learn about your project and determine if we're the right fit before either party invests significant time. There's no obligation and no pressure. If we're not the right match, we'll tell you honestly and point you in the right direction if we can.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How quickly do you respond to inquiries?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>We aim to respond within one business day. After receiving your inquiry, we'll reach out to schedule a discovery call at a time that works for you. We take every inquiry seriously — if you're a good fit for what we do, we want to move quickly to get the conversation started.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What information should I have ready when I reach out?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>It helps to have a general sense of your goals, your budget range, your property address or target area, and your ideal timeline. Nothing needs to be finalized — the conversation is exploratory. We'll ask questions and listen carefully. The more honest you can be about your budget, the more useful we can be in return.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d3">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you work outside the Lower Mainland?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>Our primary service area is the Lower Mainland of BC — from the Fraser Valley to the North Shore and Greater Vancouver. If your project is outside our listed areas, reach out anyway — we evaluate requests on a case-by-case basis. Distance isn't always a dealbreaker for the right project.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d4">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is your minimum project size?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>Our target minimum project budget is $500,000. We work with clients who understand that quality craftsmanship and a well-managed process represent a real investment — one that pays off over the life of a well-built home. Our average project is approximately $800,000–$1M. If you're unsure whether your budget qualifies, reach out and we'll have an honest conversation about what's achievable.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SERVICE AREAS ═══ -->
+<div class="areas-navy">
+  <div class="areas-navy-inner">
+    <div class="areas-navy-header reveal">
+      <span class="section-label">Where We Build</span>
+      <h2>Serving the Lower Mainland</h2>
+    </div>
+    <div class="contact-areas">
+      <div class="contact-area-item reveal d1">
+        <span class="contact-area-name">Pitt Meadows</span>
+        <span class="contact-area-badge">Home Base</span>
+      </div>
+      <div class="contact-area-item reveal d2">
+        <span class="contact-area-name">Maple Ridge</span>
+        <span class="contact-area-badge">Primary</span>
+      </div>
+      <div class="contact-area-item reveal d3">
+        <span class="contact-area-name">Coquitlam</span>
+        <span class="contact-area-badge">Primary</span>
+      </div>
+      <div class="contact-area-item reveal d4">
+        <span class="contact-area-name">Burnaby</span>
+        <span class="contact-area-badge">Primary</span>
+      </div>
+      <div class="contact-area-item reveal d5">
+        <span class="contact-area-name">Langley</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+      <div class="contact-area-item reveal d1">
+        <span class="contact-area-name">South Surrey</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+      <div class="contact-area-item reveal d2">
+        <span class="contact-area-name">Vancouver</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+      <div class="contact-area-item reveal d3">
+        <span class="contact-area-name">North Vancouver</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+      <div class="contact-area-item reveal d4">
+        <span class="contact-area-name">West Vancouver</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+      <div class="contact-area-item reveal d5">
+        <span class="contact-area-name">Richmond</span>
+        <span class="contact-area-badge">Serving</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAP ═══ -->
+<div id="map">
+  <iframe
+    src="https://maps.google.com/maps?q=19554+Hammond+Rd+Pitt+Meadows+BC+V3Y+1L5&output=embed"
+    title="Koze Design &amp; Build — Office Location"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="custom-homes.html">Custom Homes</a></li>
+      <li><a href="renovations.html">Major Renovations</a></li>
+      <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+      <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+      <li><a href="design-build.html">Design-Build</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="process.html">Our Process</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contact</h5>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon – Fri, 8:00am – 5:00pm</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+  });
+
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Process | Koze Design &amp; Build</title>
+  <meta name="description" content="Discover the Koze Design &amp; Build process, from initial consultation through design, permitting, construction, and handover. One team. One process. One fixed price." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <link rel="stylesheet" href="public/css/koze.css" />
+  <style>
+    /* ─── FONT & BASE OVERRIDES ─── */
+    :root { --off-white: #F9F7F2; }
+    body { font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
+    .eyebrow { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .section-label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .section-inner { max-width: none; margin: 0; }
+    section { padding: 100px 60px; }
+    .faq-q { font-family: 'Good Sans', 'DM Sans', sans-serif; }
+    .faq-icon { background: none !important; width: 20px; height: 20px; }
+    .faq-icon svg { stroke: var(--gold) !important; }
+    .faq-item.open .faq-icon { background: none !important; transform: rotate(45deg); }
+    .faq-item.open .faq-icon svg { stroke: var(--gold) !important; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .process-hero-inner { animation: heroFadeUp 1s ease 0.2s both; }
+
+    /* ─── HERO ─── */
+    .process-hero {
+      position: relative; padding: 180px 60px 100px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; min-height: 420px;
+    }
+    .process-hero .hero-bg {
+      position: absolute; height: 140%; top: -20%; left: 0; right: 0;
+      background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg');
+      background-size: cover; background-position: center center;
+      will-change: transform; transition: none;
+    }
+    .process-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
+    .process-hero-inner { position: relative; z-index: 1; }
+    .process-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+    .process-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .process-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
+
+    /* ─── PROBLEM STATEMENT ─── */
+    .problem-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .problem-inner h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin: 16px 0 28px; }
+    .problem-inner p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px; }
+
+    /* ─── STEPS INTRO BANNER ─── */
+    .steps-intro { background: var(--navy); padding: 72px 60px; }
+    .steps-intro-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .steps-intro h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); max-width: 640px; }
+    .steps-intro p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 400px; }
+
+    /* ─── STEP ROWS ─── */
+    .step-row { overflow: hidden; }
+    .step-row:not(.step-alt) { background: var(--off-white); }
+    .step-row.step-alt { background: var(--off-white); }
+    .step-row-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
+    .step-alt .step-img { order: 2; }
+    .step-alt .step-content { order: 1; }
+    .step-img { position: relative; overflow: hidden; }
+    .step-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .step-img:hover img { transform: scale(1.04); }
+    .step-content { padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
+    .step-phase-label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .step-content h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-bottom: 20px; }
+    .step-content p { font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-bottom: 20px; }
+    .step-outcomes { list-style: none; border-top: 1px solid var(--border); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .step-outcomes li { font-size: 14px; color: var(--text-mid); display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; }
+    .step-outcomes li::before {
+      content: ''; flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%239C7942' d='M8.3 13.7L4.5 9.9l1.4-1.4 2.4 2.4 5.8-5.8 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* ─── WHY ONE TEAM ─── */
+    .why-section { position: relative; overflow: hidden; }
+    .why-section .why-bg {
+      position: absolute; height: 140%; top: -20%; left: 0; right: 0;
+      background-image: url('public/19452-fraser-unit-15/koze-fraser-web-34.jpg');
+      background-size: cover; background-position: center;
+      will-change: transform; transition: none;
+    }
+    .why-section::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.78); }
+    .why-section-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .why-left .section-label { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .why-left h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin: 16px 0 28px; }
+    .why-left p { font-size: 16px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 18px; }
+    .why-right { padding-top: 8px; }
+    .why-list { list-style: none; }
+    .why-list li { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.6; }
+    .why-list li:last-child { border-bottom: none; }
+    .why-list li::before {
+      content: ''; flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%239C7942' d='M8.3 13.7L4.5 9.9l1.4-1.4 2.4 2.4 5.8-5.8 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testi-proc-wrap { background: var(--navy); padding: 100px 60px; overflow: hidden; }
+    .testi-header { text-align: center; margin-bottom: 56px; }
+    .testi-header .eyebrow { color: var(--gold); }
+    .testi-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .testi-track-wrap { overflow: hidden; }
+    .testi-track { display: flex; gap: 24px; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .testi-card { flex: 0 0 calc(50% - 12px); border: 1px solid rgba(255,255,255,0.14); padding: 44px 40px; }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 1.8vw, 22px); font-weight: 400; font-style: italic; color: var(--white); line-height: 1.65; margin-bottom: 28px; }
+    .testi-cite { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+    .testi-cite strong { color: var(--gold); }
+    .testi-nav { display: flex; justify-content: flex-end; gap: 28px; margin-top: 28px; align-items: center; }
+    .testi-nav-btn { background: none; border: none; cursor: pointer; padding: 6px; color: rgba(255,255,255,0.45); transition: color 0.3s; }
+    .testi-nav-btn svg { width: 32px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+    .testi-nav-btn:hover { color: var(--gold); }
+
+    /* ─── BOTTOM CTA ─── */
+    .bottom-cta .bg { inset: auto; top: -20%; left: 0; right: 0; height: 140%; will-change: transform; transition: none; }
+    .bottom-cta::after { background: rgba(0,0,0,0.65) !important; }
+    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 49px) !important; letter-spacing: 0.04em !important; line-height: 1.08 !important; }
+    .bottom-cta p { font-size: 16px !important; }
+    .btn-gold { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 11px !important; font-weight: 600; letter-spacing: 0.12em !important; text-transform: uppercase !important; padding: 12px 26px !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      section { padding: 72px 24px; }
+      .process-hero { padding: 120px 24px 56px; }
+      .steps-intro { padding: 48px 24px; }
+      .steps-intro-inner { flex-direction: column; gap: 24px; }
+      .step-row-inner { grid-template-columns: 1fr; }
+      .step-alt .step-img { order: 0; }
+      .step-alt .step-content { order: 0; }
+      .step-img { min-height: 280px; position: relative; }
+      .step-content { padding: 48px 24px; }
+      .why-section-inner { grid-template-columns: 1fr; gap: 40px; }
+      .testi-proc-wrap { padding: 72px 24px; }
+      .testi-card { flex: 0 0 100%; padding: 36px 28px; }
+      .testi-nav { justify-content: center; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-grid .footer-brand { grid-column: span 2; }
+    }
+  </style>
+  <style>
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 40px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header.scrolled { background: var(--off-white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 32px; }
+    #header nav a {
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.9); transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: var(--off-white); min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-top: 2px solid var(--gold);
+      opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease; z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--navy) !important; text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: background 0.2s, color 0.2s !important; white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: rgba(156,121,66,0.08); color: var(--gold) !important; }
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px; gap: 24px; z-index: 999; }
+      #header nav.open a { font-size: 20px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border-top: none; background: transparent; min-width: unset; width: 100%; padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45); margin-top: 6px; margin-bottom: 4px; }
+      #header nav.open .nav-drop-menu a { color: rgba(255,255,255,0.75) !important; background: transparent; border-bottom: none; font-size: 15px; padding: 7px 0; }
+      #header nav.open .nav-drop-menu a:hover { color: var(--gold) !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="process-hero">
+  <div class="hero-bg parallax-bg" data-parallax></div>
+  <div class="process-hero-inner">
+    <h1>Our <em>Process</em></h1>
+    <div class="header-rule"></div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM STATEMENT ═══ -->
+<section style="background: var(--off-white);">
+  <div class="problem-inner reveal">
+    <span class="section-label">Why Process Matters</span>
+    <h2>Most Build Stress Comes From <em>Not Knowing</em> What's Next.</h2>
+    <p>The stories you've heard about custom builds and renovations gone wrong, the budget surprises, the contractor who goes silent, the price that keeps creeping, almost always trace back to the same root cause. There was no clearly defined process from the start.</p>
+    <p>When there's no structure, clients are left guessing. Design decisions get made without budget context. Scope creeps without explanation. And you end up managing a project you hired a builder to manage for you.</p>
+    <p>One of the reasons Koze is one of the Lower Mainland's trusted design-build firms is that we do so much more than just build. Our team is with you every step of the way, from initial vision, through design, construction, and all the way to handover. That's why you shouldn't wait until you have full architectural plans to call us. The value we provide multiplies the earlier you bring us in.</p>
+  </div>
+</section>
+
+<!-- ═══ STEPS INTRO BANNER ═══ -->
+<div class="steps-intro reveal">
+  <div class="steps-intro-inner">
+    <h2>Five Steps. <em>One Price.</em> No&nbsp;Surprises.</h2>
+    <p>Every Koze project follows the same structured process, designed around the moments where builds typically go wrong, and built to prevent each one.</p>
+  </div>
+</div>
+
+<!-- ═══ STEP 01 ═══ -->
+<div class="step-row">
+  <div class="step-row-inner">
+    <div class="step-img reveal">
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-5.jpg" alt="Initial Consultation" />
+    </div>
+    <div class="step-content reveal d1">
+      <span class="step-phase-label">Step 01: Initial Consultation</span>
+      <h2>We Start With <em>You.</em></h2>
+      <p>We begin with an in-depth discussion to understand your vision, your needs, and your budget. This is not a sales pitch, it's a real conversation. We provide honest advice and insights to shape your project before anything is committed to paper.</p>
+      <p>Most builders wait for you to arrive with full plans. We believe the value we provide multiplies when you bring us in from the very start, before the design is locked in and before costly assumptions are made.</p>
+      <ul class="step-outcomes">
+        <li>Clear understanding of your goals, lifestyle, and budget</li>
+        <li>Honest read on what's realistic for your investment</li>
+        <li>Expert guidance on project scope and direction before design begins</li>
+        <li>No obligation, just a real conversation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STEP 02 ═══ -->
+<div class="step-row step-alt">
+  <div class="step-row-inner">
+    <div class="step-img reveal">
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-9.jpg" alt="Design and Engineering" />
+    </div>
+    <div class="step-content reveal d1">
+      <span class="step-phase-label">Step 02: Design &amp; Engineering</span>
+      <h2>The Right Team Around Your <em>Vision.</em></h2>
+      <p>We've built strong working relationships with the Lower Mainland's premier designers and engineers. We make the introductions, matching the best fit for your proposed style and needs. Once retained, we collaborate closely with your design team to create a home that fits within all of your desired function, design, and cost expectations.</p>
+      <p>Because we're involved from day one, design decisions are made with construction costs in mind. This alignment is why our budgets are more accurate and our projects more predictable than the traditional approach of hiring separately.</p>
+      <ul class="step-outcomes">
+        <li>Introductions to vetted architects, interior designers, and engineers</li>
+        <li>Collaborative design process, budget stays front and centre throughout</li>
+        <li>Floor plans, exterior concepts, and interior selections coordinated</li>
+        <li>Full review before moving to permitting</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STEP 03 ═══ -->
+<div class="step-row">
+  <div class="step-row-inner">
+    <div class="step-img reveal">
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-24.jpg" alt="Permitting" />
+    </div>
+    <div class="step-content reveal d1">
+      <span class="step-phase-label">Step 03: Permitting</span>
+      <h2>We Handle the <em>Complexity.</em></h2>
+      <p>Koze manages the permit application process with a professional and coordinated approach to keep things moving. We oversee the preparation and submission of permit documents, coordinate with required consultants and design professionals, and act as the central point of contact throughout the review process.</p>
+      <p>Our team works closely with municipalities, responds to plan check comments, coordinates revisions, and tracks progress to help avoid unnecessary delays. By managing this process carefully and proactively, we bring clarity to one of the most complex stages of any build.</p>
+      <ul class="step-outcomes">
+        <li>Full permit document preparation and submission managed</li>
+        <li>Coordination with all required consultants</li>
+        <li>Municipality liaison, we respond to comments and track revisions</li>
+        <li>You stay informed without having to manage the process yourself</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STEP 04 ═══ -->
+<div class="step-row step-alt">
+  <div class="step-row-inner">
+    <div class="step-img reveal">
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-27.jpg" alt="Construction" />
+    </div>
+    <div class="step-content reveal d1">
+      <span class="step-phase-label">Step 04: Construction</span>
+      <h2>We Build What We <em>Promised.</em></h2>
+      <p>At Koze, we handle all aspects of construction, serving as the single point of contact for all subcontractors, consultants, vendors, and city inspectors. Issues are resolved as they arise, not passed along to you. Construction is overseen by your Project Manager, who is on-site daily ensuring all work is completed to specification, using the highest quality building materials and techniques.</p>
+      <p>With a fixed price and finalized plans already in place, construction begins with clarity on both sides. You receive regular updates throughout, and never have to wonder what's happening on your site.</p>
+      <ul class="step-outcomes">
+        <li>Single point of contact for all trades, vendors, and inspectors</li>
+        <li>Dedicated Project Manager on-site daily</li>
+        <li>Regular progress updates throughout every phase</li>
+        <li>Issues resolved proactively, never passed on to you</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STEP 05 ═══ -->
+<div class="step-row">
+  <div class="step-row-inner">
+    <div class="step-img reveal">
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-31.jpg" alt="Handover" />
+    </div>
+    <div class="step-content reveal d1">
+      <span class="step-phase-label">Step 05: Handover</span>
+      <h2>Done <em>Right.</em> Fully Documented.</h2>
+      <p>Our in-depth project close-out process includes a full inspection of your completed home. Jason Craig personally joins you and your Project Manager for a detailed final walkthrough to compile the punch list, every item reviewed and resolved before the keys change hands.</p>
+      <p>Upon move-in, you receive a Comprehensive Close-Out Package: copies of all contracts, invoices, releases, city documents, manuals, warranties, and photographic documentation of your project. This is what a properly closed project looks like.</p>
+      <ul class="step-outcomes">
+        <li>Full final inspection before walkthrough</li>
+        <li>Detailed punch list walkthrough with Jason and your PM</li>
+        <li>Comprehensive Close-Out Package, all documents, warranties, and photos</li>
+        <li>Support available after move-in, we don't disappear at handover</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHY ONE TEAM ═══ -->
+<section class="why-section">
+  <div class="why-bg parallax-bg" data-parallax></div>
+  <div class="why-section-inner">
+    <div class="why-left reveal">
+      <span class="section-label">Why It Works</span>
+      <h2>One Team <em>Changes</em> Everything.</h2>
+      <p>In traditional construction, the architect designs what looks good on paper. The contractor builds at the lowest cost. The client sits in the middle managing conflicts between professionals who have never worked together and have no shared accountability for the outcome.</p>
+      <p>In Koze's design-build model, design decisions are made with construction costs in mind from the start, because the same team is responsible for both. This is why our budgets are more accurate, our timelines more predictable, and our results more consistent.</p>
+    </div>
+    <div class="why-right reveal d2">
+      <ul class="why-list">
+        <li>A fixed-scope budget established before a single permit is pulled</li>
+        <li>One point of contact from first conversation to final walkthrough</li>
+        <li>Design that stays protected through every phase of construction</li>
+        <li>Vetted trade partners held to a consistent standard on every project</li>
+        <li>Proactive communication, you're never left wondering what's happening</li>
+        <li>A finished home that reflects exactly what you envisioned at the start</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section style="background: var(--off-white);">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Before We <em>Connect</em></h2>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I need to have architectural plans before contacting you?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Not at all, and you shouldn't wait. Many clients come to us with nothing more than a general idea or a property address. The value we provide multiplies when you bring us in from the start, before designs are locked in or costly assumptions are made. We guide the full process from initial concept through design, permitting, and construction.</p></div>
+    </div>
+
+    <div class="faq-item reveal d1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        When do I find out what my project will cost?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We provide an honest budget range during the initial consultation, before any design work begins. A fixed-price contract is issued after the full design and pre-construction phase is complete: once plans are finalized, all selections are made, and scope is fully defined. You know the exact number before construction starts.</p></div>
+    </div>
+
+    <div class="faq-item reveal d2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What if my goals and budget don't align?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We'll tell you early, during the initial consultation, before any design investment is made. We'd rather have an honest conversation than set expectations we can't meet. Clarity first, construction second. If there's a gap between goals and budget, we'll explain what's realistic and what options exist to close it.</p></div>
+    </div>
+
+    <div class="faq-item reveal d3">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How involved do I need to be during the build?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>As involved as you want to be. Some clients visit the site regularly; others prefer weekly updates and trust us to manage the day-to-day. Either way, you'll never have to chase us for answers. We provide proactive updates throughout every phase, and your dedicated Project Manager is on-site daily.</p></div>
+    </div>
+
+    <div class="faq-item reveal d4">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens if something changes after the contract is signed?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Any client-initiated scope change is handled transparently, documented with clear cost and timeline implications before anything moves forward. We never make changes without your approval and you're never surprised by a bill at the end. Our goal is that the price you signed is the price you pay.</p></div>
+    </div>
+
+    <div class="faq-item reveal d5">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long does the full process take?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>A full custom home typically takes 12–18 months from design through occupancy. Major whole-home renovations range from 6–12 months depending on scope. The design and pre-construction phase typically takes 3–6 months. We provide a clear project timeline during pre-construction so you can plan with confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testi-proc-wrap">
+  <div class="section-inner">
+    <div class="testi-header reveal">
+      <span class="eyebrow">What Clients Say</span>
+      <h2 class="reveal d1">Built on <em>Trust</em></h2>
+    </div>
+    <div class="testi-track-wrap reveal d1">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;Jason and the Koze team made the entire process feel manageable. We always knew where our money was going, and the finished home exceeded everything we&rsquo;d imagined.&rdquo;</div>
+          <div class="testi-cite"><strong>K. &amp; T. Hartmann</strong>, Custom Home, Pitt Meadows BC</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;What stood out was their honesty from day one. They told us upfront what was realistic for our budget, and then delivered exactly what they promised.&rdquo;</div>
+          <div class="testi-cite"><strong>M. &amp; S. Erikson</strong>, Major Renovation, Maple Ridge BC</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;We&rsquo;d worked with contractors before who kept moving the goalposts. Koze gave us a fixed price and held to it. That alone was worth everything.&rdquo;</div>
+          <div class="testi-cite"><strong>D. Patel</strong>, ADU Build, Coquitlam BC</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-nav reveal d2">
+      <button class="testi-nav-btn" onclick="shiftTesti(-1)" aria-label="Previous">
+        <svg viewBox="0 0 32 14"><line x1="30" y1="7" x2="6" y2="7"/><polyline points="12,1 5,7 12,13"/></svg>
+      </button>
+      <button class="testi-nav-btn" onclick="shiftTesti(1)" aria-label="Next">
+        <svg viewBox="0 0 32 14"><line x1="2" y1="7" x2="26" y2="7"/><polyline points="20,1 27,7 20,13"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOTTOM CTA ═══ -->
+<div class="bottom-cta">
+  <div class="bg parallax-bg" data-parallax style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-32.jpg');"></div>
+  <div class="content reveal">
+    <span class="eyebrow">Ready to Begin?</span>
+    <h2>Start With <em>a Conversation.</em></h2>
+    <p>Tell us about your project. We'll give you an honest read on what's achievable, discuss your budget, and let you know if we're the right fit, no pressure, no obligation.</p>
+    <div class="btn-group">
+      <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="custom-homes.html">Custom Homes</a></li>
+        <li><a href="renovations.html">Major Renovations</a></li>
+        <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+        <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+        <li><a href="design-build.html">Design-Build</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>(604) 315-7095</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>info@kozedesignbuild.ca</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Mon – Fri, 8:00am – 5:00pm</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Testimonial slider
+  let testiIdx = 0;
+  function testiVisible() { return window.innerWidth <= 900 ? 1 : 2; }
+  function testiMax() { return 3 - testiVisible(); }
+  function shiftTesti(dir) {
+    testiIdx = Math.max(0, Math.min(testiIdx + dir, testiMax()));
+    const track = document.getElementById('testiTrack');
+    const card = track.querySelector('.testi-card');
+    const gap = window.innerWidth <= 900 ? 0 : 24;
+    track.style.transform = 'translateX(-' + (testiIdx * (card.offsetWidth + gap)) + 'px)';
+  }
+  window.addEventListener('resize', () => { testiIdx = Math.min(testiIdx, testiMax()); shiftTesti(0); });
+
+  // Parallax
+  const pxEls = document.querySelectorAll('[data-parallax]');
+  function runParallax() {
+    pxEls.forEach(el => {
+      const parent = el.parentElement;
+      const r = parent.getBoundingClientRect();
+      el.style.transform = 'translateY(' + (r.top * 0.18) + 'px)';
+    });
+  }
+  window.addEventListener('scroll', runParallax, { passive: true });
+  runParallax();
+</script>
+</body>
+</html>

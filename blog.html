@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Koze Design &amp; Build</title>
+  <meta name="description" content="Insights, guides, and expertise from Koze Design & Build on custom homes, renovations, design-build, and the BC housing market." />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --navy: #002D40;
+      --green: #3E5B58;
+      --gold: #9C7942;
+      --gold-hover: #8a6a37;
+      --light-bg: #f7f6f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --border: #e5e2dc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 48px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header.solid { background: var(--white); box-shadow: 0 1px 0 var(--border); }
+    #header.solid .logo .logo-white { display: none; }
+    #header.solid .logo .logo-blue  { display: block; }
+    #header.solid nav a { color: var(--navy); }
+    #header.solid .hamburger span { background: var(--navy); }
+    #header.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header nav a {
+      font-size: 14px; font-weight: 500; color: var(--navy);
+      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+    }
+    #header nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: background 0.3s; }
+
+    /* ─── BUTTONS ─── */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-navy {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; transition: background 0.3s, transform 0.2s;
+    }
+    .btn-navy:hover { background: #003d56; transform: translateY(-1px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-size: 15px; font-weight: 500; padding: 15px 32px;
+      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    /* ─── PAGE HERO (navy inline) ─── */
+    .page-hero-navy { background: var(--navy); padding: 140px 48px 80px; }
+    .page-hero-navy .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 16px; display: block;
+    }
+    .page-hero-navy .section-label { color: rgba(255,255,255,0.4); }
+    .page-hero-navy h1 {
+      font-size: clamp(32px, 5vw, 68px); font-weight: 500;
+      color: var(--white); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .page-hero-navy p {
+      font-size: 18px; color: rgba(255,255,255,0.62); line-height: 1.7; max-width: 600px;
+    }
+
+    /* ─── GENERIC ─── */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ─── BLOG GRID ─── */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .blog-card { background: var(--white); border: 1px solid var(--border); transition: box-shadow 0.3s; cursor: pointer; text-decoration: none; display: block; color: inherit; }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .blog-card-img { aspect-ratio: 16/9; overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+    .blog-card-body { padding: 28px 28px 32px; }
+    .blog-card-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .blog-card-body h3 { font-size: 18px; color: var(--navy); line-height: 1.3; margin-bottom: 10px; font-family: "loos-wide", sans-serif; font-weight: 500; }
+    .blog-card-body p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+    .blog-card-meta { font-size: 12px; color: rgba(0,0,0,0.35); }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter-section { background: var(--light-bg); text-align: center; padding: 80px 48px; }
+    .newsletter-section .section-inner { max-width: 560px; }
+    .newsletter-section h2 {
+      font-size: clamp(24px, 3.5vw, 40px); font-weight: 800; color: var(--navy);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .newsletter-section p { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 32px; }
+    .newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+    .newsletter-form input[type="email"] {
+      flex: 1; padding: 16px 20px; border: 1px solid var(--border);
+      border-right: none; font-family: "loos-normal", sans-serif;
+      font-size: 14px; font-weight: 200; color: var(--text-dark);
+      background: var(--white); outline: none;
+      transition: border-color 0.3s;
+    }
+    .newsletter-form input[type="email"]:focus { border-color: var(--navy); }
+    .newsletter-form input[type="email"]::placeholder { color: rgba(0,0,0,0.35); }
+    .newsletter-form button {
+      padding: 16px 28px; background: var(--navy); color: var(--white);
+      border: none; font-family: "loos-normal", sans-serif;
+      font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.02em;
+      transition: background 0.3s; white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--green); }
+    .newsletter-note { font-size: 12px; color: rgba(0,0,0,0.3); margin-top: 12px; }
+
+    /* ─── BOTTOM CTA ─── */
+    .bottom-cta { position: relative; padding: 120px 48px; text-align: center; overflow: hidden; }
+    .bottom-cta .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.72); }
+    .bottom-cta .content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .bottom-cta .eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .bottom-cta h2 { font-size: clamp(30px, 5vw, 58px); font-weight: 800; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .bottom-cta p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 40px; }
+    .bottom-cta .btn-group { justify-content: center; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 72px 48px 32px; }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 20px; display: block; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .social-links a:hover { background: var(--gold); }
+    .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .fc-item { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .fc-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .fc-item span { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0.1s !important; }
+    .d2 { transition-delay: 0.2s !important; }
+    .d3 { transition-delay: 0.3s !important; }
+    .d4 { transition-delay: 0.4s !important; }
+    .d5 { transition-delay: 0.5s !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
+        gap: 24px; z-index: 999;
+      }
+      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      section { padding: 72px 24px; }
+      .page-hero-navy { padding: 120px 24px 60px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .newsletter-section { padding: 60px 24px; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input[type="email"] { border-right: 1px solid var(--border); border-bottom: none; }
+      .bottom-cta { padding: 80px 24px; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-grid .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid .footer-brand { grid-column: span 1; }
+    }
+  </style>
+  <style>
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: #ffffff; min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-top: 2px solid #9C7942;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-size: 13px; font-weight: 500; color: #002D40 !important;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid #e5e2dc;
+      transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    @media (max-width: 900px) {
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu {
+        position: static; opacity: 1; pointer-events: auto;
+        transform: none; box-shadow: none; border-top: none;
+        background: transparent; min-width: unset; width: 100%;
+        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
+        margin-top: 6px; margin-bottom: 4px;
+      }
+      #header nav.open .nav-drop-menu a {
+        color: rgba(255,255,255,0.75) !important; background: transparent;
+        border-bottom: none; font-size: 17px; padding: 7px 0;
+      }
+      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="header" class="solid">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero-navy">
+  <div class="section-inner">
+    <span class="section-label reveal">Insights &amp; Expertise</span>
+    <h1 class="reveal d1">The Koze Blog.</h1>
+    <div style="width:56px;height:3px;background:var(--gold);margin:28px 0 0;"></div>
+  </div>
+</section>
+
+<!-- ═══ BLOG GRID ═══ -->
+<section>
+  <div class="section-inner">
+    <div class="blog-grid">
+
+      <!-- Article 1 -->
+      <a href="#" class="blog-card reveal d1">
+        <div class="blog-card-img">
+          <img src="public/19564-hammond-road/Hammond-web-3.jpg" alt="Budget-Led Design" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Budget &amp; Planning</span>
+          <h3>What &lsquo;Budget-Led Design&rsquo; Actually Means — and Why It Changes Everything</h3>
+          <p>Most homeowners begin their project with a design concept. We believe that's the wrong starting point entirely. Here's why budget comes first.</p>
+          <span class="blog-card-meta">June 2025 &middot; 5 min read</span>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="#" class="blog-card reveal d2">
+        <div class="blog-card-img">
+          <img src="public/19564-hammond-road/Hammond-web-12.jpg" alt="Fixed-Price Contracts" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Fixed-Price Contracts</span>
+          <h3>Why We Require a Fixed-Price Contract Before Construction Begins</h3>
+          <p>A fixed-price contract isn't just good for the client — it creates the discipline needed for a well-run project. Here's what changes when the price is locked.</p>
+          <span class="blog-card-meta">May 2025 &middot; 4 min read</span>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="#" class="blog-card reveal d3">
+        <div class="blog-card-img">
+          <img src="public/19564-hammond-road/Hammond-web-7.jpg" alt="Custom Home Decisions" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Custom Homes</span>
+          <h3>5 Decisions to Make Before You Start Designing Your Custom Home</h3>
+          <p>A custom home project goes more smoothly when these key decisions are made before the first design meeting. Here's what to think through early.</p>
+          <span class="blog-card-meta">May 2025 &middot; 6 min read</span>
+        </div>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="#" class="blog-card reveal d1">
+        <div class="blog-card-img">
+          <img src="public/19452-fraser-unit-15/koze-fraser-web-1.jpg" alt="Bill 44 SSMUH" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">BC Housing</span>
+          <h3>Bill 44 and What It Means for Lower Mainland Property Owners</h3>
+          <p>BC's Small-Scale Multi-Unit Housing legislation opens up significant development potential across the province. Here's what property owners need to know.</p>
+          <span class="blog-card-meta">April 2025 &middot; 5 min read</span>
+        </div>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="#" class="blog-card reveal d2">
+        <div class="blog-card-img">
+          <img src="public/19452-fraser-unit-15/koze-fraser-web-5.jpg" alt="Renovate vs Sell" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Renovations</span>
+          <h3>When Is It Worth a Major Renovation vs. Selling?</h3>
+          <p>Running the numbers on renovation vs. relocation — and the factors that matter most to your decision. A clear framework for thinking through the trade-offs.</p>
+          <span class="blog-card-meta">April 2025 &middot; 7 min read</span>
+        </div>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="#" class="blog-card reveal d3">
+        <div class="blog-card-img">
+          <img src="public/19564-hammond-road/Hammond-web-15.jpg" alt="Design-Build Model" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Design-Build</span>
+          <h3>The Case for Design-Build: Why One Team Outperforms Many</h3>
+          <p>When architecture, design, and construction are managed separately, conflicts emerge. Here's how the design-build model solves them — and why it matters for your project.</p>
+          <span class="blog-card-meta">March 2025 &middot; 5 min read</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="newsletter-section">
+  <div class="section-inner">
+    <h2 class="reveal">Get the Latest Insights</h2>
+    <p class="reveal d1">Project guides, design ideas, and market updates — delivered directly to your inbox. No spam. Unsubscribe any time.</p>
+    <form class="newsletter-form reveal d2" onsubmit="handleNewsletterSubmit(event)">
+      <input type="email" placeholder="Your email address" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-note reveal d3">We respect your privacy. Your email will never be shared.</p>
+  </div>
+</section>
+
+<!-- ═══ BOTTOM CTA ═══ -->
+<section class="bottom-cta">
+  <div class="bg" style="background-image: url('public/19564-hammond-road/Hammond-web-1.jpg');"></div>
+  <div class="content">
+    <span class="eyebrow reveal">Ready to Get Started?</span>
+    <h2 class="reveal d1">Ready to Start Your Project?</h2>
+    <p class="reveal d2">Tell us about what you're planning — we'll review your goals, discuss what's realistic, and let you know if we're the right fit.</p>
+    <div class="btn-group reveal d3">
+      <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
+      <a href="tel:+16043157095" class="btn-outline-white">(604) 315-7095</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="custom-homes.html">Custom Homes</a></li>
+      <li><a href="renovations.html">Major Renovations</a></li>
+      <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+      <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+      <li><a href="design-build.html">Design-Build</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="process.html">Our Process</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contact</h5>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon – Fri, 8:00am – 5:00pm</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    btn.textContent = 'Thank you!';
+    btn.style.background = 'var(--green)';
+    form.querySelector('input').value = '';
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3500);
+  }
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

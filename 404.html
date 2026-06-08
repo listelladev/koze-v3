@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Koze Design &amp; Build</title>
+  <meta name="description" content="The page you&rsquo;re looking for doesn&rsquo;t exist." />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --navy: #002D40;
+      --green: #3E5B58;
+      --gold: #9C7942;
+      --gold-hover: #8a6a37;
+      --light-bg: #f7f6f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --border: #e5e2dc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "loos-normal", sans-serif; font-weight: 200;
+      background: var(--white); color: var(--text-dark); overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 48px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header nav a {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+    }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+
+    /* ─── BUTTONS ─── */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-size: 15px; font-weight: 500; padding: 15px 32px;
+      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
+
+    /* ─── 404 HERO ─── */
+    .notfound-wrap {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 80px;
+      overflow: hidden;
+    }
+    .notfound-bg {
+      position: absolute; inset: 0;
+      background-image: url('public/19564-hammond-road/Hammond-web-1.jpg');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    .notfound-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0, 18, 30, 0.72);
+    }
+    .notfound-content {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center;
+      max-width: 640px;
+    }
+    .notfound-number {
+      font-family: "loos-wide", sans-serif;
+      font-size: clamp(100px, 18vw, 160px);
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      /* Subtle glow */
+      text-shadow: 0 0 80px rgba(156, 121, 66, 0.35);
+      /* Fade in animation */
+      animation: fadeUp 0.8s ease both;
+    }
+    .notfound-divider {
+      width: 48px; height: 2px; background: rgba(255,255,255,0.3); margin-bottom: 32px;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .notfound-content h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .notfound-content p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .notfound-content .btn-group {
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    /* ─── MINIMAL FOOTER ─── */
+    .notfound-footer {
+      position: relative; z-index: 1;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 64px;
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .notfound-footer a img { height: 24px; display: block; opacity: 0.6; transition: opacity 0.3s; }
+    .notfound-footer a:hover img { opacity: 0.9; }
+    .notfound-footer-links { display: flex; gap: 24px; }
+    .notfound-footer-links a {
+      font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none;
+      transition: color 0.3s; letter-spacing: 0.02em;
+    }
+    .notfound-footer-links a:hover { color: rgba(255,255,255,0.75); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
+        gap: 24px; z-index: 999;
+      }
+      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      .notfound-wrap { padding: 120px 24px 60px; }
+    }
+  </style>
+  <style>
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: #ffffff; min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-top: 2px solid #9C7942;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-size: 13px; font-weight: 500; color: #002D40 !important;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid #e5e2dc;
+      transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    @media (max-width: 900px) {
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu {
+        position: static; opacity: 1; pointer-events: auto;
+        transform: none; box-shadow: none; border-top: none;
+        background: transparent; min-width: unset; width: 100%;
+        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
+        margin-top: 6px; margin-bottom: 4px;
+      }
+      #header nav.open .nav-drop-menu a {
+        color: rgba(255,255,255,0.75) !important; background: transparent;
+        border-bottom: none; font-size: 17px; padding: 7px 0;
+      }
+      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="header">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ 404 ═══ -->
+<div class="notfound-wrap">
+  <div class="notfound-bg"></div>
+
+  <div class="notfound-content">
+    <div class="notfound-number">404</div>
+    <div class="notfound-divider"></div>
+    <h1>Page Not Found</h1>
+    <p>Looks like this page took a wrong turn somewhere. Let&rsquo;s get you back on track.</p>
+    <div class="btn-group">
+      <a href="index.html" class="btn-gold">Back to Home &rarr;</a>
+      <a href="contact.html" class="btn-outline-white">Contact Us</a>
+    </div>
+
+    <div class="notfound-footer">
+      <a href="index.html">
+        <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      </a>
+      <div class="notfound-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+</script>
+</body>
+</html>

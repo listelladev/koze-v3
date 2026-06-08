@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADUs &amp; Coach Homes | Koze Design &amp; Build</title>
+  <meta name="description" content="ADU and coach home construction in the Lower Mainland, BC. Add a legal suite, generate rental income, and increase property value with Koze Design &amp; Build." />
+  <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --navy: #002D40;
+      --green: #3E5B58;
+      --gold: #9C7942;
+      --gold-hover: #8a6a37;
+      --light-bg: #f7f6f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --border: #e5e2dc;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 48px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      background: rgba(0,18,30,0.35);
+    }
+    #header.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header nav a {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+    }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+
+    /* ─── BUTTONS ─── */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-navy {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 16px 34px;
+      text-decoration: none; transition: background 0.3s, transform 0.2s;
+    }
+    .btn-navy:hover { background: #003d56; transform: translateY(-1px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-size: 15px; font-weight: 500; padding: 15px 32px;
+      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-outline-navy {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      font-size: 15px; font-weight: 600; padding: 15px 32px;
+      border: 1.5px solid var(--navy); text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    /* ─── EYEBROW / LABELS ─── */
+    .eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .section-label {
+      display: block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px;
+    }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      position: relative; width: 100%; height: 88vh; min-height: 560px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .page-hero .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center 40%;
+    }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.56); }
+    .page-hero .hero-content {
+      position: relative; z-index: 1; padding: 0 48px;
+      display: flex; flex-direction: column; align-items: center;
+      max-width: 900px;
+    }
+    .page-hero h1 {
+      font-size: clamp(32px, 4.6vw, 62px); font-weight: 500;
+      line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 24px;
+      color: var(--white);
+    }
+    .page-hero p {
+      font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.8);
+      line-height: 1.7; margin-bottom: 40px; max-width: 580px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .light-bg { background: var(--light-bg); }
+    .navy-bg { background: var(--navy); }
+
+    /* ─── TWO-COL ─── */
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+
+    /* ─── IMAGE ─── */
+    .img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+    .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .img-wrap:hover img { transform: scale(1.03); }
+    .img-accent {
+      position: absolute; bottom: -24px; right: -24px; width: 160px; aspect-ratio: 1;
+      background: var(--gold); z-index: -1;
+    }
+    .img-wrap-landscape { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+    .img-wrap-landscape img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .img-wrap-landscape:hover img { transform: scale(1.03); }
+
+    /* ─── TEXT COL ─── */
+    .text-col h2 {
+      font-size: clamp(26px, 3.5vw, 44px); font-weight: 500; color: var(--navy);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .text-col .divider { width: 40px; height: 3px; background: var(--gold); margin: 28px 0; }
+    .text-col p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+    .text-col a.inline-link {
+      color: var(--green); font-weight: 600; text-decoration: none;
+      border-bottom: 1px solid var(--green); padding-bottom: 1px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .text-col a.inline-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ─── CHECK LIST ─── */
+    .check-list { list-style: none; margin: 24px 0 36px; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; font-weight: 500; color: var(--text-dark);
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li::before {
+      content: ''; flex-shrink: 0; width: 20px; height: 20px;
+      background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M8.3 13.7L4.5 9.9l1.4-1.4 2.4 2.4 5.8-5.8 1.4 1.4z'/%3E%3C/svg%3E") center/contain;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header h2 {
+      font-size: clamp(26px, 3.8vw, 46px); font-weight: 500; color: var(--navy);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .section-header p { font-size: 16px; color: var(--text-mid); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+    .section-header.light h2 { color: var(--white); }
+    .section-header.light p { color: rgba(255,255,255,0.6); }
+
+    /* ─── FEATURE GRID ─── */
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .feature-card {
+      background: var(--white); padding: 44px 36px;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .feature-card:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
+    .feature-card .fc-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px; display: block;
+    }
+    .feature-card h3 {
+      font-size: 20px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 14px;
+    }
+    .feature-card p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
+
+    /* ─── ADU TYPES GRID ─── */
+    .adu-types-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px;
+    }
+    .adu-type-card {
+      padding: 40px 36px; background: var(--white);
+      border-left: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .adu-type-card:hover { border-left-color: var(--gold); }
+    .adu-type-card .at-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px; display: block;
+    }
+    .adu-type-card h3 {
+      font-size: 19px; font-weight: 500; color: var(--navy); margin-bottom: 10px; line-height: 1.2;
+    }
+    .adu-type-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+    /* ─── PROCESS STEPS ─── */
+    .process-steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 48px;
+    }
+    .process-step-card {
+      background: var(--navy); padding: 48px 36px; position: relative; overflow: hidden;
+    }
+    .process-step-card::before {
+      content: attr(data-num);
+      position: absolute; top: -12px; right: 20px;
+      font-size: 88px; font-weight: 500; color: rgba(255,255,255,0.05);
+      font-family: "loos-wide", sans-serif; line-height: 1;
+    }
+    .process-step-card .step-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px; display: block;
+    }
+    .process-step-card h3 {
+      font-size: 20px; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 14px;
+    }
+    .process-step-card p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+    .process-cta { text-align: center; }
+    .process-cta a {
+      font-size: 14px; font-weight: 600; color: var(--green); text-decoration: none;
+      letter-spacing: 0.02em; border-bottom: 1px solid var(--green); padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .process-cta a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ─── GREEN BANNER ─── */
+    .green-banner { background: var(--green); text-align: center; }
+    .green-banner .section-inner { max-width: 780px; }
+    .green-banner .eyebrow { color: rgba(255,255,255,0.5); }
+    .green-banner h2 {
+      font-size: clamp(26px, 4vw, 46px); font-weight: 500; color: var(--white);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .green-banner p { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 36px; }
+    .green-banner .process-link {
+      display: inline-block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6);
+      text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;
+      margin-left: 20px; transition: color 0.3s, border-color 0.3s;
+    }
+    .green-banner .process-link:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
+
+    /* ─── ROI BAR ─── */
+    .roi-bar { background: var(--navy); padding: 0 48px; }
+    .roi-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .roi-item {
+      padding: 44px 40px; border-right: 1px solid rgba(255,255,255,0.08); text-align: center;
+    }
+    .roi-item .roi-num {
+      font-size: 42px; font-weight: 800; color: var(--white); letter-spacing: -0.02em;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .roi-item .roi-label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); }
+
+    /* ─── PORTFOLIO GRID ─── */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 48px; }
+    .portfolio-card { position: relative; overflow: hidden; aspect-ratio: 3/4; }
+    .portfolio-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s ease, filter 0.5s ease;
+      filter: brightness(0.75);
+    }
+    .portfolio-card:hover img { transform: scale(1.05); filter: brightness(0.45); }
+    .portfolio-card .pc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,45,64,0.88) 0%, rgba(0,45,64,0.1) 55%, transparent 100%);
+    }
+    .portfolio-card .pc-label {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 28px;
+      transition: transform 0.4s ease;
+      transform: translateY(4px);
+    }
+    .portfolio-card:hover .pc-label { transform: translateY(0); }
+    .pc-label .pc-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px; display: block;
+    }
+    .pc-label h3 { font-size: 18px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .pc-label p { font-size: 14px; color: rgba(255,255,255,0.7); }
+    .portfolio-cta { text-align: center; }
+
+    /* ─── FAQ ─── */
+    .faq-inner { max-width: 800px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header h2 {
+      font-size: clamp(26px, 4vw, 42px); font-weight: 500; color: var(--navy);
+      line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      font-family: "loos-wide", sans-serif; font-size: 16px; font-weight: 500; color: var(--navy); line-height: 1.4;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-icon {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: rgba(0,45,64,0.08); display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .faq-icon svg { width: 12px; height: 12px; stroke: var(--navy); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .faq-item.open .faq-icon { background: var(--gold); transform: rotate(45deg); }
+    .faq-item.open .faq-icon svg { stroke: white; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { font-size: 15px; color: var(--text-mid); line-height: 1.8; padding-bottom: 24px; }
+
+    /* ─── BOTTOM CTA ─── */
+    .bottom-cta { position: relative; padding: 120px 48px; text-align: center; overflow: hidden; }
+    .bottom-cta .bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+    }
+    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.72); }
+    .bottom-cta .content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .bottom-cta .eyebrow { color: var(--gold); }
+    .bottom-cta h2 {
+      font-size: clamp(30px, 5vw, 58px); font-weight: 500; color: var(--white);
+      line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .bottom-cta p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 40px; }
+    .bottom-cta .btn-group { justify-content: center; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 72px 48px 32px; }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 20px; display: block; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .social-links a:hover { background: var(--gold); }
+    .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .fc-item { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .fc-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .fc-item span { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0.1s !important; }
+    .d2 { transition-delay: 0.2s !important; }
+    .d3 { transition-delay: 0.3s !important; }
+    .d4 { transition-delay: 0.4s !important; }
+    .d5 { transition-delay: 0.5s !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open {
+        display: flex; flex-direction: column; position: fixed;
+        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
+        gap: 24px; z-index: 999;
+      }
+      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
+      .page-hero h1 { font-size: clamp(28px, 7.5vw, 44px); }
+      .page-hero .hero-content { padding: 0 24px; }
+      section { padding: 72px 24px; }
+      .roi-bar { padding: 0 24px; }
+      .roi-inner { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .adu-types-grid { grid-template-columns: 1fr; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card { aspect-ratio: 16/9; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-grid .footer-brand { grid-column: span 2; }
+      .bottom-cta { padding: 80px 24px; }
+    }
+    @media (max-width: 600px) {
+      .roi-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid .footer-brand { grid-column: span 1; }
+    }
+  </style>
+  <style>
+    /* ─── NAV DROPDOWNS ─── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+    }
+    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
+    .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
+    .nav-drop-menu {
+      position: absolute; top: calc(100% + 20px); left: 50%;
+      background: #ffffff; min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-top: 2px solid #9C7942;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-drop-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-drop-menu a {
+      display: block; padding: 13px 20px;
+      font-size: 13px; font-weight: 500; color: #002D40 !important;
+      text-decoration: none; letter-spacing: 0.01em;
+      border-bottom: 1px solid #e5e2dc;
+      transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-drop-menu a:last-child { border-bottom: none; }
+    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    @media (max-width: 900px) {
+      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle svg { display: none; }
+      #header nav.open .nav-drop-menu {
+        position: static; opacity: 1; pointer-events: auto;
+        transform: none; box-shadow: none; border-top: none;
+        background: transparent; min-width: unset; width: 100%;
+        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
+        margin-top: 6px; margin-bottom: 4px;
+      }
+      #header nav.open .nav-drop-menu a {
+        color: rgba(255,255,255,0.75) !important; background: transparent;
+        border-bottom: none; font-size: 17px; padding: 7px 0;
+      }
+      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="header" class="solid">
+  <a href="index.html" class="logo">
+    <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+    <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+  </a>
+  <nav id="nav">
+    <a href="about.html">About Us</a>
+    <a href="process.html">Our Process</a>
+    <div class="nav-dropdown">
+      <button class="nav-drop-toggle">Services <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-drop-menu">
+        <a href="custom-homes.html">Custom Homes</a>
+        <a href="renovations.html">Major Renovations</a>
+        <a href="adus.html">ADUs &amp; Coach Homes</a>
+        <a href="ssmuh.html">Multi-Unit Housing</a>
+        <a href="design-build.html">Design-Build</a>
+      </div>
+    </div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="hero-bg" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-4.jpg');"></div>
+  <div class="hero-content" style="text-align:center;align-items:center;">
+    <span class="eyebrow">ADUs &amp; Coach Homes</span>
+    <h1>Unlock Your Property's<br />Full Potential.</h1>
+    <div style="width:56px;height:3px;background:var(--gold);margin:28px auto 0;"></div>
+  </div>
+</div>
+
+<!-- ═══ ROI BAR ═══ -->
+<div class="roi-bar">
+  <div class="roi-inner">
+    <div class="roi-item reveal d1">
+      <div class="roi-num">$2,200+</div>
+      <div class="roi-label">Average Monthly Rental Income (Lower Mainland)</div>
+    </div>
+    <div class="roi-item reveal d2">
+      <div class="roi-num">15–25%</div>
+      <div class="roi-label">Typical Property Value Increase with Legal ADU</div>
+    </div>
+    <div class="roi-item reveal d3">
+      <div class="roi-num">100%</div>
+      <div class="roi-label">Fixed-Price Contracts — Every Project</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICE INTRO ═══ -->
+<section>
+  <div class="section-inner">
+    <div class="two-col">
+      <div class="text-col reveal-left">
+        <span class="section-label">ADUs &amp; Coach Homes</span>
+        <h2>Smart Additions That Pay for Themselves.</h2>
+        <div class="divider"></div>
+        <p>ADUs and coach homes represent one of the most practical ways to add value to your property in today's Lower Mainland market. Whether you're creating a rental income stream, housing aging parents, or planning for future flexibility — a well-designed accessory dwelling unit changes what your property can do for you.</p>
+        <p>We handle everything from concept to occupancy: design, permits, construction, and coordination. You get a fixed price before we start, and a finished suite ready for tenants or family the moment we hand over the keys.</p>
+        <ul class="check-list">
+          <li>Rental income potential from day one</li>
+          <li>House extended family close — but with privacy</li>
+          <li>Meaningful increase to resale value</li>
+          <li>Full permit navigation and compliance</li>
+          <li>Fixed-price construction — no surprises</li>
+        </ul>
+        <a href="contact.html" class="btn-navy">Find Out What's Possible &rarr;</a>
+      </div>
+      <div class="img-col reveal-right">
+        <div class="img-wrap">
+          <img src="public/19452-fraser-unit-15/koze-fraser-web-7.jpg" alt="Koze ADU interior — finished coach home suite" />
+          <div class="img-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY FEATURES ═══ -->
+<section class="light-bg">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="eyebrow">Why Build an ADU</span>
+      <h2>Three Reasons Your Property Needs One</h2>
+      <p>In the Lower Mainland's housing market, an ADU isn't a luxury addition — it's one of the smartest investments a property owner can make.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal d1">
+        <span class="fc-num">01</span>
+        <h3>Rental Income Opportunity</h3>
+        <p>A well-designed legal suite in the Lower Mainland generates meaningful monthly income — enough to meaningfully offset your mortgage, cover property expenses, or simply build long-term wealth through your property.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="fc-num">02</span>
+        <h3>Property Value Enhancement</h3>
+        <p>Properties with legal, permitted ADUs command significant premiums at resale. Buyers purchasing in today's market increasingly prioritize income-generating potential. A quality ADU changes how your property is valued.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="fc-num">03</span>
+        <h3>Full Permit Coordination</h3>
+        <p>Navigating ADU permits, zoning, setbacks, and BC's evolving SSMUH regulations is complex. We manage the entire process — so your suite is built correctly, legally, and with no compliance risk down the road.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT'S POSSIBLE ═══ -->
+<section>
+  <div class="section-inner">
+    <div class="two-col">
+      <div class="text-col reveal-left">
+        <span class="section-label">ADU Types</span>
+        <h2>What Can Be Built on Your Property?</h2>
+        <div class="divider"></div>
+        <p>BC's recent zoning changes have significantly expanded what's possible on residential lots across the Lower Mainland. What was once prohibited or tightly restricted is now increasingly permitted — and the opportunity for property owners is real.</p>
+        <p>Depending on your lot size, zoning, and existing structures, you may be eligible for a detached coach home in your backyard, a laneway home (where permitted), an attached secondary suite above a garage or beside the main house, or a basement suite with a separate entrance and full compliance. BC's evolving <a href="ssmuh.html" class="inline-link">Small-Scale Multi-Unit Housing (SSMUH)</a> legislation has opened up options that simply weren't available a few years ago.</p>
+        <p>The best first step is a property assessment. We'll review your lot, your zoning, and your goals — and tell you honestly what's achievable and what the investment looks like.</p>
+        <a href="contact.html" class="btn-navy">Assess My Property &rarr;</a>
+      </div>
+      <div class="img-col reveal-right">
+        <div class="img-wrap">
+          <img src="public/19452-fraser-unit-15/koze-fraser-web-9.jpg" alt="Koze ADU — secondary suite design" />
+          <div class="img-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADU TYPES GRID ═══ -->
+<section class="light-bg">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="eyebrow">ADU Options</span>
+      <h2>Types of ADUs We Build</h2>
+      <p>Each property is different. Here are the most common ADU types we design and build across the Lower Mainland.</p>
+    </div>
+    <div class="adu-types-grid">
+      <div class="adu-type-card reveal d1">
+        <span class="at-num">Detached</span>
+        <h3>Coach Home / Backyard Suite</h3>
+        <p>A fully separate structure in your backyard — completely independent from the main house. Maximum privacy for tenants or family, and typically commands the highest rental rates. Requires adequate lot size and setback compliance.</p>
+      </div>
+      <div class="adu-type-card reveal d2">
+        <span class="at-num">Attached</span>
+        <h3>Above-Garage or Side Suite</h3>
+        <p>An ADU built above or beside an existing garage, or added as an attached structure to the main home. Efficient use of existing structure, often lower construction cost, and well-suited to lots where a fully detached build isn't feasible.</p>
+      </div>
+      <div class="adu-type-card reveal d3">
+        <span class="at-num">Interior</span>
+        <h3>Basement or Secondary Suite</h3>
+        <p>A fully legal, permitted secondary suite within the existing home's footprint — typically the basement. Requires separate entrance, proper egress, fire separation, and mechanical compliance. Often the most accessible entry point.</p>
+      </div>
+      <div class="adu-type-card reveal d4">
+        <span class="at-num">Laneway</span>
+        <h3>Laneway Home (Where Permitted)</h3>
+        <p>A compact, fully independent home built along the rear lane of a property, typically 500–700 sq ft. Available in select municipalities. Increasingly common in Vancouver and surrounding cities as zoning evolves under SSMUH legislation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS PREVIEW ═══ -->
+<section>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="eyebrow">Our Process</span>
+      <h2>From Idea to Occupancy.</h2>
+      <p>The same clear, fixed-price process we bring to every project — scaled and optimized for ADU construction.</p>
+    </div>
+    <div class="process-steps-grid">
+      <div class="process-step-card reveal d1" data-num="1">
+        <span class="step-tag">Phase One</span>
+        <h3>Property Assessment &amp; Feasibility</h3>
+        <p>We review your lot, zoning designation, setback requirements, and existing structures. You get an honest answer about what's possible and what it's likely to cost — before committing to anything further.</p>
+      </div>
+      <div class="process-step-card reveal d2" data-num="2">
+        <span class="step-tag">Phase Two</span>
+        <h3>Design, Permits &amp; Pre-Construction</h3>
+        <p>ADU design, permit applications, engineering reviews, and all material selections are completed before we price the work. Your fixed-price proposal reflects a fully permitted, fully designed project.</p>
+      </div>
+      <div class="process-step-card reveal d3" data-num="3">
+        <span class="step-tag">Phase Three</span>
+        <h3>Fixed Price &amp; Build</h3>
+        <p>One price. Complete trade management. We build your suite to spec, pass all required inspections, and hand you the keys to a fully legal, occupancy-ready ADU.</p>
+      </div>
+    </div>
+    <div class="process-cta reveal">
+      <a href="process.html">See All 8 Steps in Our Process &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GREEN BANNER ═══ -->
+<section class="green-banner">
+  <div class="section-inner">
+    <span class="eyebrow reveal">Why Build Now</span>
+    <h2 class="reveal d1">Rental Income. Family Housing. Long-Term Value.</h2>
+    <p class="reveal d2">The Lower Mainland's rental market has never made ADUs more financially compelling. Rental demand is high, vacancy rates are historically low, and new provincial zoning legislation has made more properties eligible than ever. The question isn't whether an ADU makes sense — it's what's possible on your specific property.</p>
+    <div class="btn-group reveal d3" style="justify-content: center;">
+      <a href="contact.html" class="btn-gold">Assess My Property &rarr;</a>
+      <a href="ssmuh.html" class="process-link">Learn About SSMUH Zoning</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO PREVIEW ═══ -->
+<section>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="eyebrow">Recent Work</span>
+      <h2>From Our Portfolio</h2>
+      <p>A look at the quality, detail, and finish level that defines every Koze ADU project.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal d1">
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-20.jpg" alt="Koze ADU project — interior finishes" />
+        <div class="pc-overlay"></div>
+        <div class="pc-label">
+          <span class="pc-tag">ADU &amp; Coach Home &mdash; Lower Mainland</span>
+          <h3>19452 Fraser Crescent</h3>
+          <p>Interior layout and finishes</p>
+        </div>
+      </div>
+      <div class="portfolio-card reveal d2">
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-25.jpg" alt="Koze ADU project — kitchen and living" />
+        <div class="pc-overlay"></div>
+        <div class="pc-label">
+          <span class="pc-tag">ADU &amp; Coach Home &mdash; Lower Mainland</span>
+          <h3>19452 Fraser Crescent</h3>
+          <p>Kitchen and living area</p>
+        </div>
+      </div>
+      <div class="portfolio-card reveal d3">
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-30.jpg" alt="Koze ADU project — bathroom and detail" />
+        <div class="pc-overlay"></div>
+        <div class="pc-label">
+          <span class="pc-tag">ADU &amp; Coach Home &mdash; Lower Mainland</span>
+          <h3>19452 Fraser Crescent</h3>
+          <p>Bathroom and custom tile work</p>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-cta reveal">
+      <a href="portfolio.html" class="btn-navy">View Full Portfolio &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="light-bg">
+  <div class="section-inner">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <span class="eyebrow reveal">Common Questions</span>
+        <h2 class="reveal d1">ADU &amp; Coach Home FAQ</h2>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What types of ADUs can you build?
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p>We build all common ADU types: detached coach homes and backyard suites, attached above-garage or side suites, laneway homes (where zoning permits), and interior secondary suites. The right type for your property depends on your lot size, zoning designation, setback requirements, and goals. We assess all of this during the feasibility phase — and give you an honest picture of what's actually possible.</p></div>
+      </div>
+
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How much does an ADU typically cost to build?
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p>ADU costs vary significantly by type, size, and site conditions. A basement suite conversion may start from $150,000–$250,000; a detached coach home typically ranges from $350,000–$600,000+. These are directional figures — accurate pricing requires a site review and defined scope. We provide specific cost guidance during the feasibility phase, and a fixed-price proposal once design is complete.</p></div>
+      </div>
+
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does it take to build a coach home or secondary suite?
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Timeline depends on the ADU type and permitting timelines in your municipality. A secondary suite interior conversion may take 3–5 months. A detached coach home or laneway home typically takes 8–14 months from design through occupancy. Municipal permit wait times vary — we factor this into your project schedule during pre-construction so you have clear milestones from the start.</p></div>
+      </div>
+
+      <div class="faq-item reveal d3">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will my ADU require permits — and do you handle them?
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Yes, all ADUs require permits — and yes, we handle everything. Permit coordination is included in our full-service process. We manage the application, required drawings, structural or engineering reviews, and all required inspections throughout construction. Building without permits creates serious liability at resale and may result in required demolition. A properly permitted ADU is the only kind we build.</p></div>
+      </div>
+
+      <div class="faq-item reveal d4">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I know if I can build an ADU on my property?
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Eligibility depends on your lot size, zoning designation, existing structures, and your municipality's specific bylaws. BC's SSMUH legislation has significantly expanded what's permitted on many residential lots — but the rules still vary by location and context. The most reliable answer comes from a property assessment. Reach out and tell us your address and what you're hoping to build — we'll give you a straight answer.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOTTOM CTA ═══ -->
+<div class="bottom-cta">
+  <div class="bg" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg');"></div>
+  <div class="content">
+    <span class="eyebrow reveal">Ready to Add Value?</span>
+    <h2 class="reveal d1">Find Out What's Possible on Your Property.</h2>
+    <p class="reveal d2">The first conversation is about your property, your goals, and your budget. We'll tell you honestly what's achievable — and what kind of return you might realistically expect.</p>
+    <div class="btn-group reveal d3">
+      <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
+      <a href="tel:+16043157095" class="btn-outline-white">(604) 315-7095</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
+      <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="custom-homes.html">Custom Homes</a></li>
+      <li><a href="renovations.html">Major Renovations</a></li>
+      <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+      <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+      <li><a href="design-build.html">Design-Build</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="process.html">Our Process</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contact</h5>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon – Fri, 8:00am – 5:00pm</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
