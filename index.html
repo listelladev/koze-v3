@@ -227,7 +227,7 @@
     .services-full { width: 100%; }
     .services-carousel { overflow: hidden; width: 100%; position: relative; }
     .services-track { display: flex; gap: 2px; will-change: transform; }
-    .service-card { flex: 0 0 calc((100% - 4px) / 3); position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: default; }
+    .service-card { flex: 0 0 calc((100% - 4px) / 3); position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; display: block; text-decoration: none; }
     .service-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease, filter 0.45s ease; }
     .service-card:hover img, .service-card.card-active img { transform: scale(1.04); filter: brightness(0.7); }
     .service-card .card-hover-bg {
@@ -246,6 +246,7 @@
     .service-card .card-num { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
     .service-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--white); margin-bottom: 12px; }
     .service-card p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.65; }
+    .service-card .card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-family: 'Good Sans','DM Sans',sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
     .service-card.card-active .card-hover-bg { opacity: 1; }
     .service-card.card-active .card-content { opacity: 1; }
     .service-card .card-label {
@@ -717,7 +718,7 @@
   <div class="services-full">
     <div class="services-carousel">
       <div class="services-track" id="servicesTrack">
-        <div class="service-card">
+        <a class="service-card" href="custom-homes">
           <img src="public/19564-hammond-road/Hammond-web-2.jpg" alt="Custom Homes" />
           <div class="card-label"><span>Custom Homes</span></div>
           <div class="card-hover-bg"></div>
@@ -725,9 +726,10 @@
             <div class="card-num">01</div>
             <h3>Custom Homes</h3>
             <p>Fully personalized homes designed around your lifestyle, your lot, and your budget, from first sketch to final walkthrough.</p>
+            <span class="card-link">Learn More &rarr;</span>
           </div>
-        </div>
-        <div class="service-card">
+        </a>
+        <a class="service-card" href="renovations">
           <img src="public/19452-fraser-unit-15/koze-fraser-web-8.jpg" alt="Major Renovations" />
           <div class="card-label"><span>Major Renovations</span></div>
           <div class="card-hover-bg"></div>
@@ -735,9 +737,10 @@
             <div class="card-num">02</div>
             <h3>Major Renovations</h3>
             <p>Whole-home transformations that modernize your space while preserving what already works.</p>
+            <span class="card-link">Learn More &rarr;</span>
           </div>
-        </div>
-        <div class="service-card">
+        </a>
+        <a class="service-card" href="adus">
           <img src="public/19564-hammond-road/Hammond-web-6.jpg" alt="ADUs &amp; Coach Homes" />
           <div class="card-label"><span>ADUs &amp; Coach Homes</span></div>
           <div class="card-hover-bg"></div>
@@ -745,9 +748,10 @@
             <div class="card-num">03</div>
             <h3>ADUs &amp; Coach Homes</h3>
             <p>Add a legal suite or coach home, creating rental income, housing family, or increasing resale value.</p>
+            <span class="card-link">Learn More &rarr;</span>
           </div>
-        </div>
-        <div class="service-card">
+        </a>
+        <a class="service-card" href="ssmuh">
           <img src="public/19564-hammond-road/Hammond-web-19.jpg" alt="Multi-Unit Housing" />
           <div class="card-label"><span>Multi-Unit Housing</span></div>
           <div class="card-hover-bg"></div>
@@ -755,9 +759,10 @@
             <div class="card-num">04</div>
             <h3>Multi-Unit Housing</h3>
             <p>SSMUH-compliant multi-unit builds that maximize your lot's potential under BC's small-scale housing policy.</p>
+            <span class="card-link">Learn More &rarr;</span>
           </div>
-        </div>
-        <div class="service-card">
+        </a>
+        <a class="service-card" href="design-build">
           <img src="public/19564-hammond-road/Hammond-web-12.jpg" alt="Design-Build" />
           <div class="card-label"><span>Design-Build</span></div>
           <div class="card-hover-bg"></div>
@@ -765,8 +770,9 @@
             <div class="card-num">05</div>
             <h3>Design-Build</h3>
             <p>One team for architecture, design, permits, and construction, seamless process, single point of contact.</p>
+            <span class="card-link">Learn More &rarr;</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div class="svc-nav-row">
