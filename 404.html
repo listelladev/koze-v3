@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found | Koze Design &amp; Build</title>
   <meta name="description" content="The page you&rsquo;re looking for doesn&rsquo;t exist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --white: #ffffff;
+      --off-white: #F9F7F2;
       --navy: #002D40;
       --green: #3E5B58;
       --gold: #9C7942;
       --gold-hover: #8a6a37;
-      --light-bg: #f7f6f4;
       --text-dark: #1a1a1a;
       --text-mid: #4a4a4a;
       --border: #e5e2dc;
@@ -23,10 +26,10 @@
 
     html { scroll-behavior: smooth; }
     body {
-      font-family: "loos-normal", sans-serif; font-weight: 200;
-      background: var(--white); color: var(--text-dark); overflow-x: hidden;
+      font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300;
+      background: var(--off-white); color: var(--text-dark); overflow-x: hidden; line-height: 1.7;
     }
-    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
 
     /* ─── HEADER ─── */
     #header {
@@ -43,37 +46,42 @@
     #header.scrolled .logo .logo-blue  { display: block; }
     #header nav { display: flex; align-items: center; gap: 36px; }
     #header nav a {
-      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9);
-      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
     }
     #header.scrolled nav a { color: var(--navy); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
-      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+      padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important;
     }
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
-    .hamburger { display: none; cursor: pointer; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s; }
+    .hamburger { display: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
     #header.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─── BUTTONS ─── */
-    .btn-gold {
+    .btn-gold, .btn-outline-white {
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold); color: var(--white);
-      font-size: 15px; font-weight: 600; padding: 16px 34px;
-      text-decoration: none; letter-spacing: 0.01em;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
       transition: background 0.3s, transform 0.2s;
+    }
+    .btn-gold {
+      background: var(--gold); color: var(--white); padding: 12px 26px;
     }
     .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
     .btn-outline-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--white);
-      font-size: 15px; font-weight: 500; padding: 15px 32px;
-      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
+      background: transparent; color: var(--white); padding: 11px 24px;
+      border: 1.5px solid rgba(255,255,255,0.45);
       transition: border-color 0.3s, background 0.3s;
     }
-    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); transform: translateY(-1px); }
     .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
 
     /* ─── 404 HERO ─── */
@@ -105,16 +113,15 @@
       max-width: 640px;
     }
     .notfound-number {
-      font-family: "loos-wide", sans-serif;
-      font-size: clamp(100px, 18vw, 160px);
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(120px, 20vw, 180px);
+      font-weight: 400;
       color: var(--gold);
       line-height: 1;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.02em;
       margin-bottom: 12px;
-      /* Subtle glow */
+      text-transform: none;
       text-shadow: 0 0 80px rgba(156, 121, 66, 0.35);
-      /* Fade in animation */
       animation: fadeUp 0.8s ease both;
     }
     .notfound-divider {
@@ -122,46 +129,26 @@
       animation: fadeUp 0.8s 0.15s ease both;
     }
     .notfound-content h1 {
-      font-size: clamp(26px, 4vw, 44px);
-      font-weight: 500;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 400;
       color: var(--white);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      line-height: 1.08;
+      letter-spacing: 0.04em;
       margin-bottom: 20px;
       animation: fadeUp 0.8s 0.2s ease both;
     }
     .notfound-content p {
-      font-size: 17px;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
       color: rgba(255,255,255,0.72);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 40px;
       animation: fadeUp 0.8s 0.3s ease both;
     }
     .notfound-content .btn-group {
       animation: fadeUp 0.8s 0.4s ease both;
     }
-
-    /* ─── MINIMAL FOOTER ─── */
-    .notfound-footer {
-      position: relative; z-index: 1;
-      width: 100%;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 64px;
-      padding-top: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .notfound-footer a img { height: 24px; display: block; opacity: 0.6; transition: opacity 0.3s; }
-    .notfound-footer a:hover img { opacity: 0.9; }
-    .notfound-footer-links { display: flex; gap: 24px; }
-    .notfound-footer-links a {
-      font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none;
-      transition: color 0.3s; letter-spacing: 0.02em;
-    }
-    .notfound-footer-links a:hover { color: rgba(255,255,255,0.75); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -188,8 +175,9 @@
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle {
       background: none; border: none; cursor: pointer; padding: 0;
-      font-size: 14px; font-weight: 500; font-family: inherit;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
     #header.scrolled .nav-drop-toggle { color: var(--navy); }
@@ -281,19 +269,8 @@
     <p>Looks like this page took a wrong turn somewhere. Let&rsquo;s get you back on track.</p>
     <div class="btn-group">
       <a href="index.html" class="btn-gold">Back to Home &rarr;</a>
-      <a href="contact.html" class="btn-outline-white">Contact Us</a>
     </div>
 
-    <div class="notfound-footer">
-      <a href="index.html">
-        <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
-      </a>
-      <div class="notfound-footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
   </div>
 </div>
 

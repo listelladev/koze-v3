@@ -5,25 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>19452 Fraser Crescent | Koze Design &amp; Build</title>
   <meta name="description" content="Full home remodel at 19452 Fraser Crescent, Lower Mainland, BC — by Koze Design &amp; Build." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
   <link rel="stylesheet" href="public/css/koze.css" />
   <style>
+    /* ─── FONT & BASE OVERRIDES ─── */
+    :root { --off-white: #F9F7F2; }
+    body { font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
+    #header { padding: 0 40px; }
+    #header.scrolled { background: var(--off-white); }
+    #header nav { gap: 32px; }
+    #header nav a { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+    #header .nav-cta { padding: 9px 18px; font-size: 11px; }
+
     /* Hero */
     .prop-hero {
-      position: relative; padding: 180px 48px 100px;
+      position: relative; padding: 180px 60px 100px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
-    .prop-hero .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; }
+    .prop-hero .hero-bg { position: absolute; height: 140%; top: -20%; left: 0; right: 0; background-size: cover; background-position: center 40%; will-change: transform; }
     .prop-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.62); }
-    .prop-hero-inner { position: relative; z-index: 1; }
-    .prop-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 16px; }
-    .prop-hero-inner h1 { font-size: clamp(28px, 4.5vw, 62px); color: var(--white); line-height: 1.05; letter-spacing: -0.025em; }
-    .prop-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 24px auto 0; }
+    .prop-hero-inner { position: relative; z-index: 1; animation: heroFadeUp 1s ease 0.2s both; }
+    .prop-hero-inner .section-label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; display: block; }
+    .prop-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .prop-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     /* Gallery */
-    .gallery-section { padding: 80px 48px; background: var(--white); }
-    .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .gallery-section { padding: 60px 60px; background: var(--off-white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .gallery-item { overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s ease; }
     .gallery-item:hover img { transform: scale(1.05); }
@@ -54,13 +72,24 @@
     .lb-arrow svg { width: 18px; height: 18px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .lb-prev { left: 20px; }
     .lb-next { right: 20px; }
-    .lb-counter { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.5); font-family: "loos-normal", sans-serif; font-size: 13px; letter-spacing: 0.1em; z-index: 10000; }
+    .lb-counter { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); z-index: 10000; }
+
+    /* CTA Banner */
+    .project-cta { background: var(--green); padding: 100px 60px; text-align: center; }
+    .project-cta .cta-eyebrow { font-family: 'Good Sans', 'DM Sans', sans-serif; display: inline-block; font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .project-cta h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-bottom: 20px; }
+    .project-cta p { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.68); line-height: 1.75; max-width: 560px; margin: 0 auto 36px; }
+    .project-cta .btn-gold { font-family: 'Good Sans', 'DM Sans', sans-serif; background: var(--gold); color: var(--white); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 26px; text-decoration: none; display: inline-flex; align-items: center; transition: background 0.3s, transform 0.2s; border: none; cursor: pointer; }
+    .project-cta .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
 
     @media (max-width: 900px) {
+      #header { padding: 0 24px; }
       .prop-hero { padding: 140px 24px 72px; }
-      .gallery-section { padding: 48px 24px; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-section { padding: 40px 24px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .lb-arrow { display: none; }
+      .project-cta { padding: 72px 24px; }
+      .prop-hero-inner .section-label { font-size: 11px; letter-spacing: 0.08em; }
     }
     @media (max-width: 500px) {
       .gallery-grid { grid-template-columns: 1fr; }
@@ -71,8 +100,9 @@
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle {
       background: none; border: none; cursor: pointer; padding: 0;
-      font-size: 14px; font-weight: 500; font-family: inherit;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
     #header.scrolled .nav-drop-toggle { color: var(--navy); }
@@ -106,7 +136,7 @@
     .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
     @media (max-width: 900px) {
       #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; letter-spacing: 0.05em; }
       #header nav.open .nav-drop-toggle svg { display: none; }
       #header nav.open .nav-drop-menu {
         position: static; opacity: 1; pointer-events: auto;
@@ -125,7 +155,7 @@
 </head>
 <body>
 
-<header id="header" class="solid">
+<header id="header">
   <a href="index.html" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue" src="public/Asset%202full-logo-blue.svg" alt="Koze Design &amp; Build" />
@@ -209,6 +239,14 @@
   <img class="lb-img" id="lbImg" src="" alt="" />
   <div class="lb-arrow lb-next" onclick="lbNext()"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
   <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- ═══ CTA ═══ -->
+<div class="project-cta">
+  <span class="cta-eyebrow">Ready to Get Started?</span>
+  <h2>Let&rsquo;s Build Something That Lasts.</h2>
+  <p>Tell us about your project and we&rsquo;ll let you know if we&rsquo;re the right fit.</p>
+  <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
 </div>
 
 <!-- ═══ FOOTER ═══ -->

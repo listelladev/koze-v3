@@ -121,31 +121,6 @@
       line-height: 1.75; margin-bottom: 40px; max-width: 540px;
     }
 
-    /* ─── SCROLL HINT ─── */
-    .scroll-hint {
-      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      z-index: 2; opacity: 0; animation: scrollHintFade 1s ease 1.4s forwards;
-    }
-    @keyframes scrollHintFade { to { opacity: 1; } }
-    .scroll-hint-label {
-      font-family: 'Good Sans', 'DM Sans', sans-serif;
-      font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-    .scroll-hint-line {
-      width: 1px; height: 52px; background: rgba(255,255,255,0.15); position: relative; overflow: hidden;
-    }
-    .scroll-hint-fill {
-      position: absolute; top: -100%; left: 0; width: 100%; height: 100%;
-      background: rgba(255,255,255,0.7);
-      animation: scrollFill 1.6s cubic-bezier(0.4,0,0.6,1) 1.6s infinite;
-    }
-    @keyframes scrollFill {
-      0%   { top: -100%; }
-      50%  { top: 0%; }
-      100% { top: 100%; }
-    }
 
     /* ─── STATS ─── */
     #stats { background: var(--navy); padding: 72px 60px; }
@@ -480,9 +455,6 @@
       #hero .h1-w1, #hero .h1-w2 { display: block; }
       #hero h1 br { display: none; }
       #hero .hero-content { padding: 0 24px 60px; }
-      .scroll-hint { bottom: 20px; gap: 6px; }
-      .scroll-hint-label { display: none; }
-      .scroll-hint-line { height: 40px; }
       section { padding: 72px 24px; }
       #stats { padding: 56px 24px; }
       #stats .stats-inner { grid-template-columns: repeat(2,1fr); }
@@ -609,9 +581,6 @@
     <p>Budget-led design. Fixed-price construction. One team from concept to completion, for homeowners who value quality and clarity.</p>
     <a href="#bottom-cta" class="btn-gold">Start Your Project</a>
   </div>
-  <div class="scroll-hint">
-    <span class="scroll-hint-label">Scroll</span>
-    <div class="scroll-hint-line"><div class="scroll-hint-fill"></div></div>
   </div>
 </section>
 

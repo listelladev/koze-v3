@@ -5,67 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Use | Koze Design &amp; Build</title>
   <meta name="description" content="Terms of Use for the Koze Design &amp; Build website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --white: #ffffff;
+      --off-white: #F9F7F2;
       --navy: #002D40;
       --green: #3E5B58;
       --gold: #9C7942;
       --gold-hover: #8a6a37;
-      --light-bg: #f7f6f4;
       --text-dark: #1a1a1a;
       --text-mid: #4a4a4a;
       --border: #e5e2dc;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
-    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+    body { font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); color: var(--text-dark); overflow-x: hidden; line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
 
     /* ─── HEADER ─── */
     #header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 0 48px; height: 80px;
+      padding: 0 40px; height: 80px;
       display: flex; align-items: center; justify-content: space-between;
-      background: var(--white); box-shadow: 0 1px 0 var(--border);
       transition: background 0.4s ease, box-shadow 0.4s ease;
     }
+    #header.scrolled { background: var(--off-white); box-shadow: 0 1px 0 var(--border); }
     #header .logo img { height: 36px; display: block; }
-    #header .logo .logo-white { display: none; }
-    #header .logo .logo-blue  { display: block; }
-    #header nav { display: flex; align-items: center; gap: 36px; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a {
-      font-size: 14px; font-weight: 500; color: var(--navy);
-      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
     }
-    #header nav a:hover { color: var(--gold); }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
-      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
+      padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important;
     }
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
-    .hamburger { display: none; cursor: pointer; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; }
+    .hamburger { display: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─── LEGAL HERO ─── */
-    .legal-hero { background: var(--navy); padding: 140px 48px 60px; }
-    .legal-hero h1 { font-size: clamp(32px, 4vw, 52px); color: var(--white); }
-    .legal-hero p { font-size: 16px; color: rgba(255,255,255,0.6); margin-top: 12px; }
+    .legal-hero {
+      position: relative; padding: 180px 60px 100px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; min-height: 420px;
+    }
+    .legal-hero .hero-bg {
+      position: absolute; height: 140%; top: -20%; left: 0; right: 0;
+      background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg');
+      background-size: cover; background-position: center center;
+      will-change: transform;
+    }
+    .legal-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
+    .legal-hero-inner { position: relative; z-index: 1; animation: heroFadeUp 1s ease 0.2s both; }
+    .legal-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; display: block; font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .legal-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .legal-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     /* ─── LEGAL CONTENT ─── */
-    .legal-section { padding: 80px 48px 100px; }
-    .legal-content { max-width: 800px; margin: 0 auto; }
-    .legal-content h2 { font-size: clamp(22px, 3vw, 36px); color: var(--navy); margin-bottom: 16px; }
-    .legal-content h3 { font-size: 18px; color: var(--navy); margin-bottom: 10px; margin-top: 40px; }
-    .legal-content p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 16px; }
-    .legal-content ul { margin: 0 0 16px 24px; }
-    .legal-content ul li { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 8px; }
+    .legal-section { padding: 80px 60px 100px; background: var(--off-white); }
+    .legal-content { max-width: 1040px; margin: 0 auto; }
+    .legal-content h2 { font-size: clamp(24px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .legal-content h3 { font-size: clamp(18px, 2vw, 26px); color: var(--navy); margin-bottom: 12px; margin-top: 48px; }
+    .legal-content p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 18px; }
+    .legal-content ul { margin: 0 0 18px 24px; }
+    .legal-content ul li { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 10px; }
     .legal-content a { color: var(--gold); text-decoration: none; }
     .legal-content a:hover { text-decoration: underline; }
-    .legal-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .legal-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
     /* ─── FOOTER ─── */
     footer { background: var(--navy); padding: 72px 48px 32px; }
@@ -80,7 +109,7 @@
     .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
     .social-links a:hover { background: var(--gold); }
     .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
-    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col h5 { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 10px; }
     .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
@@ -103,10 +132,10 @@
         inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
         gap: 24px; z-index: 999;
       }
-      #header nav.open a { font-size: 22px; color: var(--white) !important; }
+      #header nav.open a { font-size: 20px; color: var(--white) !important; letter-spacing: 0.05em; }
       #header nav.open .nav-cta { background: var(--gold); }
       .hamburger { display: block; }
-      .legal-hero { padding: 120px 24px 48px; }
+      .legal-hero { padding: 140px 24px 72px; min-height: 340px; }
       .legal-section { padding: 56px 24px 80px; }
       footer { padding: 56px 24px 28px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -122,8 +151,9 @@
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle {
       background: none; border: none; cursor: pointer; padding: 0;
-      font-size: 14px; font-weight: 500; font-family: inherit;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
     #header.scrolled .nav-drop-toggle { color: var(--navy); }
@@ -157,7 +187,7 @@
     .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
     @media (max-width: 900px) {
       #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; letter-spacing: 0.05em; }
       #header nav.open .nav-drop-toggle svg { display: none; }
       #header nav.open .nav-drop-menu {
         position: static; opacity: 1; pointer-events: auto;
@@ -177,7 +207,7 @@
 <body>
 
 <!-- ═══ HEADER ═══ -->
-<header id="header" class="solid">
+<header id="header">
   <a href="index.html" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
@@ -206,15 +236,20 @@
 
 <!-- ═══ LEGAL HERO ═══ -->
 <div class="legal-hero">
-  <h1>Terms of Use</h1>
-  <p>Last updated: June 2025</p>
+  <div class="hero-bg"></div>
+  <div class="legal-hero-inner">
+    <span class="section-label">Koze Design &amp; Build</span>
+    <h1>Terms of Use</h1>
+    <div class="header-rule"></div>
+  </div>
 </div>
 
 <!-- ═══ LEGAL CONTENT ═══ -->
 <section class="legal-section">
   <div class="legal-content">
 
-    <h2>Terms of Use</h2>
+    <p style="font-family:'Good Sans','DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;">Last Updated: June 2025</p>
+
     <p>Please read these Terms of Use carefully before using the Koze Design and Build Inc. website located at <strong>kozedesignbuild.ca</strong> (the &ldquo;Site&rdquo;). By accessing or using the Site, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the Site.</p>
 
     <hr class="legal-divider" />
