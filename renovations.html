@@ -5,357 +5,210 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Major Renovations | Koze Design &amp; Build</title>
   <meta name="description" content="Whole-home renovations in the Lower Mainland, BC. Budget-led design, fixed-price remodels, and full-service coordination from Koze Design &amp; Build." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
+  <link rel="stylesheet" href="public/css/koze.css" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ─── FONT & BASE ─── */
+    :root { --off-white: #F9F7F2; }
+    body { font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
+    .eyebrow { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .section-label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .section-inner { max-width: none; margin: 0; }
+    section { padding: 100px 60px; }
 
-    :root {
-      --white: #ffffff;
-      --navy: #002D40;
-      --green: #3E5B58;
-      --gold: #9C7942;
-      --gold-hover: #8a6a37;
-      --light-bg: #f7f6f4;
-      --text-dark: #1a1a1a;
-      --text-mid: #4a4a4a;
-      --border: #e5e2dc;
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
+    .service-hero-inner { animation: heroFadeUp 1s ease 0.2s both; }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: "loos-normal", sans-serif; font-weight: 200; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
-    h1, h2, h3, h4, h5, h6 { font-family: "loos-wide", sans-serif; font-weight: 500; }
+    /* ─── HERO ─── */
+    .service-hero {
+      position: relative; padding: 180px 60px 100px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; min-height: 420px;
+    }
+    .service-hero .hero-bg {
+      position: absolute; height: 140%; top: -20%; left: 0; right: 0;
+      background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg');
+      background-size: cover; background-position: center 40%;
+      will-change: transform; transition: none;
+    }
+    .service-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
+    .service-hero-inner { position: relative; z-index: 1; }
+    .service-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .service-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
 
-    /* ─── HEADER ─── */
-    #header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 0 48px; height: 80px;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      background: rgba(0,18,30,0.35);
+    /* ─── INTRO 2-COL ─── */
+    .intro-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: stretch;
     }
-    #header.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
-    #header .logo img { height: 36px; display: block; }
-    #header .logo .logo-white { display: block; }
-    #header .logo .logo-blue  { display: none; }
-    #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
-    #header nav { display: flex; align-items: center; gap: 36px; }
-    #header nav a {
-      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9);
-      text-decoration: none; letter-spacing: 0.01em; transition: color 0.3s;
-    }
-    #header.scrolled nav a { color: var(--navy); }
-    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
-    #header .nav-cta {
-      background: var(--gold); color: var(--white) !important;
-      padding: 10px 22px; font-weight: 600; transition: background 0.3s !important;
-    }
-    #header .nav-cta:hover { background: var(--gold-hover) !important; }
-    .hamburger { display: none; cursor: pointer; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
-
-    /* ─── BUTTONS ─── */
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: 8px;
+    .intro-text h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin: 0 0 20px; }
+    .intro-divider { width: 40px; height: 2px; background: var(--gold); margin: 24px 0; }
+    .intro-text p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px; }
+    .intro-inner .reveal-right { position: relative; }
+    .intro-img { position: absolute; inset: 0; overflow: hidden; }
+    .intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .intro-img:hover img { transform: scale(1.03); }
+    .intro-img-accent { position: absolute; bottom: -20px; right: -20px; width: 120px; aspect-ratio: 1; background: var(--gold); z-index: -1; }
+    .btn-gold-service {
+      display: inline-flex; align-items: center;
       background: var(--gold); color: var(--white);
-      font-size: 15px; font-weight: 600; padding: 16px 34px;
-      text-decoration: none; letter-spacing: 0.01em;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 12px 26px; text-decoration: none; border: none;
       transition: background 0.3s, transform 0.2s;
     }
-    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
-    .btn-navy {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--navy); color: var(--white);
-      font-size: 15px; font-weight: 600; padding: 16px 34px;
-      text-decoration: none; transition: background 0.3s, transform 0.2s;
-    }
-    .btn-navy:hover { background: #003d56; transform: translateY(-1px); }
-    .btn-outline-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--white);
-      font-size: 15px; font-weight: 500; padding: 15px 32px;
-      border: 1.5px solid rgba(255,255,255,0.45); text-decoration: none;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
-    .btn-outline-navy {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--navy);
-      font-size: 15px; font-weight: 600; padding: 15px 32px;
-      border: 1.5px solid var(--navy); text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-    }
-    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
-    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn-gold-service:hover { background: var(--gold-hover); transform: translateY(-1px); }
 
-    /* ─── EYEBROW / LABELS ─── */
-    .eyebrow {
-      display: inline-block; font-size: 12px; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    /* ─── STATS BANNER ─── */
+    .stats-banner { background: var(--navy); padding: 72px 60px; }
+    .stats-inner-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { padding: 20px 40px 0; text-align: center; position: relative; }
+    .stat-item::after {
+      content: ''; display: block;
+      width: 44px; height: 1px; background: rgba(255,255,255,0.15);
+      margin: 20px auto 0;
     }
-    .section-label {
-      display: block; font-size: 12px; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px;
-    }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 400; color: var(--off-white); letter-spacing: 0.02em; line-height: 1; margin-bottom: 12px; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.48); letter-spacing: 0.04em; line-height: 1.45; }
 
-    /* ─── PAGE HERO ─── */
-    .page-hero {
-      position: relative; width: 100%; height: 88vh; min-height: 560px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; overflow: hidden;
-    }
-    .page-hero .hero-bg {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center 40%;
-    }
-    .page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.56); }
-    .page-hero .hero-content {
-      position: relative; z-index: 1; padding: 0 48px;
-      display: flex; flex-direction: column; align-items: center;
-      max-width: 900px;
-    }
-    .page-hero h1 {
-      font-size: clamp(32px, 4.6vw, 62px); font-weight: 500;
-      line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 24px;
-      color: var(--white);
-    }
-    .page-hero p {
-      font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.8);
-      line-height: 1.7; margin-bottom: 40px; max-width: 580px;
-    }
-
-    /* ─── SECTIONS ─── */
-    section { padding: 100px 48px; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .light-bg { background: var(--light-bg); }
-
-    /* ─── TWO-COL ─── */
-    .two-col {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-
-    /* ─── IMAGE ─── */
-    .img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/5; }
-    .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .img-wrap:hover img { transform: scale(1.03); }
-    .img-accent {
-      position: absolute; bottom: -24px; right: -24px; width: 160px; aspect-ratio: 1;
-      background: var(--gold); z-index: -1;
-    }
-
-    /* ─── TEXT COL ─── */
-    .text-col h2 {
-      font-size: clamp(26px, 3.5vw, 44px); font-weight: 500; color: var(--navy);
-      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
-    }
-    .text-col .divider { width: 40px; height: 3px; background: var(--gold); margin: 28px 0; }
-    .text-col p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
-
-    /* ─── CHECK LIST ─── */
-    .check-list { list-style: none; margin: 24px 0 36px; }
-    .check-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 15px; font-weight: 500; color: var(--text-dark);
-      padding: 10px 0; border-bottom: 1px solid var(--border);
-    }
-    .check-list li:last-child { border-bottom: none; }
-    .check-list li::before {
-      content: ''; flex-shrink: 0; width: 20px; height: 20px;
-      background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M8.3 13.7L4.5 9.9l1.4-1.4 2.4 2.4 5.8-5.8 1.4 1.4z'/%3E%3C/svg%3E") center/contain;
-    }
-
-    /* ─── SECTION HEADER ─── */
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-header h2 {
-      font-size: clamp(26px, 3.8vw, 46px); font-weight: 500; color: var(--navy);
-      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px;
-    }
-    .section-header p { font-size: 16px; color: var(--text-mid); max-width: 540px; margin: 0 auto; line-height: 1.7; }
-
-    /* ─── FEATURE GRID ─── */
-    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .feature-card {
+    /* ─── WHAT WE RENOVATE ─── */
+    .what-section { background: var(--off-white); }
+    .what-header { text-align: center; margin-bottom: 60px; }
+    .what-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
+    .what-header p { font-size: 16px; color: var(--text-mid); max-width: 560px; margin: 16px auto 0; line-height: 1.75; }
+    .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .what-card {
       background: var(--white); padding: 44px 36px;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      transition: transform 0.3s ease;
     }
-    .feature-card:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
-    .feature-card .fc-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    .what-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: #9C7942;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .what-card:hover { transform: translateY(-3px); }
+    .what-card:hover::after { opacity: 1; }
+    .what-card-num {
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 20px; display: block;
     }
-    .feature-card h3 {
-      font-size: 20px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 14px;
-    }
-    .feature-card p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
+    .what-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--navy); margin-bottom: 14px; }
+    .what-card p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
 
-    /* ─── PROCESS STEPS ─── */
-    .process-steps-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 48px;
+    /* ─── DIFFERENCE TABLE ─── */
+    .diff-section { background: var(--navy); }
+    .diff-header { text-align: center; margin-bottom: 56px; }
+    .diff-header .eyebrow { color: var(--gold); }
+    .diff-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-top: 10px; }
+    .diff-header p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 540px; margin: 16px auto 0; line-height: 1.75; }
+    .diff-table-wrap { overflow-x: auto; }
+    .diff-table { width: 100%; border-collapse: collapse; font-family: 'Good Sans', 'DM Sans', sans-serif; }
+    .diff-table thead th {
+      padding: 18px 28px; text-align: left;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      border-bottom: 2px solid rgba(255,255,255,0.12);
     }
-    .process-step-card {
-      background: var(--navy); padding: 48px 36px; position: relative; overflow: hidden;
+    .diff-table thead th:first-child { color: rgba(255,255,255,0.4); width: 26%; }
+    .diff-table thead th:nth-child(2) { color: rgba(255,255,255,0.4); }
+    .diff-table thead th:nth-child(3) { color: var(--gold); position: relative; }
+    .diff-table thead th:nth-child(3)::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(156,121,66,0.1);
     }
-    .process-step-card::before {
-      content: attr(data-num);
-      position: absolute; top: -12px; right: 20px;
-      font-size: 88px; font-weight: 500; color: rgba(255,255,255,0.05);
-      font-family: "loos-wide", sans-serif; line-height: 1;
-    }
-    .process-step-card .step-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 16px; display: block;
-    }
-    .process-step-card h3 {
-      font-size: 20px; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 14px;
-    }
-    .process-step-card p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.75; }
-    .process-cta { text-align: center; }
-    .process-cta a {
-      font-size: 14px; font-weight: 600; color: var(--green); text-decoration: none;
-      letter-spacing: 0.02em; border-bottom: 1px solid var(--green); padding-bottom: 2px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .process-cta a:hover { color: var(--gold); border-color: var(--gold); }
-
-    /* ─── RENO COMPARISON ─── */
-    .reno-compare-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 56px;
-    }
-    .reno-compare-card {
-      padding: 44px 40px;
-    }
-    .reno-compare-card.before { background: var(--navy); }
-    .reno-compare-card.after { background: var(--green); }
-    .reno-compare-card .rc-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); margin-bottom: 20px; display: block;
-    }
-    .reno-compare-card h3 {
-      font-size: 22px; font-weight: 500; color: var(--white); margin-bottom: 20px; line-height: 1.2;
-    }
-    .reno-compare-card ul { list-style: none; }
-    .reno-compare-card ul li {
-      font-size: 15px; color: rgba(255,255,255,0.72); padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .reno-compare-card ul li:last-child { border-bottom: none; }
-    .reno-compare-card.before ul li::before { content: '✕'; color: rgba(255,255,255,0.3); font-size: 12px; flex-shrink: 0; }
-    .reno-compare-card.after ul li::before { content: '✓'; color: var(--gold); font-size: 14px; font-weight: 700; flex-shrink: 0; }
-
-    /* ─── GREEN BANNER ─── */
-    .green-banner { background: var(--green); text-align: center; }
-    .green-banner .section-inner { max-width: 780px; }
-    .green-banner .eyebrow { color: rgba(255,255,255,0.5); }
-    .green-banner h2 {
-      font-size: clamp(26px, 4vw, 46px); font-weight: 500; color: var(--white);
-      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
-    }
-    .green-banner p { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 36px; }
-    .green-banner .process-link {
-      display: inline-block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6);
-      text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;
-      margin-left: 20px; transition: color 0.3s, border-color 0.3s;
-    }
-    .green-banner .process-link:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
-
-    /* ─── PORTFOLIO GRID ─── */
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 48px; }
-    .portfolio-card { position: relative; overflow: hidden; aspect-ratio: 3/4; }
-    .portfolio-card img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.6s ease, filter 0.5s ease;
-      filter: brightness(0.75);
-    }
-    .portfolio-card:hover img { transform: scale(1.05); filter: brightness(0.45); }
-    .portfolio-card .pc-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,45,64,0.88) 0%, rgba(0,45,64,0.1) 55%, transparent 100%);
-    }
-    .portfolio-card .pc-label {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 28px;
-      transition: transform 0.4s ease;
-      transform: translateY(4px);
-    }
-    .portfolio-card:hover .pc-label { transform: translateY(0); }
-    .pc-label .pc-tag {
+    .diff-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .diff-table tbody tr:last-child { border-bottom: none; }
+    .diff-table tbody td { padding: 22px 28px; font-size: 14px; line-height: 1.65; vertical-align: top; }
+    .diff-table tbody td:first-child {
       font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 8px; display: block;
+      color: rgba(255,255,255,1); padding-top: 28px;
     }
-    .pc-label h3 { font-size: 18px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
-    .pc-label p { font-size: 14px; color: rgba(255,255,255,0.7); }
-    .portfolio-cta { text-align: center; }
+    .diff-table tbody td:nth-child(2) { color: rgba(255,255,255,0.45); }
+    .diff-table tbody td:nth-child(3) {
+      color: rgba(255,255,255,0.88);
+      background: rgba(156,121,66,0.08);
+      border-left: 1px solid rgba(156,121,66,0.2); position: relative;
+    }
+    .diff-table tbody td:nth-child(3)::before {
+      content: '';
+      display: inline-block; width: 16px; height: 16px; margin-right: 10px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%239C7942' d='M8.3 13.7L4.5 9.9l1.4-1.4 2.4 2.4 5.8-5.8 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+      flex-shrink: 0; vertical-align: middle; position: relative; top: -1px;
+    }
+
+    /* ─── WHO BENEFITS ─── */
+    .benefits-section { background: var(--off-white); }
+    .benefits-header { text-align: center; margin-bottom: 60px; }
+    .benefits-header .section-label { color: var(--green); }
+    .benefits-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .benefit-card {
+      background: var(--white); padding: 48px 36px;
+      border-top: 3px solid var(--border);
+      position: relative;
+      display: flex; flex-direction: column;
+    }
+    .benefit-card::before {
+      content: ''; position: absolute; top: -3px; left: 0; right: 0;
+      height: 3px; background: #9C7942;
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .benefit-card:hover::before { opacity: 1; }
+    .benefit-icon {
+      width: 48px; height: 48px; background: var(--navy);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 24px; flex-shrink: 0;
+    }
+    .benefit-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 1.5; }
+    .benefit-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--navy); margin-bottom: 14px; }
+    .benefit-card p { font-size: 15px; color: var(--text-mid); line-height: 1.8; }
 
     /* ─── FAQ ─── */
-    .faq-inner { max-width: 800px; margin: 0 auto; }
-    .faq-header { text-align: center; margin-bottom: 56px; }
-    .faq-header h2 {
-      font-size: clamp(26px, 4vw, 42px); font-weight: 500; color: var(--navy);
-      line-height: 1.1; letter-spacing: -0.02em;
-    }
+    .faq-section { background: var(--white); }
+    .faq-section-inner { max-width: 760px; margin: 0 auto; }
+    .faq-section-header { text-align: center; margin-bottom: 56px; }
+    .faq-section-header .eyebrow { color: var(--green); }
+    .faq-section-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q {
       width: 100%; text-align: left; background: none; border: none; cursor: pointer;
       padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      font-family: "loos-wide", sans-serif; font-size: 16px; font-weight: 500; color: var(--navy); line-height: 1.4;
+      font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 16px; font-weight: 400;
+      color: var(--navy); line-height: 1.4;
     }
     .faq-q:hover { color: var(--green); }
     .faq-icon {
-      flex-shrink: 0; width: 28px; height: 28px;
-      background: rgba(0,45,64,0.08); display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s, transform 0.3s;
+      flex-shrink: 0; width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: none !important; transition: transform 0.3s;
     }
-    .faq-icon svg { width: 12px; height: 12px; stroke: var(--navy); fill: none; stroke-width: 2.5; stroke-linecap: round; }
-    .faq-item.open .faq-icon { background: var(--gold); transform: rotate(45deg); }
-    .faq-item.open .faq-icon svg { stroke: white; }
+    .faq-icon svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: none !important; }
+    .faq-item.open .faq-icon svg { stroke: var(--gold) !important; }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-a p { font-size: 15px; color: var(--text-mid); line-height: 1.8; padding-bottom: 24px; }
+    .faq-item.open .faq-a { max-height: 320px; }
+    .faq-a p { font-size: 15px; color: var(--text-mid); line-height: 1.85; padding-bottom: 24px; }
 
     /* ─── BOTTOM CTA ─── */
-    .bottom-cta { position: relative; padding: 120px 48px; text-align: center; overflow: hidden; }
+    .bottom-cta { position: relative; padding: 120px 60px; text-align: center; overflow: hidden; }
     .bottom-cta .bg {
-      position: absolute; inset: 0;
+      position: absolute; height: 140%; top: -20%; left: 0; right: 0;
+      background-image: url('public/19452-fraser-unit-15/koze-fraser-web-2.jpg');
       background-size: cover; background-position: center;
+      will-change: transform; transition: none;
     }
-    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.72); }
+    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
     .bottom-cta .content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
     .bottom-cta .eyebrow { color: var(--gold); }
-    .bottom-cta h2 {
-      font-size: clamp(30px, 5vw, 58px); font-weight: 500; color: var(--white);
-      line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px;
-    }
-    .bottom-cta p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 40px; }
-    .bottom-cta .btn-group { justify-content: center; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--navy); padding: 72px 48px 32px; }
-    .footer-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
-      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px;
-    }
-    .footer-brand img { height: 32px; margin-bottom: 20px; display: block; }
-    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
-    .social-links { display: flex; gap: 10px; }
-    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
-    .social-links a:hover { background: var(--gold); }
-    .social-links a svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.65); }
-    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
-    .footer-col ul li a:hover { color: var(--white); }
-    .fc-item { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
-    .fc-item svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
-    .fc-item span { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
-    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
-    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; }
-    .footer-bottom a:hover { color: var(--gold); }
-    .footer-bottom-links { display: flex; gap: 20px; }
+    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-bottom: 20px; }
+    .bottom-cta p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 40px; }
 
     /* ─── REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -372,43 +225,75 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      #header { padding: 0 24px; }
-      #header nav { display: none; }
-      #header nav.open {
-        display: flex; flex-direction: column; position: fixed;
-        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
-        gap: 24px; z-index: 999;
-      }
-      #header nav.open a { font-size: 22px; color: var(--white) !important; }
-      #header nav.open .nav-cta { background: var(--gold); }
-      .hamburger { display: block; }
-      .page-hero h1 { font-size: clamp(28px, 7.5vw, 44px); }
-      .page-hero .hero-content { padding: 0 24px; }
+      .service-hero { padding: 140px 24px 72px; }
       section { padding: 72px 24px; }
-      .two-col { grid-template-columns: 1fr; gap: 40px; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .process-steps-grid { grid-template-columns: 1fr; }
-      .reno-compare-grid { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-card { aspect-ratio: 16/9; }
+      .stats-banner { padding: 56px 24px; }
+      .stats-inner-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { padding: 20px 16px 0; }
+      .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-inner .reveal-right { min-height: 300px; }
+      .intro-img-accent { display: none; }
+      .what-grid { grid-template-columns: 1fr; }
+      .diff-table thead th, .diff-table tbody td { padding: 16px 18px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+      .bottom-cta { padding: 80px 24px; }
+      .bottom-cta .bg { top: 0; height: 100%; }
       footer { padding: 56px 24px 28px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .footer-grid .footer-brand { grid-column: span 2; }
-      .bottom-cta { padding: 80px 24px; }
     }
     @media (max-width: 600px) {
       .footer-grid { grid-template-columns: 1fr; }
       .footer-grid .footer-brand { grid-column: span 1; }
+      .stat-num { font-size: 40px; }
+      .diff-table thead th:first-child,
+      .diff-table tbody td:first-child { display: none; }
+      .diff-table { font-size: 13px; }
     }
   </style>
+
   <style>
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 40px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #header.scrolled { background: var(--off-white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 32px; }
+    #header nav a {
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ─── NAV DROPDOWNS ─── */
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle {
       background: none; border: none; cursor: pointer; padding: 0;
-      font-size: 14px; font-weight: 500; font-family: inherit;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
-      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.9); transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
     #header.scrolled .nav-drop-toggle { color: var(--navy); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
@@ -417,51 +302,41 @@
     .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
     .nav-drop-menu {
       position: absolute; top: calc(100% + 20px); left: 50%;
-      background: #ffffff; min-width: 210px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      border-top: 2px solid #9C7942;
-      opacity: 0; pointer-events: none;
-      transform: translateX(-50%) translateY(-6px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
-      z-index: 200;
+      background: var(--off-white); min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-top: 2px solid var(--gold);
+      opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease; z-index: 200;
     }
-    .nav-dropdown:hover .nav-drop-menu {
-      opacity: 1; pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
-    }
+    .nav-dropdown:hover .nav-drop-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
     .nav-drop-menu a {
       display: block; padding: 13px 20px;
-      font-size: 13px; font-weight: 500; color: #002D40 !important;
-      text-decoration: none; letter-spacing: 0.01em;
-      border-bottom: 1px solid #e5e2dc;
-      transition: background 0.2s, color 0.2s !important;
-      white-space: nowrap;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--navy) !important; text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: background 0.2s, color 0.2s !important; white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    .nav-drop-menu a:hover { background: rgba(156,121,66,0.08); color: var(--gold) !important; }
     @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px; gap: 24px; z-index: 999; }
+      #header nav.open a { font-size: 20px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
       #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; }
       #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu {
-        position: static; opacity: 1; pointer-events: auto;
-        transform: none; box-shadow: none; border-top: none;
-        background: transparent; min-width: unset; width: 100%;
-        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
-        margin-top: 6px; margin-bottom: 4px;
-      }
-      #header nav.open .nav-drop-menu a {
-        color: rgba(255,255,255,0.75) !important; background: transparent;
-        border-bottom: none; font-size: 17px; padding: 7px 0;
-      }
-      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+      #header nav.open .nav-drop-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border-top: none; background: transparent; min-width: unset; width: 100%; padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45); margin-top: 6px; margin-bottom: 4px; }
+      #header nav.open .nav-drop-menu a { color: rgba(255,255,255,0.75) !important; background: transparent; border-bottom: none; font-size: 15px; padding: 7px 0; }
+      #header nav.open .nav-drop-menu a:hover { color: var(--gold) !important; }
     }
   </style>
 </head>
 <body>
 
 <!-- ═══ HEADER ═══ -->
-<header id="header" class="solid">
+<header id="header">
   <a href="index.html" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
@@ -488,259 +363,239 @@
   </div>
 </header>
 
-<!-- ═══ PAGE HERO ═══ -->
-<div class="page-hero">
-  <div class="hero-bg" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg');"></div>
-  <div class="hero-content" style="text-align:center;align-items:center;">
-    <span class="eyebrow">Major Renovations</span>
-    <h1>Transform Your Home.<br />Keep What Works.</h1>
-    <div style="width:56px;height:3px;background:var(--gold);margin:28px auto 0;"></div>
+<!-- ═══ HERO ═══ -->
+<section class="service-hero">
+  <div class="hero-bg parallax-bg" data-parallax></div>
+  <div class="service-hero-inner">
+    <h1>Major <em>Renovations</em></h1>
+    <div class="header-rule"></div>
+  </div>
+</section>
+
+<!-- ═══ INTRO 2-COL ═══ -->
+<section style="background: var(--off-white);">
+  <div class="intro-inner">
+    <div class="intro-text reveal-left">
+      <h2>A Renovation That Respects Your Home  -  and Your <em>Budget.</em></h2>
+      <div class="intro-divider"></div>
+      <p>A full home remodel is more disruptive than most homeowners expect. The trades, the sequencing, the decisions  -  without a clear process, it becomes overwhelming and expensive. We simplify all of it.</p>
+      <p>We start every renovation with an honest budget conversation. We evaluate what's worth keeping, what should go, and what modernization will actually add lasting value. Then we design and build around a single, fixed price  -  so you know exactly what you're committing to before a single wall comes down.</p>
+      <a href="contact.html" class="btn-gold-service">Start Your Project &rarr;</a>
+    </div>
+    <div class="reveal-right">
+      <div class="intro-img">
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-3.jpg" alt="Koze renovation  -  precision craftsmanship and design" />
+        <div class="intro-img-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS BANNER ═══ -->
+<div class="stats-banner">
+  <div class="stats-inner-grid reveal">
+    <div class="stat-item">
+      <div class="stat-num" data-target="15" data-suffix="+">15+</div>
+      <div class="stat-label">Years of Industry Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-prefix="$" data-target="2" data-suffix="M+">$2M+</div>
+      <div class="stat-label">Delivered in the Last 12 Months</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100" data-start="75" data-suffix="%">100%</div>
+      <div class="stat-label">Fixed-Price Contracts, Every Renovation</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="1">1</div>
+      <div class="stat-label">Team for Design, Permits &amp; Construction</div>
+    </div>
   </div>
 </div>
 
-<!-- ═══ SERVICE INTRO ═══ -->
-<section>
-  <div class="section-inner">
-    <div class="two-col">
-      <div class="text-col reveal-left">
-        <span class="section-label">Renovations</span>
-        <h2>A Renovation That Respects Your Home — and Your Budget.</h2>
-        <div class="divider"></div>
-        <p>A full home remodel is more disruptive than most homeowners expect. The trades, the sequencing, the decisions — without a clear process, it becomes overwhelming and expensive. We simplify all of it.</p>
-        <p>We start every renovation with an honest budget conversation. We evaluate what's worth keeping, what should go, and what modernization will actually add lasting value. Then we design and build around a single, fixed price — so you know exactly what you're committing to before a single wall comes down.</p>
-        <ul class="check-list">
-          <li>Preserve quality existing elements wherever possible</li>
-          <li>Budget-led design — no surprise reveals</li>
-          <li>Fixed-price contract before construction</li>
-          <li>Full coordination of trades and permits</li>
-          <li>Minimal disruption with clear scheduling</li>
-        </ul>
-        <a href="contact.html" class="btn-navy">Start Your Project &rarr;</a>
-      </div>
-      <div class="img-col reveal-right">
-        <div class="img-wrap">
-          <img src="public/19452-fraser-unit-15/koze-fraser-web-3.jpg" alt="Koze full home remodel — renovated interior" />
-          <div class="img-accent"></div>
-        </div>
-      </div>
+<!-- ═══ WHAT WE RENOVATE ═══ -->
+<section class="what-section">
+  <div class="what-header reveal">
+    <span class="eyebrow">Scope of Work</span>
+    <h2>Every Element, <em>Reimagined</em></h2>
+    <p>A Koze renovation isn't cosmetic. Every project is scoped, designed, and priced as an integrated whole  -  so nothing is treated as an afterthought.</p>
+  </div>
+  <div class="what-grid">
+    <div class="what-card reveal d1">
+      <span class="what-card-num">01</span>
+      <h3>Kitchen Transformations</h3>
+      <p>Full kitchen redesign  -  cabinetry, appliances, countertops, lighting, and layout. We design around how you actually cook and entertain, not around what fits a standard template. Every kitchen is drawn for your specific space.</p>
+    </div>
+    <div class="what-card reveal d2">
+      <span class="what-card-num">02</span>
+      <h3>Bathroom Renovations</h3>
+      <p>Primary ensuites, main baths, and powder rooms  -  tiled, finished, and specified to match the quality of the home. Custom showers, heated floors, custom vanities, and finishes selected to age gracefully.</p>
+    </div>
+    <div class="what-card reveal d3">
+      <span class="what-card-num">03</span>
+      <h3>Main Floor Reimagination</h3>
+      <p>Open-concept conversions, structural wall removals, new flooring, and complete layout changes that transform how your home lives and flows. We handle the structural engineering and permits so you don't have to.</p>
+    </div>
+    <div class="what-card reveal d1">
+      <span class="what-card-num">04</span>
+      <h3>Primary Suite &amp; Bedrooms</h3>
+      <p>Expanded bedrooms, custom built-ins, walk-in closet systems, and ensuite additions designed around how you actually use the space  -  not around what a previous owner decided decades ago.</p>
+    </div>
+    <div class="what-card reveal d2">
+      <span class="what-card-num">05</span>
+      <h3>Mechanical, Electrical &amp; Structural</h3>
+      <p>Updated panels, HVAC, plumbing rerouting, and structural work  -  done correctly the first time, not patched around existing problems. We integrate systems improvements into the renovation scope from the start.</p>
+    </div>
+    <div class="what-card reveal d3">
+      <span class="what-card-num">06</span>
+      <h3>Secondary Suites &amp; ADU Additions</h3>
+      <p>Legal basement suites, above-garage suites, and coach home additions built to code and permitted for rental or family use. Designed to maximize income potential and add lasting value to your property.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ THE PROBLEM WE SOLVE ═══ -->
-<section class="light-bg">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="eyebrow">The Koze Difference</span>
-      <h2>Renovations Done Right</h2>
-      <p>Most renovation projects go sideways. Here's why — and how we prevent it on every project we take on.</p>
-    </div>
-    <div class="reno-compare-grid">
-      <div class="reno-compare-card before reveal-left">
-        <span class="rc-label">The Typical Renovation Experience</span>
-        <h3>The Way Most Renovations Go</h3>
-        <ul>
-          <li>Vague estimates that balloon during construction</li>
-          <li>Design completed before budget is confirmed</li>
-          <li>Multiple contractors, no single point of accountability</li>
-          <li>Constant change orders and surprises</li>
-          <li>Unclear timelines and moving targets</li>
-          <li>Selections made under pressure mid-construction</li>
-        </ul>
-      </div>
-      <div class="reno-compare-card after reveal-right">
-        <span class="rc-label">The Koze Approach</span>
-        <h3>How We Do It Differently</h3>
-        <ul>
-          <li>Fixed price agreed before construction starts</li>
-          <li>Budget confirmed before design begins</li>
-          <li>One team, one process, one point of contact</li>
-          <li>Fully defined scope — no hidden surprises</li>
-          <li>Clear schedule delivered during pre-construction</li>
-          <li>All selections finalized before we price the work</li>
-        </ul>
-      </div>
-    </div>
+<!-- ═══ THE KOZE DIFFERENCE TABLE ═══ -->
+<section class="diff-section">
+  <div class="diff-header reveal">
+    <span class="eyebrow">The Koze Difference</span>
+    <h2>A Better Way to <em>Renovate</em></h2>
+    <p>The traditional renovation process is fragmented, expensive, and full of surprises. Ours is built differently from the start.</p>
+  </div>
+  <div class="diff-table-wrap reveal d1">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>The Typical Renovation</th>
+          <th>The Koze Way</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Budget Setting</td>
+          <td>Design first, price later  -  cost balloons well beyond expectations.</td>
+          <td>Budget confirmed before design begins  -  no surprises, no rework.</td>
+        </tr>
+        <tr>
+          <td>Contract Type</td>
+          <td>Cost-plus estimates and open allowances that expand mid-construction.</td>
+          <td>Fixed-price contract after all scope and selections are fully defined.</td>
+        </tr>
+        <tr>
+          <td>Trade Coordination</td>
+          <td>Multiple vendors with no single point of accountability or scheduling.</td>
+          <td>One team manages every trade, every decision, every timeline.</td>
+        </tr>
+        <tr>
+          <td>Design Decisions</td>
+          <td>Made without knowing what things cost to build.</td>
+          <td>Made with the builder in the room  -  costs are always front of mind.</td>
+        </tr>
+        <tr>
+          <td>Scope Clarity</td>
+          <td>Vague line items and allowances replaced mid-construction with extras.</td>
+          <td>Fully defined scope  -  your price covers exactly what's been specified.</td>
+        </tr>
+        <tr>
+          <td>Communication</td>
+          <td>Multiple contractors to chase, unclear timelines, gaps in accountability.</td>
+          <td>Proactive updates from one team  -  you always know what's next.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- ═══ KEY FEATURES ═══ -->
-<section>
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="eyebrow">What We Provide</span>
-      <h2>A Full-Service Renovation Experience</h2>
-      <p>Every whole-home remodel we take on is managed with the same precision and care as a ground-up custom build.</p>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card reveal d1">
-        <span class="fc-num">01</span>
-        <h3>Thoughtful Modernization</h3>
-        <p>We don't tear out everything for the sake of it. We evaluate each element — what should be preserved, what should be upgraded, and what genuinely adds value to your daily life and long-term investment.</p>
-      </div>
-      <div class="feature-card reveal d2">
-        <span class="fc-num">02</span>
-        <h3>Fixed-Price Certainty</h3>
-        <p>After full scope definition, all selections, and completed design — you receive one fixed-price proposal. No cost-plus contracts, no open-ended allowances, no change orders born from vague line items.</p>
-      </div>
-      <div class="feature-card reveal d3">
-        <span class="fc-num">03</span>
-        <h3>Full Trade Coordination</h3>
-        <p>We manage every trade, every permit, and every timeline. You have one person to call — and one team accountable for the whole result. No finger-pointing between contractors when issues arise.</p>
-      </div>
-    </div>
+<!-- ═══ WHO BENEFITS ═══ -->
+<section class="benefits-section">
+  <div class="benefits-header reveal">
+    <span class="section-label">Is This Right For You?</span>
+    <h2>Who Benefits from a Major <em>Renovation</em></h2>
   </div>
-</section>
-
-<!-- ═══ PROCESS PREVIEW ═══ -->
-<section class="light-bg">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="eyebrow">Our Process</span>
-      <h2>Three Phases. One Fixed Price.</h2>
-      <p>The same proven process that eliminates surprises — applied to every renovation we undertake.</p>
-    </div>
-    <div class="process-steps-grid">
-      <div class="process-step-card reveal d1" data-num="1">
-        <span class="step-tag">Phase One</span>
-        <h3>Discover &amp; Align</h3>
-        <p>We start with your goals, your budget, and your existing home. A thorough site evaluation helps us understand what's feasible, what's worth keeping, and what a complete transformation actually requires.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal d1">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <div class="process-step-card reveal d2" data-num="2">
-        <span class="step-tag">Phase Two</span>
-        <h3>Design &amp; Pre-Construction</h3>
-        <p>Architecture, interior selections, structural review, and permit coordination — all completed before we price the work. Your fixed-price proposal reflects every decision already made.</p>
-      </div>
-      <div class="process-step-card reveal d3" data-num="3">
-        <span class="step-tag">Phase Three</span>
-        <h3>Fixed Price &amp; Build</h3>
-        <p>One price. Full trade management. Clear communication throughout. We run the project so you don't have to — and deliver the transformation exactly as designed.</p>
-      </div>
+      <h3>Long-Term Homeowners</h3>
+      <p>You've been in your home for years. The location is right, the bones are good  -  but the layout, finishes, and systems haven't kept pace with how you live. A well-executed renovation doesn't just update a house. It unlocks the potential in a home you already love, and extends its life for another generation.</p>
     </div>
-    <div class="process-cta reveal">
-      <a href="process.html">See All 8 Steps in Our Process &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GREEN BANNER ═══ -->
-<section class="green-banner">
-  <div class="section-inner">
-    <span class="eyebrow reveal">Why Koze</span>
-    <h2 class="reveal d1">Renovations Without the Chaos.</h2>
-    <p class="reveal d2">Whole-home remodels are inherently complex. But they don't have to be overwhelming. We bring one team, one clear process, and one fixed price to every project — so that you can make confident decisions and actually enjoy the transformation of your home.</p>
-    <div class="btn-group reveal d3" style="justify-content: center;">
-      <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
-      <a href="process.html" class="process-link">See Our Full Process</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PORTFOLIO PREVIEW ═══ -->
-<section>
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="eyebrow">Recent Work</span>
-      <h2>From Our Portfolio</h2>
-      <p>A glimpse into the craftsmanship and detail that defines every Koze renovation project.</p>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card reveal d1">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-5.jpg" alt="19452 Fraser Crescent — renovated kitchen" />
-        <div class="pc-overlay"></div>
-        <div class="pc-label">
-          <span class="pc-tag">Major Renovation &mdash; Lower Mainland</span>
-          <h3>19452 Fraser Crescent</h3>
-          <p>Kitchen transformation</p>
-        </div>
+    <div class="benefit-card reveal d2">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <div class="portfolio-card reveal d2">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-10.jpg" alt="19452 Fraser Crescent — living area" />
-        <div class="pc-overlay"></div>
-        <div class="pc-label">
-          <span class="pc-tag">Major Renovation &mdash; Lower Mainland</span>
-          <h3>19452 Fraser Crescent</h3>
-          <p>Living area and finishes</p>
-        </div>
-      </div>
-      <div class="portfolio-card reveal d3">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-15.jpg" alt="19452 Fraser Crescent — bathroom renovation" />
-        <div class="pc-overlay"></div>
-        <div class="pc-label">
-          <span class="pc-tag">Major Renovation &mdash; Lower Mainland</span>
-          <h3>19452 Fraser Crescent</h3>
-          <p>Primary bath and tile work</p>
-        </div>
-      </div>
+      <h3>Growing Families</h3>
+      <p>The house you bought for two doesn't work for four. You need more space, better flow, and a home that anticipates the next decade  -  not just the next year. A Koze renovation designs around your family's actual routines, not a builder's standard plan from twenty years ago.</p>
     </div>
-    <div class="portfolio-cta reveal">
-      <a href="portfolio.html" class="btn-navy">View Full Portfolio &rarr;</a>
+    <div class="benefit-card reveal d3">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <h3>Pre-Sale Investors</h3>
+      <p>The right renovation adds more value than it costs. We help owners understand which improvements command real premiums at resale, execute them to a quality standard buyers notice, and deliver a finished result that competes at the top of its market  -  not just a refreshed version of the existing home.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══ FAQ ═══ -->
-<section class="light-bg">
-  <div class="section-inner">
-    <div class="faq-inner">
-      <div class="faq-header">
-        <span class="eyebrow reveal">Common Questions</span>
-        <h2 class="reveal d1">Renovation FAQ</h2>
-      </div>
+<section class="faq-section">
+  <div class="faq-section-inner">
+    <div class="faq-section-header">
+      <span class="eyebrow reveal">Common Questions</span>
+      <h2 class="reveal d1">Renovation <em>FAQ</em></h2>
+    </div>
 
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What counts as a &ldquo;full home remodel&rdquo; — and is that what I need?
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-a"><p>A full home remodel typically means significant scope: a kitchen transformation, multiple bathroom renovations, new flooring throughout, structural changes, or a full-floor reimagination. It's not cosmetic surface updates — it's a coordinated, managed transformation that requires permits, trade sequencing, and design integration. If you're unsure whether your project qualifies, tell us what you're envisioning and we'll give you an honest assessment.</p></div>
-      </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What kinds of renovation projects are a good fit for Koze?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We focus on significant, coordinated renovation scope  -  full kitchen overhauls, multi-bathroom projects, structural changes, whole-floor reimaginations, or complete home remodels. These are projects that require permits, design integration, and trade sequencing. We're not the right fit for cosmetic surface updates or single-room refreshes. If you're unsure, tell us what you're envisioning  -  we'll give you an honest read in the first conversation.</p></div>
+    </div>
 
-      <div class="faq-item reveal d1">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do you handle permits for renovation projects?
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-a"><p>Yes. Permit coordination is included in our full-service approach. We manage the permit application, required engineering or structural reviews, and all inspections throughout the project. You never need to navigate municipal processes on your own — that's part of what you're hiring us to handle.</p></div>
-      </div>
+    <div class="faq-item reveal d1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does your budget-led process work for a renovation?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Before any design begins, we discuss your goals and establish a realistic budget range. We only move forward once we're confident the scope and budget align  -  we'd rather have that conversation early than design something you can't afford to build. Once design is complete and all selections are finalized, we issue a fixed-price contract. You know the total cost before a single wall comes down.</p></div>
+    </div>
 
-      <div class="faq-item reveal d2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can we live in the home during the renovation?
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-a"><p>It depends on the scope and phasing of the project. For major whole-home renovations that involve multiple living areas simultaneously, living on-site is often not practical or safe. For more contained scopes, phased construction can sometimes allow partial occupancy. We'll give you an honest, specific assessment during your consultation — not a generic answer that overpromises comfort.</p></div>
-      </div>
+    <div class="faq-item reveal d2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can we stay in the home during the renovation?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>It depends on the scope and sequencing. For major whole-home renovations affecting multiple living areas simultaneously, living on-site is usually impractical. For more contained scopes, phased construction can sometimes allow partial occupancy. We'll give you a specific and honest assessment during your consultation  -  not a generic answer that overpromises.</p></div>
+    </div>
 
-      <div class="faq-item reveal d3">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How long does a major whole-home renovation take?
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-a"><p>For comprehensive whole-home remodels, expect 6–12 months from project kick-off through final handover, depending on the scope and complexity of structural changes. Permit timelines, which vary by municipality, are also a factor. We provide a detailed project schedule during pre-construction so you know every milestone in advance.</p></div>
-      </div>
+    <div class="faq-item reveal d3">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you handle permits for renovation projects?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Yes  -  permit coordination is included in our full-service scope. We manage the permit application, required drawings, structural or engineering reviews, and all inspections throughout the project. You're not navigating municipalities or chasing inspectors on your own  -  that's part of what you're hiring us for.</p></div>
+    </div>
 
-      <div class="faq-item reveal d4">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What is your minimum project budget for renovations?
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-a"><p>For significant whole-home scope, our target minimum is $500,000. This reflects the management intensity, trade coordination, design services, and material quality that our process requires. Cosmetic or partial-room updates aren't typically within our scope — but if you're investing seriously in your home, we'd love to have that conversation.</p></div>
-      </div>
+    <div class="faq-item reveal d4">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What's your approach to preserving what's already in the home?
+        <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>A core part of how we work is selecting and preserving materials that are worth keeping. In a renovation, that means evaluating what should stay before anything gets torn out. Quality hardwood floors, solid millwork, structural elements in good condition  -  if it's worth preserving, we'll tell you. We build homes designed to age gracefully, not to be replaced. That philosophy applies just as much to what we keep as what we build new.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ═══ BOTTOM CTA ═══ -->
 <div class="bottom-cta">
-  <div class="bg" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-2.jpg');"></div>
-  <div class="content">
-    <span class="eyebrow reveal">Ready to Transform?</span>
-    <h2 class="reveal d1">Start With a Budget Conversation.</h2>
-    <p class="reveal d2">Every great renovation starts with honesty — about what's possible, what it costs, and what it takes to do it right. Let's have that conversation before anything else.</p>
-    <div class="btn-group reveal d3">
-      <a href="contact.html" class="btn-gold">Start Your Project &rarr;</a>
-      <a href="tel:+16043157095" class="btn-outline-white">(604) 315-7095</a>
+  <div class="bg parallax-bg" data-parallax></div>
+  <div class="content reveal">
+    <span class="eyebrow">Ready to Transform?</span>
+    <h2>Start With a Budget <span style="white-space: nowrap"><em>Conversation.</em></span></h2>
+    <p>Every great renovation starts with honesty  -  about what's possible, what it costs, and what it takes to do it right. Let's have that conversation before anything else.</p>
+    <div class="btn-group" style="justify-content: center;">
+      <a href="contact.html" class="btn-gold-service">Start Your Project &rarr;</a>
     </div>
   </div>
 </div>
@@ -752,53 +607,120 @@
       <img src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
       <p>Custom homes, major renovations, and ADUs built on clarity, trust, and craftsmanship. Serving the Lower Mainland since 2023.</p>
       <div class="social-links">
-        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.facebook.com/kozedesignandbuild/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/kozedesignandbuild" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
       </div>
     </div>
-    <div class="footer-col"><h5>Services</h5><ul>
-      <li><a href="custom-homes.html">Custom Homes</a></li>
-      <li><a href="renovations.html">Major Renovations</a></li>
-      <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
-      <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
-      <li><a href="design-build.html">Design-Build</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Company</h5><ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="process.html">Our Process</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Contact</h5>
-      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon – Fri, 8:00am – 5:00pm</span></div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="custom-homes.html">Custom Homes</a></li>
+        <li><a href="renovations.html">Major Renovations</a></li>
+        <li><a href="adus.html">ADUs &amp; Coach Homes</a></li>
+        <li><a href="ssmuh.html">Small-Scale Multi-Unit</a></li>
+        <li><a href="design-build.html">Design-Build</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>(604) 315-7095</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>info@kozedesignbuild.ca</span>
+      </div>
+      <div class="fc-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Mon – Fri, 8:00am – 5:00pm</span>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Koze Design and Build Inc. All rights reserved.</p>
-    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
   </div>
 </footer>
 
 <script>
   const header = document.getElementById('header');
-  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
   function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
-  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+  document.getElementById('nav').querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+  });
+
   function toggleFaq(btn) {
     const item = btn.parentElement;
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
   }
+
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // Counter ticker
+  function animateCounter(el) {
+    const target = +el.dataset.target;
+    const from = el.dataset.start ? +el.dataset.start : 0;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const t0 = performance.now();
+    function step(now) {
+      const progress = Math.min((now - t0) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = prefix + Math.round(from + ease * (target - from)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const statEls = document.querySelectorAll('.stat-num[data-target]');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); statObserver.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => statObserver.observe(el));
+
+  // Parallax
+  const pxEls = document.querySelectorAll('[data-parallax]');
+  function runParallax() {
+    pxEls.forEach(el => {
+      const parent = el.parentElement;
+      const r = parent.getBoundingClientRect();
+      el.style.transform = 'translateY(' + (r.top * 0.18) + 'px)';
+    });
+  }
+  window.addEventListener('scroll', runParallax, { passive: true });
+  runParallax();
 </script>
 </body>
 </html>

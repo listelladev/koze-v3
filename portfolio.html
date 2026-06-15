@@ -4,51 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio | Koze Design &amp; Build</title>
-  <meta name="description" content="Explore the Koze Design &amp; Build portfolio — custom homes and full renovations delivered across the Lower Mainland, BC." />
+  <meta name="description" content="Explore the Koze Design &amp; Build portfolio — custom homes, major renovations, and ADUs delivered across the Lower Mainland, BC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.typekit.net/hci4ywt.css" />
   <link rel="stylesheet" href="public/css/koze.css" />
   <style>
-    .port-hero {
-      position: relative; padding: 180px 48px 100px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; overflow: hidden; min-height: 420px;
-    }
-    .port-hero .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('public/19564-hammond-road/Hammond-web-1.jpg');
-      background-size: cover; background-position: center 35%;
-    }
-    .port-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.62); }
-    .port-hero-inner { position: relative; z-index: 1; }
-    .port-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; }
-    .port-hero-inner h1 { font-size: clamp(32px, 5vw, 68px); color: var(--white); line-height: 1.05; letter-spacing: -0.03em; }
-    .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
+    :root { --off-white: #F9F7F2; }
+    body { font-family: 'Good Sans', 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; }
+    .section-label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .eyebrow { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .port-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 40px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
     }
-    .port-card { display: block; text-decoration: none; }
-    .port-card-img { overflow: hidden; }
-    .port-card-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .port-card:hover .port-card-img img { transform: scale(1.04); }
-    .port-card-label { padding: 18px 0 0; }
-    .port-card-type { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; display: block; }
-    .port-card-label h3 { font-size: 20px; color: var(--navy); line-height: 1.2; }
+    #header.scrolled { background: var(--off-white); box-shadow: 0 1px 0 var(--border); }
+    #header .logo img { height: 36px; display: block; }
+    #header .logo .logo-white { display: block; }
+    #header .logo .logo-blue  { display: none; }
+    #header.scrolled .logo .logo-white { display: none; }
+    #header.scrolled .logo .logo-blue  { display: block; }
+    #header nav { display: flex; align-items: center; gap: 32px; }
+    #header nav a {
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    #header.scrolled nav a { color: var(--navy); }
+    #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
+    #header .nav-cta {
+      background: var(--gold); color: var(--white) !important;
+      padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important;
+    }
+    #header .nav-cta:hover { background: var(--gold-hover) !important; }
+    .hamburger { display: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
+    #header.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media (max-width: 700px) {
-      .port-hero { padding: 140px 24px 72px; }
-      .port-grid { grid-template-columns: 1fr; }
-      .port-grid-section { padding: 24px !important; }
-    }
-  </style>
-  <style>
     /* ─── NAV DROPDOWNS ─── */
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle {
       background: none; border: none; cursor: pointer; padding: 0;
-      font-size: 14px; font-weight: 500; font-family: inherit;
-      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
-      transition: color 0.3s; display: flex; align-items: center; gap: 5px;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.9); transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
     #header.scrolled .nav-drop-toggle { color: var(--navy); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
@@ -57,50 +66,106 @@
     .nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 24px; }
     .nav-drop-menu {
       position: absolute; top: calc(100% + 20px); left: 50%;
-      background: #ffffff; min-width: 210px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      border-top: 2px solid #9C7942;
-      opacity: 0; pointer-events: none;
-      transform: translateX(-50%) translateY(-6px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
-      z-index: 200;
+      background: var(--off-white); min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-top: 2px solid var(--gold);
+      opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease; z-index: 200;
     }
-    .nav-dropdown:hover .nav-drop-menu {
-      opacity: 1; pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
-    }
+    .nav-dropdown:hover .nav-drop-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
     .nav-drop-menu a {
       display: block; padding: 13px 20px;
-      font-size: 13px; font-weight: 500; color: #002D40 !important;
-      text-decoration: none; letter-spacing: 0.01em;
-      border-bottom: 1px solid #e5e2dc;
-      transition: background 0.2s, color 0.2s !important;
-      white-space: nowrap;
+      font-family: 'Good Sans','DM Sans',sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--navy) !important; text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: background 0.2s, color 0.2s !important; white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    .nav-drop-menu a:hover { background: rgba(156,121,66,0.08); color: var(--gold) !important; }
+
     @media (max-width: 900px) {
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px; gap: 24px; z-index: 999; }
+      #header nav.open a { font-size: 20px; color: var(--white) !important; }
+      #header nav.open .nav-cta { background: var(--gold); }
+      .hamburger { display: block; }
       #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 22px; color: #ffffff !important; font-weight: 500; }
+      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; }
       #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu {
-        position: static; opacity: 1; pointer-events: auto;
-        transform: none; box-shadow: none; border-top: none;
-        background: transparent; min-width: unset; width: 100%;
-        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
-        margin-top: 6px; margin-bottom: 4px;
-      }
-      #header nav.open .nav-drop-menu a {
-        color: rgba(255,255,255,0.75) !important; background: transparent;
-        border-bottom: none; font-size: 17px; padding: 7px 0;
-      }
-      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+      #header nav.open .nav-drop-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border-top: none; background: transparent; min-width: unset; width: 100%; padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45); margin-top: 6px; margin-bottom: 4px; }
+      #header nav.open .nav-drop-menu a { color: rgba(255,255,255,0.75) !important; background: transparent; border-bottom: none; font-size: 15px; padding: 7px 0; }
+      #header nav.open .nav-drop-menu a:hover { color: var(--gold) !important; }
+    }
+
+    /* ─── HERO ─── */
+    .port-hero {
+      position: relative; padding: 180px 60px 100px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; min-height: 480px;
+    }
+    .port-hero .hero-bg {
+      position: absolute; inset: 0; height: 140%; top: -20%;
+      background-image: url('public/19564-hammond-road/Hammond-web-1.jpg');
+      background-size: cover; background-position: center;
+      will-change: transform;
+    }
+    .port-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
+    .port-hero-inner { position: relative; z-index: 1; animation: heroFadeUp 1s ease 0.2s both; }
+    .port-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; display: block; }
+    .port-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .port-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── GRID SECTION ─── */
+    .port-grid-section { padding: 60px 60px 100px; background: var(--off-white); }
+    .port-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 48px; }
+
+    /* ─── CARDS ─── */
+    .port-card { display: block; text-decoration: none; }
+    .port-card-img { overflow: hidden; }
+    .port-card-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.65s ease; }
+    .port-card:hover .port-card-img img { transform: scale(1.04); }
+    .port-card-label { padding: 22px 0 0; }
+    .port-card-label h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--navy); line-height: 1.15; transition: color 0.3s; }
+    .port-card:hover .port-card-label h3 { color: var(--gold); }
+
+    /* ─── GREEN CTA BANNER ─── */
+    .port-cta {
+      background: var(--green);
+      padding: 100px 60px;
+      text-align: center;
+    }
+    .port-cta .content { max-width: 640px; margin: 0 auto; }
+    .port-cta .eyebrow { color: rgba(255,255,255,0.45); display: block; margin-bottom: 20px; }
+    .port-cta h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-bottom: 24px; }
+    .port-cta h2 em { font-style: italic; }
+    .port-cta p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 44px; }
+    .btn-port {
+      display: inline-block;
+      background: var(--gold); color: #ffffff;
+      font-family: 'Good Sans', 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 15px 32px; transition: background 0.3s, transform 0.2s;
+    }
+    .btn-port:hover { background: var(--gold-hover); transform: translateY(-1px); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .port-hero { padding: 130px 24px 72px; }
+      .port-grid-section { padding: 24px 24px 72px; }
+      .port-grid { grid-template-columns: 1fr; gap: 40px; }
+      .port-cta { padding: 72px 24px; }
     }
   </style>
 </head>
 <body>
 
-<header id="header" class="solid">
+<header id="header">
   <a href="index.html" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
@@ -129,42 +194,57 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="port-hero">
-  <div class="hero-bg"></div>
-  <div class="port-hero-inner reveal">
+  <div class="hero-bg parallax-bg" data-parallax></div>
+  <div class="port-hero-inner">
     <span class="section-label">Our Work</span>
-    <h1>Portfolio</h1>
+    <h1>Our <em>Portfolio</em></h1>
     <div class="header-rule"></div>
   </div>
 </section>
 
 <!-- ═══ PROJECT GRID ═══ -->
-<section style="padding: 100px 48px; background: var(--white);">
-  <div class="section-inner">
+<section class="port-grid-section">
   <div class="port-grid">
 
     <a href="19564-hammond-road.html" class="port-card reveal d1">
       <div class="port-card-img">
-        <img src="public/19564-hammond-road/Hammond-web-1.jpg" alt="19564 Hammond Road" />
+        <img src="public/19564-hammond-road/Hammond-web-9.jpg" alt="19564 Hammond Road" loading="lazy" />
       </div>
       <div class="port-card-label">
-        <span class="port-card-type">Custom Home — Pitt Meadows, BC</span>
         <h3>19564 Hammond Road</h3>
       </div>
     </a>
 
     <a href="19452-fraser-crescent.html" class="port-card reveal d2">
       <div class="port-card-img">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-1.jpg" alt="19452 Fraser Crescent" />
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-12.jpg" alt="19452 Fraser Crescent" loading="lazy" />
       </div>
       <div class="port-card-label">
-        <span class="port-card-type">Major Renovation — Lower Mainland, BC</span>
         <h3>19452 Fraser Crescent</h3>
       </div>
     </a>
 
-  </div>
+    <a href="contact.html" class="port-card reveal d3">
+      <div class="port-card-img">
+        <img src="public/craig-pool/craig_05.jpg" alt="Craig Pool" loading="lazy" />
+      </div>
+      <div class="port-card-label">
+        <h3>Craig <em>Pool</em></h3>
+      </div>
+    </a>
+
   </div>
 </section>
+
+<!-- ═══ GREEN CTA BANNER ═══ -->
+<div class="port-cta">
+  <div class="content reveal">
+    <span class="eyebrow">Let's Build Something</span>
+    <h2>Ready to Make Your Home <em>Extraordinary?</em></h2>
+    <p>Every project in our portfolio started with one honest conversation. Let's start yours - with your goals, your budget, and your vision.</p>
+    <a href="contact.html" class="btn-port">Start Your Build &rarr;</a>
+  </div>
+</div>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -195,7 +275,7 @@
       <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>19554 Hammond Rd.<br />Pitt Meadows, BC V3Y 1L5</span></div>
       <div class="fc-item"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.34 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(604) 315-7095</span></div>
       <div class="fc-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kozedesignbuild.ca</span></div>
-      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon – Fri, 8:00am – 5:00pm</span></div>
+      <div class="fc-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon - Fri, 8:00am - 5:00pm</span></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -207,13 +287,26 @@
 <script>
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
-  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
-  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')); });
+  function toggleNav() {
+    document.getElementById('nav').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  document.getElementById('nav').querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { document.getElementById('nav').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }); });
+
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax-bg[data-parallax]').forEach(el => {
+      const rect = el.parentElement.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        el.style.transform = `translateY(${rect.top * 0.18}px)`;
+      }
+    });
+  }, { passive: true });
 </script>
 </body>
 </html>
