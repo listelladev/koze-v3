@@ -39,15 +39,16 @@
     #header .logo img { height: 36px; display: block; }
     #header .logo .logo-white { display: block; }
     #header .logo .logo-blue  { display: none; }
+    #header .logo .logo-green { display: none; }
     #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
+    #header.scrolled .logo .logo-green { display: block; }
     #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a {
       font-family: 'Good Sans', 'DM Sans', sans-serif;
       font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
       text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
     }
-    #header.scrolled nav a { color: var(--navy); }
+    #header.scrolled nav a { color: var(--green); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
@@ -56,14 +57,14 @@
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
     .hamburger { display: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
+    #header.scrolled .hamburger span { background: var(--green); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─── PAGE HERO ─── */
     .page-hero {
-      position: relative; padding: 180px 60px 100px;
+      position: relative; padding: 180px 60px 131px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
@@ -79,7 +80,7 @@
       font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(255,255,255,0.5); margin-bottom: 20px; display: block;
     }
-    .page-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .page-hero-inner h1 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); }
     .page-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
 
     @keyframes heroFadeUp {
@@ -107,7 +108,7 @@
     }
     .blog-card-body h3 {
       font-family: 'Cormorant Garamond', serif; font-weight: 400;
-      font-size: clamp(18px, 1.6vw, 22px); color: var(--navy);
+      font-size: clamp(18px, 1.6vw, 22px); color: var(--green);
       line-height: 1.2; margin-bottom: 10px; letter-spacing: 0.04em; text-transform: uppercase;
     }
     .blog-card-body p {
@@ -157,13 +158,9 @@
     @media (max-width: 900px) {
       #header { padding: 0 24px; }
       #header nav { display: none; }
-      #header nav.open {
-        display: flex; flex-direction: column; position: fixed;
-        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
-        gap: 24px; z-index: 999;
-      }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; letter-spacing: 0.05em; }
-      #header nav.open .nav-cta { background: var(--gold); }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px !important; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      
       .hamburger { display: block; }
       .page-hero { padding: 140px 24px 72px; min-height: 340px; }
       .blog-section { padding: 60px 24px; }
@@ -187,7 +184,7 @@
       color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
-    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    #header.scrolled .nav-drop-toggle { color: var(--green); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
     .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
@@ -211,25 +208,28 @@
       transition: background 0.2s, color 0.2s !important; white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    .nav-drop-menu a:hover { background: rgba(62,91,88,0.08); color: var(--green) !important; }
     @media (max-width: 900px) {
-      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; letter-spacing: 0.05em; }
-      #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu {
-        position: static; opacity: 1; pointer-events: auto;
-        transform: none; box-shadow: none; border-top: none;
-        background: transparent; min-width: unset; width: 100%;
-        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
-        margin-top: 6px; margin-bottom: 4px;
-      }
-      #header nav.open .nav-drop-menu a {
-        color: rgba(255,255,255,0.75) !important; background: transparent;
-        border-bottom: none; font-size: 17px; padding: 7px 0;
-      }
-      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white, #F9F7F2); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      #header nav.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; border-bottom: none !important; padding: 12px 24px !important; font-size: 11px !important; margin-top: 28px; display: inline-flex !important; align-self: flex-start; width: auto !important; }
+      .hamburger { display: block; }
+      .hamburger.open span { background: var(--green) !important; }
+      .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-drop-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; color: var(--text-dark) !important; padding: 16px 0; text-align: left; }
+      .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle, #header.scrolled .nav-drop-toggle:hover { color: var(--text-dark) !important; }
+      .nav-dropdown:hover .nav-drop-toggle svg { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-toggle svg { transform: rotate(180deg); }
+      .nav-dropdown::after { display: none; }
+      .nav-drop-menu { position: static; top: auto; left: auto; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; background: transparent; min-width: unset; width: 100%; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-dropdown:hover .nav-drop-menu { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-menu { max-height: 300px; }
+      .nav-drop-menu a { color: var(--text-mid) !important; white-space: normal; padding: 9px 0 9px 16px; }
     }
   </style>
+  <script src="public/js/nav.js" defer></script>
 </head>
 <body>
 
@@ -238,6 +238,7 @@
   <a href="/" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+    <img class="logo-green" src="public/Asset%203full-logo-green.svg" alt="Koze Design &amp; Build" />
   </a>
   <nav id="nav">
     <a href="about">About Us</a>
@@ -267,7 +268,6 @@
   <div class="page-hero-inner">
     <span class="section-label">Insights &amp; Expertise</span>
     <h1>The Koze Blog</h1>
-    <div class="header-rule"></div>
   </div>
 </div>
 
@@ -281,7 +281,7 @@
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Budget &amp; Planning</span>
-        <h3>What &lsquo;Budget-Led Design&rsquo; Actually Means and Why It Changes Everything</h3>
+        <h3>What &lsquo;Budget<span class="h-dash">-</span>Led Design&rsquo; Actually Means and Why It Changes Everything</h3>
         <p>Most homeowners begin their project with a design concept. We believe that's the wrong starting point entirely. Here's why budget comes first.</p>
         <span class="blog-card-meta">June 2025 &middot; 5 min read</span>
       </div>
@@ -293,8 +293,8 @@
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Fixed-Price Contracts</span>
-        <h3>Why We Require a Fixed-Price Contract Before Construction Begins</h3>
-        <p>A fixed-price contract isn't just good for the client — it creates the discipline needed for a well-run project. Here's what changes when the price is locked.</p>
+        <h3>Why We Require a Fixed<span class="h-dash">-</span>Price Contract Before Construction Begins</h3>
+        <p>A fixed-price contract isn't just good for the client it creates the discipline needed for a well-run project. Here's what changes when the price is locked.</p>
         <span class="blog-card-meta">May 2025 &middot; 4 min read</span>
       </div>
     </a>
@@ -330,7 +330,7 @@
       <div class="blog-card-body">
         <span class="blog-card-tag">Renovations</span>
         <h3>When Is It Worth a Major Renovation vs. Selling?</h3>
-        <p>Running the numbers on renovation vs. relocation — and the factors that matter most to your decision. A clear framework for thinking through the trade-offs.</p>
+        <p>Running the numbers on renovation vs. relocation and the factors that matter most to your decision. A clear framework for thinking through the trade-offs.</p>
         <span class="blog-card-meta">April 2025 &middot; 7 min read</span>
       </div>
     </a>
@@ -341,8 +341,8 @@
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">Design-Build</span>
-        <h3>The Case for Design-Build: Why One Team Outperforms Many</h3>
-        <p>When architecture, design, and construction are managed separately, conflicts emerge. Here's how the design-build model solves them — and why it matters for your project.</p>
+        <h3>The Case for Design<span class="h-dash">-</span>Build: Why One Team Outperforms Many</h3>
+        <p>When architecture, design, and construction are managed separately, conflicts emerge. Here's how the design-build model solves them and why it matters for your project.</p>
         <span class="blog-card-meta">March 2025 &middot; 5 min read</span>
       </div>
     </a>

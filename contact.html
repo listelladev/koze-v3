@@ -39,15 +39,16 @@
     #header .logo img { height: 36px; display: block; }
     #header .logo .logo-white { display: block; }
     #header .logo .logo-blue  { display: none; }
+    #header .logo .logo-green { display: none; }
     #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
+    #header.scrolled .logo .logo-green { display: block; }
     #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a {
       font-family: 'Good Sans', 'DM Sans', sans-serif;
       font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
       text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
     }
-    #header.scrolled nav a { color: var(--navy); }
+    #header.scrolled nav a { color: var(--green); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
@@ -56,7 +57,7 @@
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
     .hamburger { display: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
+    #header.scrolled .hamburger span { background: var(--green); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -99,7 +100,7 @@
 
     /* ─── PAGE HEADER ─── */
     .page-header {
-      position: relative; padding: 180px 60px 100px;
+      position: relative; padding: 180px 60px 131px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
@@ -109,10 +110,10 @@
       background-size: cover; background-position: center 40%;
       will-change: transform;
     }
-    .page-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,18,30,0.65); }
+    .page-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
     .page-header-inner { position: relative; z-index: 1; animation: heroFadeUp 1s ease 0.2s both; }
     .page-header-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; }
-    .page-header-inner h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.2vw, 49px); font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; color: var(--white); margin-bottom: 0; }
+    .page-header-inner h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.2vw, 40px); font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; color: var(--white); margin-bottom: 0; }
     .page-header-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto; }
     .page-header-inner p { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.68); line-height: 1.75; max-width: 520px; margin: 0 auto; }
 
@@ -129,7 +130,7 @@
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+    .form-group label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -154,7 +155,7 @@
     .form-consent input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 4px; top: 1px; width: 8px; height: 12px; border: 2px solid var(--white); border-top: none; border-left: none; transform: rotate(45deg); }
     .form-consent label { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-mid); line-height: 1.65; cursor: pointer; }
     .form-legal { text-align: center; font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-mid); margin-top: 4px; }
-    .form-legal a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+    .form-legal a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
     .form-legal a:hover { color: var(--gold); }
     .form-submit { margin-top: 8px; }
     .form-submit .btn-gold { width: 100%; justify-content: center; font-size: 11px; padding: 16px 34px; }
@@ -171,12 +172,12 @@
     .faq-inner { max-width: 800px; margin: 0 auto; }
     .faq-header { text-align: center; margin-bottom: 56px; }
     .faq-header .eyebrow { color: var(--green); }
-    .faq-header h2 { font-size: clamp(28px, 4vw, 52px); color: var(--navy); }
+    .faq-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q {
       width: 100%; text-align: left; background: none; border: none; cursor: pointer;
       padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5;
+      font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: var(--text-dark); line-height: 1.5;
     }
     .faq-q:hover { color: var(--green); }
     .faq-icon { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
@@ -187,22 +188,20 @@
     .faq-a p { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 15px; font-weight: 300; color: var(--text-mid); line-height: 1.85; padding-bottom: 24px; }
 
     /* ─── SERVICE AREAS ─── */
-    .areas-navy { background: var(--green); padding: 100px 60px; }
-    .areas-navy-inner { max-width: 1200px; margin: 0 auto; }
-    .areas-navy-header { text-align: center; margin-bottom: 48px; }
-    .areas-navy-header .section-label { color: rgba(255,255,255,0.45); }
-    .areas-navy-header h2 { font-size: clamp(28px, 3.5vw, 52px); color: var(--white); }
-    .contact-areas {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 40px;
-    }
-    .contact-area-item {
-      padding: 20px 16px; background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08); text-align: center;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .contact-area-item:hover { background: rgba(255,255,255,0.10); border-color: rgba(156,121,66,0.35); }
-    .contact-area-name { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--white); display: block; margin-bottom: 4px; }
-    .contact-area-badge { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    #areas { position: relative; background: var(--green); padding: 100px 60px; overflow: hidden; }
+    .areas-bgs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .area-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.7s ease; }
+    .area-bg-layer.active { opacity: 0.14; }
+    #areas .areas-inner { position: relative; z-index: 1; }
+    .areas-top { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+    .areas-text .eyebrow { color: rgba(255,255,255,0.45); }
+    .areas-text h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); margin: 0 0 20px; }
+    .areas-text p { font-size: 16px; color: rgba(255,255,255,0.62); line-height: 1.75; margin-bottom: 32px; }
+    .areas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 32px; }
+    .area-item { padding: 10px 0; background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; gap: 10px; cursor: default; transition: opacity 0.3s; }
+    .area-item:hover { opacity: 0.75; }
+    .area-item .area-pin { flex-shrink: 0; color: var(--gold); }
+    .area-item .area-name { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 15px; font-weight: 400; color: var(--white); transition: color 0.35s; }
 
     /* ─── MAP ─── */
     #map { height: 480px; }
@@ -252,27 +251,23 @@
     @media (max-width: 900px) {
       #header { padding: 0 24px; }
       #header nav { display: none; }
-      #header nav.open {
-        display: flex; flex-direction: column; position: fixed;
-        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
-        gap: 24px; z-index: 999;
-      }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; letter-spacing: 0.05em; }
-      #header nav.open .nav-cta { background: var(--gold); }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px !important; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      
       .hamburger { display: block; }
       section { padding: 72px 24px; }
       .page-header { padding: 140px 24px 72px; min-height: 340px; }
       .contact-main-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .contact-form-image { display: none; }
-      .contact-areas { grid-template-columns: repeat(2, 1fr); }
-      .areas-navy { padding: 72px 24px; }
+      .areas-top { grid-template-columns: 1fr; gap: 40px; }
+      .areas-grid { grid-template-columns: 1fr; }
+      #areas { padding: 72px 24px; }
       footer { padding: 56px 24px 28px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .footer-grid .footer-brand { grid-column: span 2; }
     }
     @media (max-width: 600px) {
-      .contact-areas { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-grid .footer-brand { grid-column: span 1; }
     }
@@ -287,7 +282,7 @@
       color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
-    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    #header.scrolled .nav-drop-toggle { color: var(--green); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
     .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
@@ -315,26 +310,28 @@
       white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    .nav-drop-menu a:hover { background: rgba(62,91,88,0.08); color: var(--green) !important; }
     @media (max-width: 900px) {
-      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; letter-spacing: 0.05em; }
-      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; letter-spacing: 0.05em; }
-      #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu {
-        position: static; opacity: 1; pointer-events: auto;
-        transform: none; box-shadow: none; border-top: none;
-        background: transparent; min-width: unset; width: 100%;
-        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
-        margin-top: 6px; margin-bottom: 4px;
-      }
-      #header nav.open .nav-drop-menu a {
-        color: rgba(255,255,255,0.75) !important; background: transparent;
-        border-bottom: none; font-size: 17px; padding: 7px 0;
-      }
-      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white, #F9F7F2); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      #header nav.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; border-bottom: none !important; padding: 12px 24px !important; font-size: 11px !important; margin-top: 28px; display: inline-flex !important; align-self: flex-start; width: auto !important; }
+      .hamburger { display: block; }
+      .hamburger.open span { background: var(--green) !important; }
+      .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-drop-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; color: var(--text-dark) !important; padding: 16px 0; text-align: left; }
+      .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle, #header.scrolled .nav-drop-toggle:hover { color: var(--text-dark) !important; }
+      .nav-dropdown:hover .nav-drop-toggle svg { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-toggle svg { transform: rotate(180deg); }
+      .nav-dropdown::after { display: none; }
+      .nav-drop-menu { position: static; top: auto; left: auto; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; background: transparent; min-width: unset; width: 100%; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-dropdown:hover .nav-drop-menu { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-menu { max-height: 300px; }
+      .nav-drop-menu a { color: var(--text-mid) !important; white-space: normal; padding: 9px 0 9px 16px; }
     }
   </style>
+  <script src="public/js/nav.js" defer></script>
 </head>
 <body>
 
@@ -343,6 +340,7 @@
   <a href="/" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+    <img class="logo-green" src="public/Asset%203full-logo-green.svg" alt="Koze Design &amp; Build" />
   </a>
   <nav id="nav">
     <a href="about">About Us</a>
@@ -372,7 +370,6 @@
   <div class="page-header-inner">
     <span class="section-label">Let&rsquo;s Build Something Together</span>
     <h1>Start Your Project</h1>
-    <div class="header-rule"></div>
     <p>Tell us about your vision and we&rsquo;ll let you know if we&rsquo;re the right fit.</p>
   </div>
 </div>
@@ -474,7 +471,7 @@
         <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
       </button>
       <div class="faq-a">
-        <p>No — the initial discovery call is complimentary. We want to learn about your project and determine if we're the right fit before either party invests significant time. There's no obligation and no pressure. If we're not the right match, we'll tell you honestly and point you in the right direction if we can.</p>
+        <p>No the initial discovery call is complimentary. We want to learn about your project and determine if we're the right fit before either party invests significant time. There's no obligation and no pressure. If we're not the right match, we'll tell you honestly and point you in the right direction if we can.</p>
       </div>
     </div>
 
@@ -484,7 +481,7 @@
         <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
       </button>
       <div class="faq-a">
-        <p>We aim to respond within one business day. After receiving your inquiry, we'll reach out to schedule a discovery call at a time that works for you. We take every inquiry seriously — if you're a good fit for what we do, we want to move quickly to get the conversation started.</p>
+        <p>We aim to respond within one business day. After receiving your inquiry, we'll reach out to schedule a discovery call at a time that works for you. We take every inquiry seriously if you're a good fit for what we do, we want to move quickly to get the conversation started.</p>
       </div>
     </div>
 
@@ -494,7 +491,7 @@
         <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
       </button>
       <div class="faq-a">
-        <p>It helps to have a general sense of your goals, your budget range, your property address or target area, and your ideal timeline. Nothing needs to be finalized — the conversation is exploratory. We'll ask questions and listen carefully. The more honest you can be about your budget, the more useful we can be in return.</p>
+        <p>It helps to have a general sense of your goals, your budget range, your property address or target area, and your ideal timeline. Nothing needs to be finalized the conversation is exploratory. We'll ask questions and listen carefully. The more honest you can be about your budget, the more useful we can be in return.</p>
       </div>
     </div>
 
@@ -504,7 +501,7 @@
         <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
       </button>
       <div class="faq-a">
-        <p>Our primary service area is the Lower Mainland of BC — from the Fraser Valley to the North Shore and Greater Vancouver. If your project is outside our listed areas, reach out anyway — we evaluate requests on a case-by-case basis. Distance isn't always a dealbreaker for the right project.</p>
+        <p>Our primary service area is the Lower Mainland of BC from the Fraser Valley to the North Shore and Greater Vancouver. If your project is outside our listed areas, reach out anyway we evaluate requests on a case-by-case basis. Distance isn't always a dealbreaker for the right project.</p>
       </div>
     </div>
 
@@ -514,70 +511,55 @@
         <span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round"/></svg></span>
       </button>
       <div class="faq-a">
-        <p>Our target minimum project budget is $500,000. We work with clients who understand that quality craftsmanship and a well-managed process represent a real investment — one that pays off over the life of a well-built home. Our average project is approximately $800,000–$1M. If you're unsure whether your budget qualifies, reach out and we'll have an honest conversation about what's achievable.</p>
+        <p>Our target minimum project budget is $500,000. We work with clients who understand that quality craftsmanship and a well-managed process represent a real investment one that pays off over the life of a well-built home. Our average project is approximately $800,000–$1M. If you're unsure whether your budget qualifies, reach out and we'll have an honest conversation about what's achievable.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ═══ SERVICE AREAS ═══ -->
-<div class="areas-navy">
-  <div class="areas-navy-inner">
-    <div class="areas-navy-header reveal">
-      <span class="section-label">Where We Build</span>
-      <h2>Serving the Lower Mainland</h2>
-    </div>
-    <div class="contact-areas">
-      <div class="contact-area-item reveal d1">
-        <span class="contact-area-name">Pitt Meadows</span>
-        <span class="contact-area-badge">Home Base</span>
+<!-- ═══ AREAS ═══ -->
+<section id="areas">
+  <div class="areas-bgs">
+    <div class="area-bg-layer" data-area="0" style="background-image: url('public/19564-hammond-road/Hammond-web-2.jpg')"></div>
+    <div class="area-bg-layer" data-area="1" style="background-image: url('public/19564-hammond-road/Hammond-web-1.jpg')"></div>
+    <div class="area-bg-layer" data-area="2" style="background-image: url('public/19564-hammond-road/Hammond-web-4.jpg')"></div>
+    <div class="area-bg-layer" data-area="3" style="background-image: url('public/19564-hammond-road/Hammond-web-6.jpg')"></div>
+    <div class="area-bg-layer" data-area="4" style="background-image: url('public/19564-hammond-road/Hammond-web-9.jpg')"></div>
+    <div class="area-bg-layer" data-area="5" style="background-image: url('public/19564-hammond-road/Hammond-web-11.jpg')"></div>
+    <div class="area-bg-layer" data-area="6" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-1.jpg')"></div>
+    <div class="area-bg-layer" data-area="7" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-4.jpg')"></div>
+    <div class="area-bg-layer" data-area="8" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-7.jpg')"></div>
+    <div class="area-bg-layer" data-area="9" style="background-image: url('public/19452-fraser-unit-15/koze-fraser-web-6.jpg')"></div>
+  </div>
+  <div class="areas-inner">
+    <div class="areas-top">
+      <div class="areas-text reveal-left">
+        <span class="eyebrow">Where We Build</span>
+        <h2 class="reveal d1">Serving the <em>Lower&nbsp;Mainland</em></h2>
+        <p>Based in Pitt Meadows, we work across Metro Vancouver and the Fraser Valley, from the North Shore to Langley and South Surrey.</p>
       </div>
-      <div class="contact-area-item reveal d2">
-        <span class="contact-area-name">Maple Ridge</span>
-        <span class="contact-area-badge">Primary</span>
-      </div>
-      <div class="contact-area-item reveal d3">
-        <span class="contact-area-name">Coquitlam</span>
-        <span class="contact-area-badge">Primary</span>
-      </div>
-      <div class="contact-area-item reveal d4">
-        <span class="contact-area-name">Burnaby</span>
-        <span class="contact-area-badge">Primary</span>
-      </div>
-      <div class="contact-area-item reveal d5">
-        <span class="contact-area-name">Langley</span>
-        <span class="contact-area-badge">Serving</span>
-      </div>
-      <div class="contact-area-item reveal d1">
-        <span class="contact-area-name">South Surrey</span>
-        <span class="contact-area-badge">Serving</span>
-      </div>
-      <div class="contact-area-item reveal d2">
-        <span class="contact-area-name">Vancouver</span>
-        <span class="contact-area-badge">Serving</span>
-      </div>
-      <div class="contact-area-item reveal d3">
-        <span class="contact-area-name">North Vancouver</span>
-        <span class="contact-area-badge">Serving</span>
-      </div>
-      <div class="contact-area-item reveal d4">
-        <span class="contact-area-name">West Vancouver</span>
-        <span class="contact-area-badge">Serving</span>
-      </div>
-      <div class="contact-area-item reveal d5">
-        <span class="contact-area-name">Richmond</span>
-        <span class="contact-area-badge">Serving</span>
+      <div class="areas-grid">
+        <div class="area-item reveal d1" data-area="0"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Pitt Meadows</span></div>
+        <div class="area-item reveal d2" data-area="1"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Maple Ridge</span></div>
+        <div class="area-item reveal d3" data-area="2"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Coquitlam</span></div>
+        <div class="area-item reveal d4" data-area="3"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Burnaby</span></div>
+        <div class="area-item reveal d1" data-area="4"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Langley</span></div>
+        <div class="area-item reveal d2" data-area="5"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">South Surrey</span></div>
+        <div class="area-item reveal d3" data-area="6"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Vancouver</span></div>
+        <div class="area-item reveal d4" data-area="7"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">North Vancouver</span></div>
+        <div class="area-item reveal d1" data-area="8"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">West Vancouver</span></div>
+        <div class="area-item reveal d2" data-area="9"><span class="area-pin"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C2.686 0 0 2.686 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="area-name">Richmond</span></div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══ MAP ═══ -->
 <div id="map">
   <iframe
     src="https://maps.google.com/maps?q=19554+Hammond+Rd+Pitt+Meadows+BC+V3Y+1L5&output=embed"
-    title="Koze Design &amp; Build — Office Location"
+    title="Koze Design &amp; Build Office Location"
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
     allowfullscreen>

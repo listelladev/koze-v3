@@ -27,7 +27,7 @@
     .service-hero-inner { animation: heroFadeUp 1s ease 0.2s both; }
 
     .service-hero {
-      position: relative; padding: 180px 60px 100px;
+      position: relative; padding: 180px 60px 131px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
@@ -39,11 +39,11 @@
     }
     .service-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
     .service-hero-inner { position: relative; z-index: 1; }
-    .service-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .service-hero-inner h1 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); }
     .service-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
 
     .intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: stretch; }
-    .intro-text h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin: 0 0 20px; }
+    .intro-text h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin: 0 0 20px; }
     .intro-divider { width: 40px; height: 2px; background: var(--gold); margin: 24px 0; }
     .intro-text p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px; }
     .intro-inner .reveal-right { position: relative; }
@@ -64,34 +64,27 @@
     .stats-banner { background: var(--navy); padding: 72px 60px; }
     .stats-inner-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
     .stat-item { padding: 20px 40px 0; text-align: center; position: relative; }
-    .stat-item::after { content: ''; display: block; width: 44px; height: 1px; background: rgba(255,255,255,0.15); margin: 20px auto 0; }
     .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 400; color: var(--off-white); letter-spacing: 0.02em; line-height: 1; margin-bottom: 12px; }
     .stat-label { font-size: 13px; color: rgba(255,255,255,0.48); letter-spacing: 0.04em; line-height: 1.45; }
 
     .what-section { background: var(--off-white); }
     .what-header { text-align: center; margin-bottom: 60px; }
-    .what-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
+    .what-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin-top: 10px; }
     .what-header p { font-size: 16px; color: var(--text-mid); max-width: 560px; margin: 16px auto 0; line-height: 1.75; }
-    .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .what-card { background: var(--white); padding: 44px 36px; position: relative; transition: transform 0.3s ease; }
-    .what-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px; background: #9C7942; opacity: 0; transition: opacity 0.5s ease;
-    }
-    .what-card:hover { transform: translateY(-3px); }
-    .what-card:hover::after { opacity: 1; }
-    .what-card-num { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
-    .what-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--navy); margin-bottom: 14px; }
+    .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .what-card { background: var(--white); padding: 44px 36px; border-top: 3px solid var(--gold); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .what-card-num { display: none; }
+    .what-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--green); margin-bottom: 14px; }
     .what-card p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
 
     .diff-section { background: var(--navy); }
     .diff-header { text-align: center; margin-bottom: 56px; }
     .diff-header .eyebrow { color: var(--gold); }
-    .diff-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-top: 10px; }
+    .diff-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); margin-top: 10px; }
     .diff-header p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 540px; margin: 16px auto 0; line-height: 1.75; }
     .diff-table-wrap { overflow-x: auto; }
     .diff-table { width: 100%; border-collapse: collapse; font-family: 'Good Sans', 'DM Sans', sans-serif; }
-    .diff-table thead th { padding: 18px 28px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 2px solid rgba(255,255,255,0.12); }
+    .diff-table thead th { padding: 18px 28px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .diff-table thead th:first-child { color: rgba(255,255,255,0.4); width: 26%; }
     .diff-table thead th:nth-child(2) { color: rgba(255,255,255,0.4); }
     .diff-table thead th:nth-child(3) { color: var(--gold); position: relative; }
@@ -111,23 +104,19 @@
     .benefits-section { background: var(--off-white); }
     .benefits-header { text-align: center; margin-bottom: 60px; }
     .benefits-header .section-label { color: var(--green); }
-    .benefits-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
+    .benefits-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin-top: 10px; }
     .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .benefit-card { background: var(--white); padding: 48px 36px; border-top: 3px solid var(--border); position: relative; display: flex; flex-direction: column; }
-    .benefit-card::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 3px; background: #9C7942; opacity: 0; transition: opacity 0.5s ease; }
-    .benefit-card:hover::before { opacity: 1; }
-    .benefit-icon { width: 48px; height: 48px; background: var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; flex-shrink: 0; }
-    .benefit-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 1.5; }
-    .benefit-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--navy); margin-bottom: 14px; }
+    .benefit-card { background: var(--white); padding: 48px 36px; border-top: 3px solid var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .benefit-card h3 { font-size: clamp(18px, 1.8vw, 22px); color: var(--green); margin-bottom: 14px; }
     .benefit-card p { font-size: 15px; color: var(--text-mid); line-height: 1.8; }
 
     .faq-section { background: var(--white); }
     .faq-section-inner { max-width: 760px; margin: 0 auto; }
     .faq-section-header { text-align: center; margin-bottom: 56px; }
     .faq-section-header .eyebrow { color: var(--green); }
-    .faq-section-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 10px; }
+    .faq-section-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin-top: 10px; }
     .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 16px; font-weight: 400; color: var(--navy); line-height: 1.4; }
+    .faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 16px; font-weight: 400; color: var(--text-dark); line-height: 1.4; }
     .faq-q:hover { color: var(--green); }
     .faq-icon { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; background: none !important; transition: transform 0.3s; }
     .faq-icon svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; }
@@ -137,12 +126,12 @@
     .faq-item.open .faq-a { max-height: 320px; }
     .faq-a p { font-size: 15px; color: var(--text-mid); line-height: 1.85; padding-bottom: 24px; }
 
-    .bottom-cta { position: relative; padding: 120px 60px; text-align: center; overflow: hidden; }
-    .bottom-cta .bg { position: absolute; height: 140%; top: -20%; left: 0; right: 0; background-image: url('public/19564-hammond-road/Hammond-web-29.jpg'); background-size: cover; background-position: center; will-change: transform; transition: none; }
-    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+    .bottom-cta { background: var(--green); position: relative; padding: 120px 60px; text-align: center; overflow: hidden; }
+    .bottom-cta .bg { display: none; position: absolute; height: 140%; top: -20%; left: 0; right: 0; background-size: cover; background-position: center; will-change: transform; transition: none; }
+    .bottom-cta::after { content: ''; position: absolute; inset: 0; background: none; }
     .bottom-cta .content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
     .bottom-cta .eyebrow { color: var(--gold); }
-    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-bottom: 20px; }
+    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); margin-bottom: 20px; }
     .bottom-cta p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 40px; }
 
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -169,7 +158,7 @@
       .what-grid { grid-template-columns: 1fr; }
       .diff-table thead th, .diff-table tbody td { padding: 16px 18px; }
       .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
-      .bottom-cta { padding: 80px 24px; }
+      .bottom-cta { background: var(--green); padding: 80px 24px; }
       .bottom-cta .bg { top: 0; height: 100%; }
       footer { padding: 56px 24px 28px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -182,6 +171,13 @@
       .diff-table thead th:first-child, .diff-table tbody td:first-child { display: none; }
       .diff-table { font-size: 13px; }
     }
+  
+    /* Koze column: green background, no checkmarks, consistent 1px dividers */
+    .diff-table thead th:nth-child(3) { background: var(--green) !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; }
+    .diff-table thead th:nth-child(3)::before { background: transparent !important; }
+    .diff-table tbody td:nth-child(3) { background: var(--green) !important; border-left: none !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; }
+    .diff-table tbody tr:last-child td:nth-child(3) { border-bottom: none !important; }
+    .diff-table tbody td:nth-child(3)::before { display: none !important; }
   </style>
 
   <style>
@@ -190,23 +186,24 @@
     #header .logo img { height: 36px; display: block; }
     #header .logo .logo-white { display: block; }
     #header .logo .logo-blue  { display: none; }
+    #header .logo .logo-green { display: none; }
     #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
+    #header.scrolled .logo .logo-green { display: block; }
     #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a { font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
-    #header.scrolled nav a { color: var(--navy); }
+    #header.scrolled nav a { color: var(--green); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta { background: var(--gold); color: var(--white) !important; padding: 9px 18px; font-size: 11px; letter-spacing: 0.1em; transition: background 0.3s !important; }
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
     .hamburger { display: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
+    #header.scrolled .hamburger span { background: var(--green); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-drop-toggle { background: none; border: none; cursor: pointer; padding: 0; font-family: 'Good Sans','DM Sans',sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
-    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    #header.scrolled .nav-drop-toggle { color: var(--green); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
     .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
@@ -215,22 +212,28 @@
     .nav-dropdown:hover .nav-drop-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
     .nav-drop-menu a { display: block; padding: 13px 20px; font-family: 'Good Sans','DM Sans',sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy) !important; text-decoration: none; border-bottom: 1px solid var(--border); transition: background 0.2s, color 0.2s !important; white-space: nowrap; }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: rgba(156,121,66,0.08); color: var(--gold) !important; }
+    .nav-drop-menu a:hover { background: rgba(62,91,88,0.08); color: var(--green) !important; }
     @media (max-width: 900px) {
       #header { padding: 0 24px; }
       #header nav { display: none; }
-      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px; gap: 24px; z-index: 999; }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; }
-      #header nav.open .nav-cta { background: var(--gold); }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white, #F9F7F2); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      #header nav.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; border-bottom: none !important; padding: 12px 24px !important; font-size: 11px !important; margin-top: 28px; display: inline-flex !important; align-self: flex-start; width: auto !important; }
       .hamburger { display: block; }
-      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; }
-      #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border-top: none; background: transparent; min-width: unset; width: 100%; padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45); margin-top: 6px; margin-bottom: 4px; }
-      #header nav.open .nav-drop-menu a { color: rgba(255,255,255,0.75) !important; background: transparent; border-bottom: none; font-size: 15px; padding: 7px 0; }
-      #header nav.open .nav-drop-menu a:hover { color: var(--gold) !important; }
+      .hamburger.open span { background: var(--green) !important; }
+      .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-drop-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; color: var(--text-dark) !important; padding: 16px 0; text-align: left; }
+      .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle, #header.scrolled .nav-drop-toggle:hover { color: var(--text-dark) !important; }
+      .nav-dropdown:hover .nav-drop-toggle svg { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-toggle svg { transform: rotate(180deg); }
+      .nav-dropdown::after { display: none; }
+      .nav-drop-menu { position: static; top: auto; left: auto; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; background: transparent; min-width: unset; width: 100%; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-dropdown:hover .nav-drop-menu { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-menu { max-height: 300px; }
+      .nav-drop-menu a { color: var(--text-mid) !important; white-space: normal; padding: 9px 0 9px 16px; }
     }
   </style>
+  <script src="public/js/nav.js" defer></script>
 </head>
 <body>
 
@@ -239,6 +242,7 @@
   <a href="/" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+    <img class="logo-green" src="public/Asset%203full-logo-green.svg" alt="Koze Design &amp; Build" />
   </a>
   <nav id="nav">
     <a href="about">About Us</a>
@@ -266,8 +270,7 @@
 <section class="service-hero">
   <div class="hero-bg parallax-bg" data-parallax></div>
   <div class="service-hero-inner">
-    <h1>Small-Scale <em>Multi-Unit</em></h1>
-    <div class="header-rule"></div>
+    <h1>Small<span class="h-dash">-</span>Scale <em>Multi</em><span class="h-dash">-</span><em>Unit</em></h1>
   </div>
 </section>
 
@@ -276,10 +279,9 @@
   <div class="intro-inner">
     <div class="intro-text reveal-left">
       <h2>New Zoning Laws. New <em>Opportunities.</em></h2>
-      <div class="intro-divider"></div>
       <p>BC's Small-Scale Multi-Unit Housing legislation (Bill 44) now permits up to 4 units on most single-family lots  -  and up to 6 units near transit. This represents a fundamental shift in what's buildable on a standard residential lot across the Lower Mainland.</p>
       <p>Whether you're building a duplex for multi-generational living, a triplex to generate income, or a small multiplex as an investment project  -  Koze handles the design, permitting, and construction from start to finish. One team. One fixed price. No surprises.</p>
-      <a href="contact" class="btn-gold-service">Talk to Our Team &rarr;</a>
+      <a href="contact" class="btn-gold-service">Talk to Our Team</a>
     </div>
     <div class="reveal-right">
       <div class="intro-img">
@@ -321,33 +323,27 @@
   </div>
   <div class="what-grid">
     <div class="what-card reveal d1">
-      <span class="what-card-num">01</span>
       <h3>Duplexes</h3>
       <p>Side-by-side or stacked configurations, designed for owner-occupy plus rental or pure investment. Two fully contained, legal units on a single lot  -  designed around your goals, not a builder's template.</p>
     </div>
     <div class="what-card reveal d2">
-      <span class="what-card-num">02</span>
       <h3>Triplexes</h3>
       <p>Three-unit developments sized and configured to maximize your lot's potential under current bylaws. Each unit purpose-designed for rentability, long-term maintenance, and durable tenant appeal.</p>
     </div>
     <div class="what-card reveal d3">
-      <span class="what-card-num">03</span>
       <h3>Fourplexes</h3>
       <p>The maximum density on most standard BC lots under SSMUH. Four fully legal, permitted units  -  designed around return on investment, not compromised to squeeze into an envelope.</p>
     </div>
     <div class="what-card reveal d1">
-      <span class="what-card-num">04</span>
       <h3>Small Multiplexes (Up to 6 Units)</h3>
       <p>Near designated transit corridors, BC zoning allows up to 6 residential units. We assess your property's eligibility, design to the full development envelope, and manage every permit and consultant.</p>
     </div>
     <div class="what-card reveal d2">
-      <span class="what-card-num">05</span>
       <h3>Laneway Homes on SSMUH Lots</h3>
       <p>A compact, fully independent home along your rear lane  -  increasingly permitted under new legislation. Fully legal, separately metered, and independently titled where applicable. A significant value-add on eligible lots.</p>
     </div>
     <div class="what-card reveal d3">
-      <span class="what-card-num">06</span>
-      <h3>Multi-Generational Configurations</h3>
+      <h3>Multi<span class="h-dash">-</span>Generational Configurations</h3>
       <p>Units designed around families, not just investors. Connected layouts with acoustic separation, independent entrances, and intentional privacy  -  built for the way extended families actually want to live together.</p>
     </div>
   </div>
@@ -413,24 +409,15 @@
   </div>
   <div class="benefits-grid">
     <div class="benefit-card reveal d1">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      </div>
-      <h3>Investment-Focused Property Owners</h3>
+      <h3>Investment<span class="h-dash">-</span>Focused Property Owners</h3>
       <p>You own a lot and you're ready to put it to work. Multiple rental units generating income from a single title, all built to code and designed for long-term tenants. The math on a fourplex in the Lower Mainland  -  rental yields, capital appreciation, financing  -  has rarely been more compelling.</p>
     </div>
     <div class="benefit-card reveal d2">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
       <h3>Landowners &amp; Developers</h3>
       <p>You've got the land. SSMUH legislation has expanded what's buildable without rezoning. We assess what's possible on your specific lot, guide you through design and permits, and deliver a fully compliant, occupied multi-unit development  -  on time, on budget, and to code.</p>
     </div>
     <div class="benefit-card reveal d3">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h3>Multi-Generational Families</h3>
+      <h3>Multi<span class="h-dash">-</span>Generational Families</h3>
       <p>Different households, one property. Whether you're housing parents, adult children, or extended family  -  a thoughtfully designed multi-unit configuration gives everyone real privacy and independence without the distance of separate properties. Close enough to matter, separate enough to work.</p>
     </div>
   </div>
@@ -494,7 +481,7 @@
     <h2>Find Out What's Possible on Your <em>Property.</em></h2>
     <p>A brief call with our team is all it takes to understand your development options. We'll review your lot, walk you through what Bill 44 unlocks, and let you know honestly if we're the right fit for the project.</p>
     <div class="btn-group" style="justify-content: center;">
-      <a href="contact" class="btn-gold-service">Get a Lot Assessment &rarr;</a>
+      <a href="contact" class="btn-gold-service">Get a Lot Assessment</a>
     </div>
   </div>
 </div>

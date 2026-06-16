@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Koze Design &amp; Build</title>
-  <meta name="description" content="Learn about Koze Design &amp; Build and founder Jason Craig — a Lower Mainland design-build firm built on budget-led design, fixed-price construction, and a process that puts clients first." />
+  <meta name="description" content="Learn about Koze Design &amp; Build and founder Jason Craig a Lower Mainland design-build firm built on budget-led design, fixed-price construction, and a process that puts clients first." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -33,7 +33,7 @@
     .why-inner {
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
-    .why-text h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin: 16px 0 28px; }
+    .why-text h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin: 0 0 28px; }
     .why-text p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px; }
     .why-img { position: relative; overflow: hidden; }
     .why-img img { width: 100%; object-fit: cover; display: block; aspect-ratio: 1/1; transition: transform 0.6s ease; }
@@ -71,7 +71,7 @@
     .founder-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch; min-height: 580px; }
     .founder-text { padding: 80px 0; display: flex; flex-direction: column; justify-content: center; max-width: 560px; margin: 0 auto; }
     .founder-text .section-label { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
-    .founder-text h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); margin-bottom: 10px; }
+    .founder-text h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); margin-bottom: 10px; }
     .founder-title { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; display: block; }
     .founder-text p { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 18px; }
     .founder-images { position: relative; align-self: stretch; }
@@ -83,12 +83,9 @@
     .founder-img-portrait:hover img { transform: scale(1.04); }
 
     /* ─── VALUES ─── */
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
-    .value-card { padding: 44px 36px; background: var(--white); border-top: 3px solid var(--border); transition: border-color 0.3s, background 0.3s; }
-    .value-card:hover { border-color: var(--gold); }
-    .value-icon { width: 40px; height: 40px; background: var(--navy); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; }
-    .value-icon svg { width: 18px; height: 18px; stroke: var(--white); fill: none; stroke-width: 1.5; }
-    .value-card h3 { font-size: 20px; color: var(--navy); margin-bottom: 12px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .value-card { padding: 44px 36px; background: var(--white); border-top: 3px solid var(--gold); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .value-card h3 { font-size: 20px; color: var(--green); margin-bottom: 12px; }
     .value-card p { font-size: 14px; color: var(--text-mid); line-height: 1.75; }
 
     /* ─── DIFFERENTIATORS ─── */
@@ -101,12 +98,12 @@
     .diff-item:first-child { padding-top: 0; }
     .diff-item:last-child { border-bottom: none; padding-bottom: 0; }
     .diff-item .eyebrow { margin-bottom: 10px; }
-    .diff-item h3 { font-size: 20px; color: var(--navy); margin-bottom: 10px; }
+    .diff-item h3 { font-size: 20px; color: var(--green); margin-bottom: 10px; }
     .diff-item p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
 
     /* ─── PAGE HEADER ─── */
     .about-page-header {
-      position: relative; padding: 180px 60px 100px;
+      position: relative; padding: 180px 60px 131px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
@@ -116,8 +113,8 @@
       background-size: cover; background-position: center 35%;
     }
     .about-page-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
-    .bottom-cta::after { background: rgba(0,0,0,0.65) !important; }
-    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 49px) !important; letter-spacing: 0.04em !important; line-height: 1.08 !important; }
+    .bottom-cta::after { background: none !important; }
+    .bottom-cta h2 { font-size: clamp(28px, 3.2vw, 40px) !important; letter-spacing: 0.04em !important; line-height: 1.08 !important; }
     .bottom-cta p { font-size: 16px !important; }
     .btn-gold { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 11px !important; font-weight: 600; letter-spacing: 0.12em !important; text-transform: uppercase !important; padding: 12px 26px !important; }
 
@@ -127,7 +124,7 @@
     .bottom-cta .bg { inset: auto; top: -20%; left: 0; right: 0; height: 140%; }
     .about-page-header-inner { position: relative; z-index: 1; }
     .about-page-header-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; }
-    .about-page-header-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .about-page-header-inner h1 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); }
     .about-page-header-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
 
     /* ─── SERVICE AREAS ─── */
@@ -138,19 +135,19 @@
     #areas .areas-inner { position: relative; z-index: 1; }
     .areas-top { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
     .areas-text .eyebrow { color: var(--gold); }
-    .areas-text h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin: 16px 0 20px; }
+    .areas-text h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin: 0 0 20px; }
     .areas-text p { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 32px; }
     .areas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 32px; }
     .area-item { padding: 10px 0; background: none; border: none; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; cursor: default; transition: opacity 0.3s; }
     .area-item:hover { opacity: 0.6; }
     .area-item .area-pin { flex-shrink: 0; color: var(--gold); }
-    .area-item .area-name { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 15px; font-weight: 400; color: var(--navy); transition: color 0.35s; }
+    .area-item .area-name { font-family: 'Good Sans','DM Sans',sans-serif; font-size: 15px; font-weight: 400; color: var(--green); transition: color 0.35s; }
 
     /* ─── TESTIMONIALS ─── */
     .testi-about-wrap { background: var(--navy); padding: 100px 60px; overflow: hidden; }
     .testi-header { text-align: center; margin-bottom: 56px; }
     .testi-header .eyebrow { color: var(--gold); }
-    .testi-header h2 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .testi-header h2 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); }
     .testi-track-wrap { overflow: hidden; }
     .testi-track { display: flex; gap: 24px; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
     .testi-card { flex: 0 0 calc(50% - 12px); border: 1px solid rgba(255,255,255,0.14); padding: 44px 40px; }
@@ -204,8 +201,9 @@
     #header .logo img { height: 36px; display: block; }
     #header .logo .logo-white { display: block; }
     #header .logo .logo-blue  { display: none; }
+    #header .logo .logo-green { display: none; }
     #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
+    #header.scrolled .logo .logo-green { display: block; }
     #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a {
       font-family: 'Good Sans', 'DM Sans', sans-serif;
@@ -213,7 +211,7 @@
       text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s;
     }
-    #header.scrolled nav a { color: var(--navy); }
+    #header.scrolled nav a { color: var(--green); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
@@ -222,7 +220,7 @@
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
     .hamburger { display: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
+    #header.scrolled .hamburger span { background: var(--green); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -235,7 +233,7 @@
       font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
       color: rgba(255,255,255,0.9); transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
-    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    #header.scrolled .nav-drop-toggle { color: var(--green); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
     .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
@@ -256,22 +254,28 @@
       border-bottom: 1px solid var(--border); transition: background 0.2s, color 0.2s !important; white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: rgba(156,121,66,0.08); color: var(--gold) !important; }
+    .nav-drop-menu a:hover { background: rgba(62,91,88,0.08); color: var(--green) !important; }
     @media (max-width: 900px) {
       #header { padding: 0 24px; }
       #header nav { display: none; }
-      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px; gap: 24px; z-index: 999; }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; }
-      #header nav.open .nav-cta { background: var(--gold); }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white, #F9F7F2); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      #header nav.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; border-bottom: none !important; padding: 12px 24px !important; font-size: 11px !important; margin-top: 28px; display: inline-flex !important; align-self: flex-start; width: auto !important; }
       .hamburger { display: block; }
-      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; }
-      #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border-top: none; background: transparent; min-width: unset; width: 100%; padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45); margin-top: 6px; margin-bottom: 4px; }
-      #header nav.open .nav-drop-menu a { color: rgba(255,255,255,0.75) !important; background: transparent; border-bottom: none; font-size: 15px; padding: 7px 0; }
-      #header nav.open .nav-drop-menu a:hover { color: var(--gold) !important; }
+      .hamburger.open span { background: var(--green) !important; }
+      .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-drop-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; color: var(--text-dark) !important; padding: 16px 0; text-align: left; }
+      .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle, #header.scrolled .nav-drop-toggle:hover { color: var(--text-dark) !important; }
+      .nav-dropdown:hover .nav-drop-toggle svg { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-toggle svg { transform: rotate(180deg); }
+      .nav-dropdown::after { display: none; }
+      .nav-drop-menu { position: static; top: auto; left: auto; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; background: transparent; min-width: unset; width: 100%; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-dropdown:hover .nav-drop-menu { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-menu { max-height: 300px; }
+      .nav-drop-menu a { color: var(--text-mid) !important; white-space: normal; padding: 9px 0 9px 16px; }
     }
   </style>
+  <script src="public/js/nav.js" defer></script>
 </head>
 <body>
 
@@ -279,6 +283,7 @@
   <a href="/" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+    <img class="logo-green" src="public/Asset%203full-logo-green.svg" alt="Koze Design &amp; Build" />
   </a>
   <nav id="nav">
     <a href="about">About Us</a>
@@ -307,7 +312,6 @@
   <div class="hero-bg parallax-bg" data-parallax></div>
   <div class="about-page-header-inner reveal">
     <h1>About Us</h1>
-    <div class="header-rule"></div>
   </div>
 </section>
 
@@ -317,15 +321,15 @@
     <div class="why-text reveal">
       <span class="section-label">Our Story</span>
       <h2>Why Koze <em>Exists</em></h2>
-      <p>Koze Design &amp; Build was founded on a conviction that the best client experience and the best-built home are not competing priorities — they go hand in hand. Jason Craig built Koze after nearly a decade as a project manager watching homeowners navigate a process that was unnecessarily opaque, stressful, and expensive.</p>
-      <p>The problem wasn't the trades. It wasn't the materials. It was the process — or the lack of one. Budgets were set without real conversations about scope. Designs were created before anyone understood what was financially realistic. Clients were left managing multiple vendors with no single point of accountability.</p>
-      <p>Koze was built to solve this. Budget conversations happen before design begins. Scope is fully defined before a price is issued. One team handles everything — and one person is accountable for all of it.</p>
+      <p>Koze Design &amp; Build was founded on a conviction that the best client experience and the best-built home are not competing priorities they go hand in hand. Jason Craig built Koze after nearly a decade as a project manager watching homeowners navigate a process that was unnecessarily opaque, stressful, and expensive.</p>
+      <p>The problem wasn't the trades. It wasn't the materials. It was the process or the lack of one. Budgets were set without real conversations about scope. Designs were created before anyone understood what was financially realistic. Clients were left managing multiple vendors with no single point of accountability.</p>
+      <p>Koze was built to solve this. Budget conversations happen before design begins. Scope is fully defined before a price is issued. One team handles everything and one person is accountable for all of it.</p>
     </div>
     <div class="why-img reveal">
-      <img src="public/19452-fraser-unit-15/koze-fraser-web-2.jpg" alt="Koze Design &amp; Build — Custom Home Interior" />
+      <img src="public/19452-fraser-unit-15/koze-fraser-web-2.jpg" alt="Koze Design &amp; Build Custom Home Interior" />
       <div class="why-img-quote">
         <p>"The building process was broken. Budget surprises, missed timelines, and poor communication had become the accepted cost of building. They don't have to be."</p>
-        <span class="quote-attr">— Jason Craig, Founder</span>
+        <span class="quote-attr"> Jason Craig, Founder</span>
       </div>
     </div>
   </div>
@@ -336,50 +340,32 @@
   <div class="section-inner">
     <div style="text-align: center;" class="reveal">
       <span class="section-label">What We Believe</span>
-      <h2 class="values-heading" style="font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 8px;">The <em>Values</em> Every Koze Project<br>Is <em>Built</em> Around</h2>
+      <h2 class="values-heading" style="font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin-top: 8px;">The <em>Values</em> Every Koze Project<br>Is <em>Built</em> Around</h2>
     </div>
     <div class="values-grid">
       <div class="value-card reveal d1">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
         <h3>Radical Transparency</h3>
-        <p>You always know where your project stands, what it costs, and what comes next. No surprises, no silence, no chasing your builder for answers. We provide clear updates throughout every phase — because you deserve to know.</p>
+        <p>You always know where your project stands, what it costs, and what comes next. No surprises, no silence, no chasing your builder for answers. We provide clear updates throughout every phase because you deserve to know.</p>
       </div>
       <div class="value-card reveal d2">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
         <h3>Budget First, Always</h3>
-        <p>Design should follow your investment — not the other way around. Every Koze project begins with an honest budget conversation before a single plan is drawn. This protects your money, your time, and the relationship.</p>
+        <p>Design should follow your investment not the other way around. Every Koze project begins with an honest budget conversation before a single plan is drawn. This protects your money, your time, and the relationship.</p>
       </div>
       <div class="value-card reveal d3">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
         <h3>Built to Last</h3>
-        <p>We select materials that can be repaired, maintained, and improved over time — not simply replaced. Hardwood over disposable flooring. Durable finishes over trendy ones. We build homes designed to age gracefully, not be replaced.</p>
+        <p>We select materials that can be repaired, maintained, and improved over time not simply replaced. Hardwood over disposable flooring. Durable finishes over trendy ones. We build homes designed to age gracefully, not be replaced.</p>
       </div>
       <div class="value-card reveal d1">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
         <h3>The Right Relationship</h3>
-        <p>A custom home or major renovation lasts one to two years. We work only with clients where there's genuine alignment — on goals, budget, and communication style. Fit matters as much as capability.</p>
+        <p>A custom home or major renovation lasts one to two years. We work only with clients where there's genuine alignment on goals, budget, and communication style. Fit matters as much as capability.</p>
       </div>
       <div class="value-card reveal d2">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
         <h3>One Point of Accountability</h3>
-        <p>Architecture, interior design, permits, and construction — coordinated through one team and one process. You never manage multiple vendors or navigate competing priorities. One team from concept to completion.</p>
+        <p>Architecture, interior design, permits, and construction coordinated through one team and one process. You never manage multiple vendors or navigate competing priorities. One team from concept to completion.</p>
       </div>
       <div class="value-card reveal d3">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
         <h3>Process Before Product</h3>
-        <p>A great home starts with a great process. Ours is built around the moments where projects typically go wrong — budget alignment, communication, and scope definition — and designed to prevent each one.</p>
+        <p>A great home starts with a great process. Ours is built around the moments where projects typically go wrong budget alignment, communication, and scope definition and designed to prevent each one.</p>
       </div>
     </div>
   </div>
@@ -412,32 +398,32 @@
   <div class="section-inner">
     <div style="text-align: center;" class="reveal">
       <span class="section-label">The Koze Difference</span>
-      <h2 style="font-size: clamp(28px, 3.2vw, 49px); color: var(--navy); margin-top: 8px;">Why Clients <em>Choose</em><br>Koze Over Other Builders</h2>
+      <h2 style="font-size: clamp(28px, 3.2vw, 40px); color: var(--green); margin-top: 8px;">Why Clients <em>Choose</em><br>Koze Over Other Builders</h2>
     </div>
     <div class="diff-split">
       <div class="diff-split-img reveal">
-        <img src="public/19564-hammond-road/Hammond-web-27.jpg" alt="Koze Design &amp; Build — Master Bath Detail" />
+        <img src="public/19564-hammond-road/Hammond-web-27.jpg" alt="Koze Design &amp; Build Master Bath Detail" />
       </div>
       <div class="diff-split-content reveal">
         <div class="diff-item">
           <span class="eyebrow">Budget-Led Design</span>
           <h3>Clarity Before the First Sketch</h3>
-          <p>We discuss your goals and align on a realistic budget before design begins. Your plans are built around what's achievable — not scaled back after weeks of work. We reverse the order because that's when it matters most.</p>
+          <p>We discuss your goals and align on a realistic budget before design begins. Your plans are built around what's achievable not scaled back after weeks of work. We reverse the order because that's when it matters most.</p>
         </div>
         <div class="diff-item">
           <span class="eyebrow">Fixed-Price Contracts</span>
           <h3>You Know the Number Before We Break Ground</h3>
-          <p>Scope, selections, and plans are fully defined before a contract is issued. No change orders driven by vague estimates — just one clear price for a clearly defined result.</p>
+          <p>Scope, selections, and plans are fully defined before a contract is issued. No change orders driven by vague estimates just one clear price for a clearly defined result.</p>
         </div>
         <div class="diff-item">
           <span class="eyebrow">Full-Service Design-Build</span>
           <h3>One Team. One Process. One Price.</h3>
-          <p>Architecture, interior design, permits, and construction — coordinated through one team. You never manage multiple vendors or navigate competing timelines.</p>
+          <p>Architecture, interior design, permits, and construction coordinated through one team. You never manage multiple vendors or navigate competing timelines.</p>
         </div>
         <div class="diff-item">
           <span class="eyebrow">Honest Qualification</span>
           <h3>Clarity First. Construction Second.</h3>
-          <p>If your goals and budget don't align, we'll say so early. We qualify every project thoroughly — because a project that isn't the right fit isn't worth starting for either party.</p>
+          <p>If your goals and budget don't align, we'll say so early. We qualify every project thoroughly because a project that isn't the right fit isn't worth starting for either party.</p>
         </div>
       </div>
     </div>
@@ -450,20 +436,20 @@
     <div class="founder-text reveal">
       <span class="section-label">Meet the Founder</span>
       <h2>Jason Craig</h2>
-      <span class="founder-title">Founder &amp; Lead Builder — Koze Design &amp; Build</span>
+      <span class="founder-title">Founder &amp; Lead Builder Koze Design &amp; Build</span>
 
-      <p>Jason grew up on construction sites. His father developed properties across the Lower Mainland, and Jason was working on active builds before he finished high school — forming foundations, performing labour work, and learning from the ground up how homes actually come together.</p>
+      <p>Jason grew up on construction sites. His father developed properties across the Lower Mainland, and Jason was working on active builds before he finished high school forming foundations, performing labour work, and learning from the ground up how homes actually come together.</p>
 
       <p>After a Bachelor's Degree in Business, he spent nearly a decade as a project manager overseeing a portfolio of projects across the Lower Mainland. That experience gave him a first-hand understanding of what goes wrong when communication breaks down, budgets aren't anchored to reality, and no one person is truly accountable.</p>
 
-      <p>Jason founded Koze in 2023 with a focused mandate: to build a design-build firm where the process is as good as the finished product. He is a husband and father, and he brings the same values he holds at home — honesty, long-term thinking, and accountability — to every client relationship he takes on.</p>
+      <p>Jason founded Koze in 2023 with a focused mandate: to build a design-build firm where the process is as good as the finished product. He is a husband and father, and he brings the same values he holds at home honesty, long-term thinking, and accountability to every client relationship he takes on.</p>
     </div>
     <div class="founder-images">
       <div class="founder-img-large reveal">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-7.jpg" alt="Koze Design &amp; Build — Kitchen Through Arch" />
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-7.jpg" alt="Koze Design &amp; Build Kitchen Through Arch" />
       </div>
       <div class="founder-img-portrait reveal d2">
-        <img src="public/19452-fraser-unit-15/koze-fraser-web-13.jpg" alt="Koze Design &amp; Build — Kitchen Detail" />
+        <img src="public/19452-fraser-unit-15/koze-fraser-web-13.jpg" alt="Koze Design &amp; Build Kitchen Detail" />
       </div>
     </div>
   </div>
@@ -522,7 +508,7 @@
         </div>
         <div class="testi-card">
           <div class="testi-quote">&ldquo;This is our second time working with Jason and his team. We can&rsquo;t say enough about their professionalism and the high quality of the workmanship. Any concerns we had were addressed quickly and dealt with promptly.&rdquo;</div>
-          <div class="testi-cite"><strong>R.K.</strong>, Renovation &amp; Build — Repeat Client</div>
+          <div class="testi-cite"><strong>R.K.</strong>, Renovation &amp; Build Repeat Client</div>
         </div>
         <div class="testi-card">
           <div class="testi-quote">&ldquo;He is friendly, honest, reliable, dependable, and has a great eye for design. We absolutely love our kitchen and wouldn&rsquo;t hesitate to recommend him wholeheartedly.&rdquo;</div>
@@ -547,9 +533,9 @@
   <div class="content reveal">
     <span class="eyebrow">Ready to Get Started?</span>
     <h2>Let's Build Something That <em>Lasts.</em></h2>
-    <p>Tell us about your project. We'll review your goals, discuss what's realistic for your budget, and let you know if we're the right fit — no pressure, no obligation.</p>
+    <p>Tell us about your project. We'll review your goals, discuss what's realistic for your budget, and let you know if we're the right fit no pressure, no obligation.</p>
     <div class="btn-group">
-      <a href="contact" class="btn-gold">Start Your Project &rarr;</a>
+      <a href="contact" class="btn-gold">Start Your Project</a>
     </div>
   </div>
 </div>

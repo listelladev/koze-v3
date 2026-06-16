@@ -39,15 +39,16 @@
     #header .logo img { height: 36px; display: block; }
     #header .logo .logo-white { display: block; }
     #header .logo .logo-blue  { display: none; }
+    #header .logo .logo-green { display: none; }
     #header.scrolled .logo .logo-white { display: none; }
-    #header.scrolled .logo .logo-blue  { display: block; }
+    #header.scrolled .logo .logo-green { display: block; }
     #header nav { display: flex; align-items: center; gap: 32px; }
     #header nav a {
       font-family: 'Good Sans', 'DM Sans', sans-serif;
       font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
       text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
     }
-    #header.scrolled nav a { color: var(--navy); }
+    #header.scrolled nav a { color: var(--green); }
     #header nav a:hover, #header.scrolled nav a:hover { color: var(--gold); }
     #header .nav-cta {
       background: var(--gold); color: var(--white) !important;
@@ -56,14 +57,14 @@
     #header .nav-cta:hover { background: var(--gold-hover) !important; }
     .hamburger { display: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
-    #header.scrolled .hamburger span { background: var(--navy); }
+    #header.scrolled .hamburger span { background: var(--green); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─── LEGAL HERO ─── */
     .legal-hero {
-      position: relative; padding: 180px 60px 100px;
+      position: relative; padding: 180px 60px 131px;
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden; min-height: 420px;
     }
@@ -76,7 +77,7 @@
     .legal-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.58); }
     .legal-hero-inner { position: relative; z-index: 1; animation: heroFadeUp 1s ease 0.2s both; }
     .legal-hero-inner .section-label { color: rgba(255,255,255,0.5); margin-bottom: 20px; display: block; font-family: 'Good Sans', 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-    .legal-hero-inner h1 { font-size: clamp(28px, 3.2vw, 49px); color: var(--white); }
+    .legal-hero-inner h1 { font-size: clamp(28px, 3.2vw, 40px); color: var(--white); }
     .legal-hero-inner .header-rule { width: 56px; height: 3px; background: var(--gold); margin: 28px auto 0; }
 
     @keyframes heroFadeUp {
@@ -87,8 +88,8 @@
     /* ─── LEGAL CONTENT ─── */
     .legal-section { padding: 80px 60px 100px; background: var(--off-white); }
     .legal-content { max-width: 1040px; margin: 0 auto; }
-    .legal-content h2 { font-size: clamp(24px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
-    .legal-content h3 { font-size: clamp(18px, 2vw, 26px); color: var(--navy); margin-bottom: 12px; margin-top: 48px; }
+    .legal-content h2 { font-size: clamp(24px, 3vw, 40px); color: var(--green); margin-bottom: 20px; }
+    .legal-content h3 { font-size: clamp(18px, 2vw, 26px); color: var(--green); margin-bottom: 12px; margin-top: 48px; }
     .legal-content p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 18px; }
     .legal-content ul { margin: 0 0 18px 24px; }
     .legal-content ul li { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 10px; }
@@ -127,13 +128,9 @@
     @media (max-width: 900px) {
       #header { padding: 0 24px; }
       #header nav { display: none; }
-      #header nav.open {
-        display: flex; flex-direction: column; position: fixed;
-        inset: 80px 0 0 0; background: var(--navy); padding: 40px 24px;
-        gap: 24px; z-index: 999;
-      }
-      #header nav.open a { font-size: 20px; color: var(--white) !important; letter-spacing: 0.05em; }
-      #header nav.open .nav-cta { background: var(--gold); }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px !important; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      
       .hamburger { display: block; }
       .legal-hero { padding: 140px 24px 72px; min-height: 340px; }
       .legal-section { padding: 56px 24px 80px; }
@@ -156,7 +153,7 @@
       color: rgba(255,255,255,0.9); letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.3s; display: flex; align-items: center; gap: 5px;
     }
-    #header.scrolled .nav-drop-toggle { color: var(--navy); }
+    #header.scrolled .nav-drop-toggle { color: var(--green); }
     .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle:hover { color: var(--gold); }
     .nav-drop-toggle svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-drop-toggle svg { transform: rotate(180deg); }
@@ -184,25 +181,28 @@
       white-space: nowrap;
     }
     .nav-drop-menu a:last-child { border-bottom: none; }
-    .nav-drop-menu a:hover { background: #f7f6f4; color: #9C7942 !important; }
+    .nav-drop-menu a:hover { background: rgba(62,91,88,0.08); color: var(--green) !important; }
     @media (max-width: 900px) {
-      #header nav.open .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-      #header nav.open .nav-drop-toggle { font-size: 20px; color: #ffffff !important; font-weight: 500; letter-spacing: 0.05em; }
-      #header nav.open .nav-drop-toggle svg { display: none; }
-      #header nav.open .nav-drop-menu {
-        position: static; opacity: 1; pointer-events: auto;
-        transform: none; box-shadow: none; border-top: none;
-        background: transparent; min-width: unset; width: 100%;
-        padding-left: 16px; border-left: 2px solid rgba(156,121,66,0.45);
-        margin-top: 6px; margin-bottom: 4px;
-      }
-      #header nav.open .nav-drop-menu a {
-        color: rgba(255,255,255,0.75) !important; background: transparent;
-        border-bottom: none; font-size: 17px; padding: 7px 0;
-      }
-      #header nav.open .nav-drop-menu a:hover { color: #9C7942 !important; }
+      #header { padding: 0 24px; }
+      #header nav { display: none; }
+      #header nav.open { display: flex; flex-direction: column; position: fixed; inset: 80px 0 0 0; background: var(--off-white, #F9F7F2); padding: 0 28px 40px; gap: 0; z-index: 999; overflow-y: auto; }
+      #header nav.open > a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark) !important; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; width: 100%; }
+      #header nav.open .nav-cta { background: var(--gold) !important; color: var(--white) !important; border-bottom: none !important; padding: 12px 24px !important; font-size: 11px !important; margin-top: 28px; display: inline-flex !important; align-self: flex-start; width: auto !important; }
+      .hamburger { display: block; }
+      .hamburger.open span { background: var(--green) !important; }
+      .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid var(--border); }
+      .nav-drop-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; color: var(--text-dark) !important; padding: 16px 0; text-align: left; }
+      .nav-drop-toggle:hover, #header.scrolled .nav-drop-toggle, #header.scrolled .nav-drop-toggle:hover { color: var(--text-dark) !important; }
+      .nav-dropdown:hover .nav-drop-toggle svg { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-toggle svg { transform: rotate(180deg); }
+      .nav-dropdown::after { display: none; }
+      .nav-drop-menu { position: static; top: auto; left: auto; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; border: none; background: transparent; min-width: unset; width: 100%; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-dropdown:hover .nav-drop-menu { transform: none; }
+      .nav-dropdown.mobile-open .nav-drop-menu { max-height: 300px; }
+      .nav-drop-menu a { color: var(--text-mid) !important; white-space: normal; padding: 9px 0 9px 16px; }
     }
   </style>
+  <script src="public/js/nav.js" defer></script>
 </head>
 <body>
 
@@ -211,6 +211,7 @@
   <a href="/" class="logo">
     <img class="logo-white" src="public/Asset%201full-logo-white.svg" alt="Koze Design &amp; Build" />
     <img class="logo-blue"  src="public/Asset%202full-logo-blue.svg"  alt="Koze Design &amp; Build" />
+    <img class="logo-green" src="public/Asset%203full-logo-green.svg" alt="Koze Design &amp; Build" />
   </a>
   <nav id="nav">
     <a href="about">About Us</a>
@@ -240,7 +241,6 @@
   <div class="legal-hero-inner">
     <span class="section-label">Koze Design &amp; Build</span>
     <h1>Terms of Use</h1>
-    <div class="header-rule"></div>
   </div>
 </div>
 
@@ -269,7 +269,7 @@
     </ul>
 
     <h3>3. Intellectual Property</h3>
-    <p>All content on this Site — including but not limited to text, photographs, graphics, logos, design concepts, project images, and videos — is the property of Koze Design and Build Inc. or its content suppliers and is protected by applicable Canadian copyright, trademark, and other intellectual property laws.</p>
+    <p>All content on this Site including but not limited to text, photographs, graphics, logos, design concepts, project images, and videos is the property of Koze Design and Build Inc. or its content suppliers and is protected by applicable Canadian copyright, trademark, and other intellectual property laws.</p>
     <p>You may view and print content from this Site for your personal, non-commercial use only. Any other use, reproduction, or distribution of content without prior written permission from Koze Design and Build Inc. is strictly prohibited. The Koze name, logo, and related marks are trademarks of Koze Design and Build Inc. and may not be used without written authorization.</p>
 
     <h3>4. No Professional Advice</h3>
@@ -286,7 +286,7 @@
     <h3>7. Links to Other Sites</h3>
     <p>This Site may contain links to third-party websites or services that are not owned or controlled by Koze Design and Build Inc. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites. We do not warrant or endorse any third-party site linked from this Site. We encourage you to review the terms and privacy policies of any third-party site you visit.</p>
 
-    <h3>8. User-Submitted Content</h3>
+    <h3>8. User<span class="h-dash">-</span>Submitted Content</h3>
     <p>If you submit information through our contact forms, project inquiry forms, or other communication channels on the Site, you represent that the information you provide is accurate and that you have the authority to submit it. Koze Design and Build Inc. will handle submitted information in accordance with our Privacy Policy. We reserve the right to decline or not respond to any submission at our discretion.</p>
 
     <h3>9. Governing Law</h3>
